@@ -4,7 +4,6 @@ import glob
 from subprocess import run
 import numpy as np
 import argparse
-from subprocess import run
 from tqdm import tqdm
 
 def process_wp1(path, contrib_to_remove):
@@ -32,8 +31,7 @@ def process_wp1(path, contrib_to_remove):
 
     # Filtre contributeurs
     contributeurs = set([x.split("_")[-2] for x in wp1["file"]])
-    to_remove = ["TEST-AC", "2B", "AC", "TEST", "TEST ALAIN", "TEST-ALAIN",
-                "TESTLEDUC1", "TESTLEDUC3B", "TESTLEDUC3C", "TESTLEDUC5A", "audio"]
+    to_remove = ["audio"]
     to_remove = to_remove + contrib_to_remove
     for x in to_remove:
         contributeurs.remove(x)
@@ -131,13 +129,20 @@ def generate_tsv(args):
     test_path = os.path.join(args.cv, "test.tsv")
     cv_train, cv_test = process_cv(train_path, test_path)
 
+    # Ajout des sources
+    cv_train["origin"] = ['commonvoice'] * len(cv_train)
+    cv_test["origin"] = ['commonvoice'] * len(cv_test)
+    wp1_train_sample["origin"] = ['wp1'] * len(wp1_train_sample)
+    wp1_test_sample["origin"] = ['wp1'] * len(wp1_test_sample)
+
     # Merge
     train_data = pd.concat([cv_train, wp1_train_sample])
     test_data = pd.concat([cv_test, wp1_test_sample])
 
+
     # Rename ancien tsv
-    run(f'mv {train_path} {os.path.join(args.cv, "old_train.tsv")}', bash=True)
-    run(f'mv {test_path} {os.path.join(args.cv, "old_test.tsv")}', bash=True)
+    run(f'mv {train_path} {os.path.join(args.cv, "old_train.tsv")}', shell=True)
+    run(f'mv {test_path} {os.path.join(args.cv, "old_test.tsv")}', shell=True)
 
 
     # Sauvegarde du tracker tsv
@@ -170,8 +175,11 @@ def convert_audios(cv):
     wave 16 kHz 16 bits mono
     """
     print("> Conversion ")
-    cmd = "for i in " + os.path.join(cv, "/*") + "; do ffmpeg -y -i \"$i\" -ar 16000 -ac 1 -acodec pcm_s16le \"${i%.*}.wav\"; done"
-    run(cmd, bash=True)
+    cmd = "for i in " + os.path.join(cv, "clips/*") + "; do ffmpeg -y -i \"$i\" -ar 16000 -ac 1 -acodec pcm_s16le \"${i%.*}.wav\"; done"
+    run(cmd, shell=True)
+
+    print("> Suppression des fichiers source")
+    run("rm -f " + os.path.join(cv, "clips/*.mp3"), shell=True)
 
     # Mise à jour des noms des fichiers dans les trackers tsv
     tsv = glob.glob(os.path.join(cv, "*.tsv"))
@@ -210,13 +218,13 @@ def main(args):
     wp1_test_sample, wp1_train_sample = generate_tsv(args)
 
     # Conversion des audios au bon format
-    convert_audios(args.cv)
+    #convert_audios(args.cv)
 
     # Merge "physique" des fichiers audios dans le dossier de commonvoice
-    generate_dataset(wp1_test_sample, wp1_train_sample, args.wp1, args.cv)
+    #generate_dataset(pd.concat([wp1_test_sample,wp1_train_sample]), args.wp1, args.cv)
 
     # Calculer la durée en fonction du split
-    calculate_duration(args.cv)
+    # calculate_duration(args.cv)
 
 
 if __name__ == "__main__":    
@@ -264,15 +272,12 @@ if __name__ == "__main__":
  'DELAHAYE',
  'PAUZE',
  'CELY',
- 'RAFFANEL STÉPHANE',
  'PERQUIER',
  'ZANI',
- 'BOU',
  'SAHAI',
  'BONNIEZ',
  'SIGWALD',
  'GOULARD',
- 'GOULARD ARNAUD',
  'SIGWALD ',
  'RAFFANEL',
  'BOUCHE',
