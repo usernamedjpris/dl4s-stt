@@ -174,12 +174,19 @@ def convert_audios(cv):
     """ Conversion des fichiers audios du dossier clips au format
     wave 16 kHz 16 bits mono
     """
-    print("> Conversion ")
-    cmd = "for i in " + os.path.join(cv, "clips/*") + "; do ffmpeg -y -i \"$i\" -ar 16000 -ac 1 -acodec pcm_s16le \"${i%.*}.wav\"; done"
-    run(cmd, shell=True)
 
-    print("> Suppression des fichiers source")
-    run("rm -f " + os.path.join(cv, "clips/*.mp3"), shell=True)
+    # potentielle amélioration en loadant le tsv subfolders
+
+    print("> Conversion ")
+    subfolders = glob.glob("clips/*")
+    for subfolder in subfolders:
+        print(">>", subfolder)
+        subfolder_abs = os.path.join(os.path.join(cv, "clips"), subfolder)
+        cmd = "for i in " + os.path.join(subfolder_abs, "*") + "; do ffmpeg -y -i \"$i\" -ar 16000 -ac 1 -acodec pcm_s16le \"${i%.*}.wav\"; done"
+        run(cmd, shell=True)
+
+        print("> Suppression des fichiers source")
+        run("rm -f " + os.path.join(subfolder_abs, "*.mp3"), shell=True)
 
     # Mise à jour des noms des fichiers dans les trackers tsv
     tsv = glob.glob(os.path.join(cv, "*.tsv"))
@@ -193,6 +200,8 @@ def size_to_sec(size) :
     return size / (16 * 16000 / 1000000 / 8)
 
 def calculate_duration(cv):
+
+    # A vérifier pour les path
 
     tsv = glob.glob(os.path.join(cv, "*.tsv"))
     total_total_size = 0.0
@@ -218,10 +227,10 @@ def main(args):
     wp1_test_sample, wp1_train_sample = generate_tsv(args)
 
     # Conversion des audios au bon format
-    convert_audios(args.cv)
+    # convert_audios(args.cv)
 
     # Merge "physique" des fichiers audios dans le dossier de commonvoice
-    generate_dataset(pd.concat([wp1_test_sample,wp1_train_sample]), args.wp1, args.cv)
+    # generate_dataset(pd.concat([wp1_test_sample,wp1_train_sample]), args.wp1, args.cv)
 
     # Calculer la durée en fonction du split
     # calculate_duration(args.cv)
