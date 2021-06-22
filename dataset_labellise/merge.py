@@ -178,7 +178,7 @@ def convert_audios(cv):
     # potentielle amélioration en loadant le tsv subfolders
 
     print("> Conversion ")
-    subfolders = glob.glob(os.path.join(cv, "clips)/*"))
+    subfolders = glob.glob(os.path.join(cv, "clips/*"))
     for subfolder in subfolders:
         print(">>", subfolder)
         subfolder_abs = os.path.join(os.path.join(cv, "clips"), subfolder)
