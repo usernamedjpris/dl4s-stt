@@ -15,6 +15,7 @@
 module purge
  
 # chargement des modules
+conda deactivate
 module load ffmpeg
 module load anaconda-py3/2020.11
  
