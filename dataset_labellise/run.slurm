@@ -1,8 +1,9 @@
 #!/bin/bash
-#SBATCH --job-name=merge              # nom du job
+#SBATCH --job-name=merge            # nom du job
+#SBATCH --partition=cpu_p1
 #SBATCH --nodes=1                   # nombre de noeuds
 #SBATCH --ntasks-per-node=1         # nombre de taches MPI par noeud
-#SBATCH --time=00:01:00             # temps d execution maximum demande (HH:MM:SS)
+#SBATCH --time=00:05:00             # temps d execution maximum demande (HH:MM:SS)
 #SBATCH --output=merge%j.out          # nom du fichier de sortie
 #SBATCH --error=merge%j.out           # nom du fichier d'erreur (ici en commun avec la sortie)
 #SBATCH -A sbg@cpu
@@ -22,4 +23,4 @@ set -x
  
 # execution
 conda activate dl4s-stt
-python merge.py --wp1 ${ALL_CCFRSCRATCH}/WP1/ --cv ${ALL_CCFRSCRATCH}/commonvoice/ 
+srun python merge.py --wp1 ${ALL_CCFRSCRATCH}/WP1/ --cv ${ALL_CCFRSCRATCH}/commonvoice/ 
