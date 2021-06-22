@@ -1,9 +1,9 @@
 #!/bin/bash
 #SBATCH --job-name=merge            # nom du job
 #SBATCH --partition=cpu_p1
-#SBATCH --nodes=4                   # nombre de noeuds
+#SBATCH --nodes=1                   # nombre de noeuds
 #SBATCH --ntasks-per-node=1         # nombre de taches MPI par noeud
-#SBATCH --time=01:00:00             # temps d execution maximum demande (HH:MM:SS)
+#SBATCH --time=10:00:00             # temps d execution maximum demande (HH:MM:SS)
 #SBATCH --output=merge%j.out          # nom du fichier de sortie
 #SBATCH --error=merge%j.out           # nom du fichier d'erreur (ici en commun avec la sortie)
 #SBATCH -A sbg@cpu
