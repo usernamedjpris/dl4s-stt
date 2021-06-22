@@ -5,7 +5,8 @@
 #SBATCH --time=00:01:00             # temps d execution maximum demande (HH:MM:SS)
 #SBATCH --output=merge%j.out          # nom du fichier de sortie
 #SBATCH --error=merge%j.out           # nom du fichier d'erreur (ici en commun avec la sortie)
- 
+#SBATCH -A sbg@cpu
+
 # on se place dans le repertoire de soumission
 cd ${SLURM_SUBMIT_DIR}
  
