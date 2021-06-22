@@ -8,7 +8,7 @@
 #SBATCH -A sbg@cpu
 
 # on se place dans le repertoire de soumission
-cd ${SLURM_SUBMIT_DIR}
+#cd ${SLURM_SUBMIT_DIR}
  
 # nettoyage des modules charges en interactif et herites par defaut
 module purge
@@ -22,4 +22,4 @@ set -x
  
 # execution
 conda activate dl4s-stt
-python merge --wp1 ${ALL_CCFRSCRATCH}/WP1/ --cv ${ALL_CCFRSCRATCH}/commonvoice/ 
+python merge.py --wp1 ${ALL_CCFRSCRATCH}/WP1/ --cv ${ALL_CCFRSCRATCH}/commonvoice/ 
