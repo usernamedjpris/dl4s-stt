@@ -164,19 +164,20 @@ def generate_dataset(wp1, wp1_files_folder, cv_files_folder):
     """
 
     files_absolute = glob.glob(os.path.join(wp1_files_folder,"*.wav"))
-    print(os.path.join(wp1_files_folder,"*.wav"))
-    print(files_absolute)
-    input()
-    print([f for f in files_absolute if " " in f])
 
+    print("> Renaming")
+    to_rename = [f for f in files_absolute if " " in f]
+    for f in to_rename:
+        os.rename(f, f.replace(" ", "_"))
 
+    # Update des paths
+    files_absolute = glob.glob(os.path.join(wp1_files_folder,"*.wav"))
+    files_relative = [f.split(os.path.sep)[-1] for f in files_absolute]
 
-    files_relative = [f.split("/")[-1] for f in files_absolute]
-
-    # print("> Copy test split")
-    # for i in tqdm(range(len(files_relative))):
-    #     if files_relative[i] in wp1["path"].to_list() :
-    #         run(f'cp -f {files_absolute[i]} {os.path.join(cv_files_folder, "clips/")}', shell=True)
+    print("> Copy WP1 files")
+    for i in tqdm(range(len(files_relative))):
+        if files_relative[i] in wp1["path"].to_list() :
+            run(f'cp -f {files_absolute[i]} {os.path.join(cv_files_folder, "clips/wp1/")}', shell=True)
 
 def convert_audios(cv):
     """ Conversion des fichiers audios du dossier clips au format
