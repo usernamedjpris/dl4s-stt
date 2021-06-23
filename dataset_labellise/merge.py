@@ -164,8 +164,10 @@ def generate_dataset(wp1, wp1_files_folder, cv_files_folder):
     """
 
     files_absolute = glob.glob(wp1_files_folder + "/*.wav")
+    print(files_absolute)
+    input()
     print([f for f in files_absolute if " " in f])
-    
+
 
 
     files_relative = [f.split("/")[-1] for f in files_absolute]
