@@ -13,10 +13,10 @@ def calculate_duration(cv):
     tsv = glob.glob(os.path.join(cv, "*.tsv"))
     all_split_size = 0.0
     for t in tsv:
-        if "subfolder" not in t :
-            total_size = 0.0
+        total_size = 0.0
 
-            df = pd.read_csv(t, '\t')
+        df = pd.read_csv(t, '\t')
+        if "path" in df.columns:
             df["path"] = df["path"].str.replace("mp3", "wav")
 
             for index, row in df.iterrows():

@@ -207,8 +207,8 @@ def convert_audios(cv):
     # Mise à jour des noms des fichiers dans les trackers tsv
     tsv = glob.glob(os.path.join(cv, "*.tsv"))
     for t in tsv:
-        if "subfolder" not in t: 
-            df = pd.read_csv(t, '\t')
+        df = pd.read_csv(t, '\t')
+        if 'path' in df.columns: 
             df["path"] = df["path"].str.replace("mp3", "wav")
             df.to_csv(t, '\t')
 
