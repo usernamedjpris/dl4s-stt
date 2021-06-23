@@ -13,18 +13,20 @@ def calculate_duration(cv):
     tsv = glob.glob(os.path.join(cv, "*.tsv"))
     all_split_size = 0.0
     for t in tsv:
-        total_size = 0.0
+        if "subfolder" not in t :
+            total_size = 0.0
 
-        df = pd.read_csv(t, '\t')
-        df["path"] = df["path"].str.replace("mp3", "wav")
+            df = pd.read_csv(t, '\t')
+            df["path"] = df["path"].str.replace("mp3", "wav")
 
-        for index, row in df.iterrows():
-            filename = row["path"]
-            total_size += os.path.getsize(os.path.join(cv, f"clips/{filename}"))
-        total_size_mb = total_size / 1_000_000
-        all_split_size += total_size_mb
-        print(t)
-        print("> Durée :", size_to_sec(total_size_mb) / 3600)
+            for index, row in df.iterrows():
+                filename = row["path"]
+                total_size += os.path.getsize(os.path.join(cv, f"clips/{filename}"))
+            total_size_mb = total_size / 1_000_000
+            all_split_size += total_size_mb
+            print(t)
+            print("> Durée :", size_to_sec(total_size_mb) / 3600)
+            input()
 
     # écrire dans un fichier de meta data
     print("> Durée totale :", size_to_sec(all_split_size) / 3600)

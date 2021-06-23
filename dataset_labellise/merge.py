@@ -191,25 +191,26 @@ def convert_audios(cv):
 
     # potentielle amélioration en loadant le tsv subfolders
 
-    print("> Conversion ")
-    subfolders = glob.glob(os.path.join(cv, "clips/*"))
-    for subfolder in subfolders:
-        print(">>", subfolder)
-        subfolder_abs = os.path.join(os.path.join(cv, "clips"), subfolder)
-        cmd = "for i in " + os.path.join(subfolder_abs, "*.mp3") + "; do ffmpeg -y -i \"$i\" -ar 16000 -ac 1 -acodec pcm_s16le \"${i%.*}.wav\"; done"
-        run(cmd, shell=True)
-        # print(cmd)
+    # print("> Conversion ")
+    # subfolders = glob.glob(os.path.join(cv, "clips/*"))
+    # for subfolder in subfolders:
+    #     print(">>", subfolder)
+    #     subfolder_abs = os.path.join(os.path.join(cv, "clips"), subfolder)
+    #     cmd = "for i in " + os.path.join(subfolder_abs, "*.mp3") + "; do ffmpeg -y -i \"$i\" -ar 16000 -ac 1 -acodec pcm_s16le \"${i%.*}.wav\"; done"
+    #     run(cmd, shell=True)
+    #     # print(cmd)
 
-        print("> Suppression des fichiers source")
-        # print("rm -f " + os.path.join(subfolder_abs, "*.mp3"))
-        run("rm -f " + os.path.join(subfolder_abs, "*.mp3"), shell=True)
+    #     print("> Suppression des fichiers source")
+    #     # print("rm -f " + os.path.join(subfolder_abs, "*.mp3"))
+    #     run("rm -f " + os.path.join(subfolder_abs, "*.mp3"), shell=True)
 
     # Mise à jour des noms des fichiers dans les trackers tsv
     tsv = glob.glob(os.path.join(cv, "*.tsv"))
     for t in tsv:
-        df = pd.read_csv(t, '\t')
-        df["path"] = df["path"].str.replace("mp3", "wav")
-        df.to_csv(t, '\t')
+        if "subfolder" not in t: 
+            df = pd.read_csv(t, '\t')
+            df["path"] = df["path"].str.replace("mp3", "wav")
+            df.to_csv(t, '\t')
 
 def size_to_sec(size) :
     # Formule : bit depth * freq / bits / 8 * sec = size en bytes
@@ -243,10 +244,10 @@ def main(args):
     wp1_test_sample, wp1_train_sample = generate_tsv(args)
 
     # Conversion des audios au bon format
-    # convert_audios(args.cv)
+    convert_audios(args.cv)
 
     # Merge "physique" des fichiers audios dans le dossier de commonvoice
-    generate_dataset(pd.concat([wp1_test_sample,wp1_train_sample]), args.wp1, args.cv)
+    # generate_dataset(pd.concat([wp1_test_sample,wp1_train_sample]), args.wp1, args.cv)
 
     # Calculer la durée en fonction du split
     # calculate_duration(args.cv)
