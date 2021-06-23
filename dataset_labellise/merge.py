@@ -177,7 +177,9 @@ def generate_dataset(wp1, wp1_files_folder, cv_files_folder):
     print("> Copy WP1 files")
     for i in tqdm(range(len(files_relative))):
         if files_relative[i] in wp1["path"].to_list() :
-            run(f'cp -f {files_absolute[i]} {os.path.join(cv_files_folder, "clips/wp1/")}', shell=True)
+            # run(f'cp -f {files_absolute[i]} {os.path.join(cv_files_folder, "clips/wp1/")}', shell=True)
+            print(f'cp -f {files_absolute[i]} {os.path.join(cv_files_folder, "clips/wp1/")}')
+
 
 def convert_audios(cv):
     """ Conversion des fichiers audios du dossier clips au format
