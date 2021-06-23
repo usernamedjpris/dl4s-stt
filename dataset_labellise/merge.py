@@ -174,13 +174,14 @@ def generate_dataset(wp1, wp1_files_folder, cv_files_folder):
     files_absolute = glob.glob(os.path.join(wp1_files_folder,"*.wav"))
     files_relative = [f.split(os.path.sep)[-1] for f in files_absolute]
 
-    path_list = wp1["path"].apply(lambda x : "wp1/" + x).to_list()
+    path_list = wp1["path"].apply(lambda x : x.split("/")[-1]).to_list()
     print("> Copy WP1 files")
-    for i in tqdm(range(len(files_relative))):
+    # for i in tqdm(range(len(files_relative))):
+    for i in range(len(files_relative)):
         if files_relative[i] in path_list :
-            run(f'cp -f {files_absolute[i]} {os.path.join(cv_files_folder, "clips/wp1/")}', shell=True)
-            # print(f'cp -f {files_absolute[i]} {os.path.join(cv_files_folder, "clips/wp1/")}')
-            # input()
+            # run(f'cp -f {files_absolute[i]} {os.path.join(cv_files_folder, "clips/wp1/")}', shell=True)
+            print(f'cp -f {files_absolute[i]} {os.path.join(cv_files_folder, "clips/wp1/")}')
+            input()
 
 
 def convert_audios(cv):
