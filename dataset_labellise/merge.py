@@ -42,6 +42,7 @@ def process_wp1(path, contrib_to_remove):
     # Harmonisation nom des colonnes avec CV
     wp1 = wp1[["file", "transcription", "duration", "category", "topic"]]
     wp1["path"] = wp1["file"].apply(lambda x : x.replace(" ", "_"))
+    wp1["path"] = wp1["path"].apply(lambda x : os.path.join("wp1", x))
     wp1["sentence"] = wp1["transcription"]
     wp1 = wp1.drop(["file", 'transcription'], axis=1)
 
@@ -163,12 +164,16 @@ def generate_dataset(wp1, wp1_files_folder, cv_files_folder):
     """
 
     files_absolute = glob.glob(wp1_files_folder + "/*.wav")
+    print([f for f in files_absolute if " " in f])
+    
+
+
     files_relative = [f.split("/")[-1] for f in files_absolute]
 
-    print("> Copy test split")
-    for i in tqdm(range(len(files_relative))):
-        if files_relative[i] in wp1["path"].to_list() :
-            run(f'cp -f {files_absolute[i]} {os.path.join(cv_files_folder, "clips/")}', shell=True)
+    # print("> Copy test split")
+    # for i in tqdm(range(len(files_relative))):
+    #     if files_relative[i] in wp1["path"].to_list() :
+    #         run(f'cp -f {files_absolute[i]} {os.path.join(cv_files_folder, "clips/")}', shell=True)
 
 def convert_audios(cv):
     """ Conversion des fichiers audios du dossier clips au format
@@ -229,7 +234,7 @@ def main(args):
     wp1_test_sample, wp1_train_sample = generate_tsv(args)
 
     # Conversion des audios au bon format
-    convert_audios(args.cv)
+    # convert_audios(args.cv)
 
     # Merge "physique" des fichiers audios dans le dossier de commonvoice
     generate_dataset(pd.concat([wp1_test_sample,wp1_train_sample]), args.wp1, args.cv)
