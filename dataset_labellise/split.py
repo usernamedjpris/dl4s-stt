@@ -27,11 +27,10 @@ def calculate_duration(cv):
             total_size_mb = total_size / 1_000_000
             all_split_size += total_size_mb
             duration_split = size_to_sec(total_size_mb) / 3600
-            
+
             duration.append({"split":t, "duration":duration_split}, ignore_index=True)
             print(t)
             print("> Durée :", duration_split)
-            input("input")
 
     # écrire dans un fichier de meta data
     print('> Saving duration')
