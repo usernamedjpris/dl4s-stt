@@ -163,7 +163,7 @@ def generate_dataset(wp1, wp1_files_folder, cv_files_folder):
     :type cv_files_folder: str
     """
 
-    files_absolute = glob.glob(wp1_files_folder + "/*.wav")
+    files_absolute = glob.glob(os.path.join(wp1_files_folder,"*.wav"))
     print(files_absolute)
     input()
     print([f for f in files_absolute if " " in f])
