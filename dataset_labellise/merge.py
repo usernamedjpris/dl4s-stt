@@ -179,6 +179,7 @@ def generate_dataset(wp1, wp1_files_folder, cv_files_folder):
         if files_relative[i] in wp1["path"].to_list() :
             # run(f'cp -f {files_absolute[i]} {os.path.join(cv_files_folder, "clips/wp1/")}', shell=True)
             print(f'cp -f {files_absolute[i]} {os.path.join(cv_files_folder, "clips/wp1/")}')
+            input()
 
 
 def convert_audios(cv):
