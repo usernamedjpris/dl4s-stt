@@ -10,6 +10,8 @@ def size_to_sec(size) :
 
 def calculate_duration(cv):
 
+    duration = pd.DataFrame(["split", "duration"])
+
     tsv = glob.glob(os.path.join(cv, "*.tsv"))
     all_split_size = 0.0
     for t in tsv:
@@ -24,11 +26,15 @@ def calculate_duration(cv):
                 total_size += os.path.getsize(os.path.join(cv, f"clips/{filename}"))
             total_size_mb = total_size / 1_000_000
             all_split_size += total_size_mb
+            duration_split = size_to_sec(total_size_mb) / 3600
+            duration.append({"split":t, "duration":duration_split})
             print(t)
-            print("> Durée :", size_to_sec(total_size_mb) / 3600)
-            input()
+            print("> Durée :", duration_split)
+            input("input")
 
     # écrire dans un fichier de meta data
+    print('> Saving duration')
+    duration.to_csv(os.path.join(cv, "duration.csv"), index=False)
     print("> Durée totale :", size_to_sec(all_split_size) / 3600)
 
 def generate_split(cv, source_split, duration):
