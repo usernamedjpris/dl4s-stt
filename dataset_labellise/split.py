@@ -48,7 +48,7 @@ def generate_split(cv, source_split, duration):
     total_duration = durations[durations["split"].str.contains(source_split)]["duration"]
 
     frac = duration / total_duration 
-    source_split_df = pd.read_csv(os.path.join(cv, source_split))
+    source_split_df = pd.read_csv(os.path.join(cv, source_split), "\t")
     split = source_split_df.sample(frac)
     split_name = source_split.split('.')[0] + "_" + str(duration) + ".tsv"
     split.to_csv(os.path.join(cv, split_name), "\t", index=False)
