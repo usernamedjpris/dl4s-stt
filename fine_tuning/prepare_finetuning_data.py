@@ -128,6 +128,7 @@ def data_preparation_v2():
     common_voice_train = common_voice_train.map(remove_special_characters)
     common_voice_test = common_voice_test.map(remove_special_characters)
 
+    # Vocab
     vocab_train = common_voice_train.map(extract_all_chars, batched=True, batch_size=-1, keep_in_memory=True, remove_columns=common_voice_train.column_names)
     vocab_test = common_voice_test.map(extract_all_chars, batched=True, batch_size=-1, keep_in_memory=True, remove_columns=common_voice_test.column_names)
     vocab_list = list(set(vocab_train["vocab"][0]) | set(vocab_test["vocab"][0]))
@@ -156,11 +157,15 @@ def data_preparation_v2():
     common_voice_train = common_voice_train.map(speech_file_to_array_fn_v2, remove_columns=common_voice_train.column_names)
     common_voice_test = common_voice_test.map(speech_file_to_array_fn_v2, remove_columns=common_voice_test.column_names)
     
-    # va sûrement sauter
-    common_voice_train = common_voice_train.map(resample, num_proc=4)
-    common_voice_test = common_voice_test.map(resample, num_proc=4)
+    # inutile maintenant car déjà au bon format
+    # common_voice_train = common_voice_train.map(resample, num_proc=4)
+    # common_voice_test = common_voice_test.map(resample, num_proc=4)
 
-    common_voice_train = common_voice_train.map(prepare_dataset, remove_columns=common_voice_train.column_names, batch_size=8, num_proc=4, batched=True)
+    common_voice_train = common_voice_train.map(prepare_dataset, 
+                                            remove_columns=common_voice_train.column_names, 
+                                            batch_size=8,
+                                            num_proc=4, 
+                                            batched=True)
     common_voice_test = common_voice_test.map(prepare_dataset, remove_columns=common_voice_test.column_names, batch_size=8, num_proc=4, batched=True)
 
     return processor, common_voice_train, common_voice_test

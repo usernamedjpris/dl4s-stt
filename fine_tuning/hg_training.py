@@ -13,7 +13,7 @@ from transformers import Wav2Vec2Processor, Wav2Vec2ForCTC, \
     TrainingArguments, Trainer
 from datasets import load_metric, load_from_disk
 
-
+from prepare_finetuning_commonwp1 import data_preparation
 @dataclass
 class DataCollatorCTCWithPadding:
     """
@@ -77,16 +77,6 @@ class DataCollatorCTCWithPadding:
         return batch
 
 
-def data_preparation(path):
-
-    global processor
-
-    processor = Wav2Vec2Processor.from_pretrained(f"results_hg/{MODEL}/{LABEL}/processor")
-    data_collator = DataCollatorCTCWithPadding(processor=processor, padding=True)
-    dataset_prepared = load_from_disk(path)
-
-    return processor, dataset_prepared, data_collator
-
 def compute_metrics(pred):
     wer_metric = load_metric("wer")
     pred_logits = pred.predictions
@@ -102,15 +92,13 @@ def compute_metrics(pred):
 
     return {"wer": wer}
 
-
-
-
 def main(args):
 
     # Initialiation
+    global processor
+    processor, train, valid = data_preparation(args)
+    data_collator = DataCollatorCTCWithPadding(processor=processor, padding=True)
 
-    processor, dataset_prepared, data_collator = data_preparation(args.path)
-    # processor, common_voice_train, common_voice_test, data_collator = data_preparation_v2()
     model_str = "facebook/wav2vec2-base" if MODEL == "base" else "facebook/wav2vec2-large-xlsr-53"
     checkpoint = args.checkpoint
 
@@ -160,8 +148,8 @@ def main(args):
     data_collator=data_collator,
     args=training_args,
     compute_metrics=compute_metrics,
-    train_dataset=dataset_prepared['train'],
-    eval_dataset=dataset_prepared['test'],
+    train_dataset=train,
+    eval_dataset=valid,
     tokenizer=processor.feature_extractor,
     )
 
@@ -177,13 +165,16 @@ if __name__ == "__main__":
 
     parser = argparse.ArgumentParser()
 
-    parser.add_argument("--train", default=None, type=str,
+    parser.add_argument("t", "--train", default=None, type=str,
                         required=True, help="Train data tracker csv")
-    parser.add_argument("--valid", default=None, type=str,
+    parser.add_argument("-v", "--valid", default=None, type=str,
                         required=True, help="Valid data tracker csv")
-    parser.add_argument("--model", default=None, type=str,
+    parser.add_argument("-o", "--output_dir", default=None, type=str,
+                        required=True, help="Output dir")
+                        
+    parser.add_argument("-m", "--model", default=None, type=str,
                         required=True, help="Pretrained model (base / xlsr)")
-    parser.add_argument("--checkpoint", default=None, type=str,
+    parser.add_argument("-c", "--checkpoint", default=None, type=str,
                         required=False, help="Pretrained model (base / xlsr)")
 
     args = parser.parse_args()
