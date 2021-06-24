@@ -20,9 +20,9 @@ def get_duration_from_split(cv, split):
         filename = row["path"]
         total_size += os.path.getsize(os.path.join(cv, f"clips/{filename}"))
         total_size_mb = total_size / 1_000_000
-        duration_split = size_to_sec(total_size_mb) / 3600
+        split_duration = size_to_sec(total_size_mb) / 3600
 
-    return duration_split
+    return split_duration
 
 def calculate_duration(cv):
 
@@ -34,9 +34,9 @@ def calculate_duration(cv):
         df = pd.read_csv(t, '\t')
         if "path" in df.columns:
             print(t)
-            duration_split = get_duration_from_split(cv, df)       
-            duration = duration.append({"split":t.split('/')[-1], "duration":duration_split}, ignore_index=True)
-            print("> Durée :", duration_split)
+            split_duration = get_duration_from_split(cv, df)       
+            duration = duration.append({"split":t.split('/')[-1], "duration":split_duration}, ignore_index=True)
+            print("> Durée :", split_duration)
             duration.to_csv(os.path.join(cv, "duration.csv"), index=False)
 
     print('> Saving duration')
@@ -60,6 +60,9 @@ def generate_split(cv, source_split, duration):
     split.to_csv(os.path.join(cv, split_name), "\t", index=False)
     print("> Split créée :", split_name)
 
+    split_duration = get_duration_from_split(cv, split)
+    print("> Vérification durée :", split_duration / 3600)
+
     return split
 
 
@@ -71,7 +74,6 @@ def main(args):
     generate_split(args.cv, "test.tsv", 1)
     generate_split(args.cv, "test.tsv", 5)
     generate_split(args.cv, "test.tsv", 10)
-
 
 
 if __name__ == "__main__":    
