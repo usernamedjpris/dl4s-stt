@@ -140,7 +140,15 @@ def generate_tsv(args):
     train_data = pd.concat([cv_train, wp1_train_sample])
     test_data = pd.concat([cv_test, wp1_test_sample])
 
-
+    for index, row in train_data.iterrows():
+        if not os.isfile(row["path"]):
+            os.remove(row["path"])
+            print("> Remove", row["path"])
+        
+    for index, row in test_data.iterrows():
+        if not os.isfile(row["path"]):
+            os.remove(row["path"])
+            print("> Remove", row["path"])
     # Rename ancien tsv
     run(f'mv {train_path} {os.path.join(args.cv, "old_train.tsv")}', shell=True)
     run(f'mv {test_path} {os.path.join(args.cv, "old_test.tsv")}', shell=True)
@@ -149,6 +157,13 @@ def generate_tsv(args):
     # Sauvegarde du tracker tsv
     train_data.to_csv(os.path.join(args.cv, "train.tsv"), sep="\t", index=False)
     test_data.to_csv(os.path.join(args.cv, "test.tsv"), sep="\t", index=False)
+
+    tsv = glob.glob(os.path.join(args.cv, "*.tsv"))
+    for t in tsv:
+        df = pd.read_csv(t, '\t')
+        if 'path' in df.columns: 
+            df["path"] = df["path"].str.replace("mp3", "wav")
+            df.to_csv(t, '\t', index=False)
 
     return wp1_test_sample, wp1_train_sample
 
@@ -210,7 +225,7 @@ def convert_audios(cv):
         df = pd.read_csv(t, '\t')
         if 'path' in df.columns: 
             df["path"] = df["path"].str.replace("mp3", "wav")
-            df.to_csv(t, '\t')
+            df.to_csv(t, '\t', index=False)
 
 def size_to_sec(size) :
     # Formule : bit depth * freq / bits / 8 * sec = size en bytes
@@ -247,7 +262,7 @@ def main(args):
     # convert_audios(args.cv)
 
     # Merge "physique" des fichiers audios dans le dossier de commonvoice
-    # generate_dataset(pd.concat([wp1_test_sample,wp1_train_sample]), args.wp1, args.cv)
+    generate_dataset(pd.concat([wp1_test_sample,wp1_train_sample]), args.wp1, args.cv)
 
     # Calculer la durée en fonction du split
     # calculate_duration(args.cv)
