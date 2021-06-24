@@ -41,7 +41,7 @@ def calculate_duration(cv):
 
     print('> Saving duration')
     duration.to_csv(os.path.join(cv, "duration.csv"), index=False)
-    print("> Durée totale :", duration["duration"].sum() / 3600)
+    print("> Durée totale :", duration["duration"].sum())
 
 def generate_split(cv, source_split, duration):
 
@@ -61,7 +61,7 @@ def generate_split(cv, source_split, duration):
     print("> Split créée :", split_name)
 
     split_duration = get_duration_from_split(cv, split)
-    print("> Vérification durée :", split_duration / 3600)
+    print("> Vérification durée :", split_duration)
 
     return split
 
