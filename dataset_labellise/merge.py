@@ -244,7 +244,7 @@ def main(args):
     wp1_test_sample, wp1_train_sample = generate_tsv(args)
 
     # Conversion des audios au bon format
-    convert_audios(args.cv)
+    # convert_audios(args.cv)
 
     # Merge "physique" des fichiers audios dans le dossier de commonvoice
     # generate_dataset(pd.concat([wp1_test_sample,wp1_train_sample]), args.wp1, args.cv)
