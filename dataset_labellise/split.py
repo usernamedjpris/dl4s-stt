@@ -17,7 +17,7 @@ def calculate_duration(cv):
     # tsv = glob.glob(os.path.join(cv, "*.tsv"))
     all_split_size = 0.0
     for t in tsv:
-        total_size = 0.0
+        total_size = 0.0giot
 
         df = pd.read_csv(t, '\t')
         if "path" in df.columns:
@@ -32,7 +32,7 @@ def calculate_duration(cv):
             all_split_size += total_size_mb
             duration_split = size_to_sec(total_size_mb) / 3600
 
-            duration.append({"split":t, "duration":duration_split}, ignore_index=True)
+            duration = duration.append({"split":t, "duration":duration_split}, ignore_index=True)
             print("> Durée :", duration_split)
             duration.to_csv(os.path.join(cv, "duration.csv"), index=False)
 
