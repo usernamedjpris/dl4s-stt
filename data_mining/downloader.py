@@ -7,7 +7,6 @@
 '''
 
 import pandas as pd
-import numpy as np
 import youtube_dl as ytdl
 from subprocess import PIPE, run
 import glob
@@ -36,7 +35,7 @@ def print_summary(videos):
     total_elapsed_time = total = videos[videos["downloaded"] == 1]["elapsed_time"].sum() / 60
     elapsed_hours = total_elapsed_time / 60
     target_hours = 10000
-    remaining_time_for_target_h = (elapsed_hours * target_hours) / downloaded_hours - elapsed_hours
+    # remaining_time_for_target_h = (elapsed_hours * target_hours) / downloaded_hours - elapsed_hours
     remaining_time_for_current_db = (elapsed_hours * (total_duration - downloaded_hours)) / downloaded_hours
 
     total_size = videos["size_Mo"].sum() / 1000
@@ -50,7 +49,7 @@ def print_summary(videos):
     print(f"> ETA : {remaining_time_for_current_db:.0f}h{(remaining_time_for_current_db - int(remaining_time_for_current_db)) * 60:.0f}min")
 
 def download_and_convert_video(url, path):
-    """ Télécharge et convertit Youtube video en .wav (pcm_s16le 16kHz mono converter) via youtube-dl (python wrapper et cli)
+    """ Télécharge et convertit Youtube video en .wav (pcm_s16le 16kHz mono converter) via youtube-dl et ffmpeg
 
     :param url: url de la vidéo youtube
     :type url: str
@@ -139,12 +138,16 @@ def download_and_convert_video(url, path):
 
                         # Convertit les fichiers m4a en wav
                         print("> Converting from m4a to wav ...")
-                        cmd = "for i in " + path.replace(" ", "\ ") + "/*.m4a; do ffmpeg -y -i \"$i\" -ar 16000 -ac 1 -acodec pcm_s16le \"${i%.*}.wav\"; done"
+
+                        # méthode brutale
+                        # cmd = "for i in " + path.replace(" ", "\ ") + "/*.m4a; do ffmpeg -y -i \"$i\" -ar 16000 -ac 1 -acodec pcm_s16le \"${i%.*}.wav\"; done"
+
+                        # méthode plus propre
+                        cmd = "export i=" + filename + " && ffmpeg -y -i \"$i\" -ar 16000 -ac 1 -acodec pcm_s16le \"${i%.*}.wav\""
                         command = out(cmd)
 
                         if command.returncode != 0:
-                            print("> ! Conversion error")
-                            print("> Commande executed :", cmd)
+                            print("> Conversion error !")
                             error = 2
                         else :
                             print("> Conversion : OK")
@@ -167,18 +170,18 @@ def download_videos_from_df(path, bdd):
     :type bdd: str
     """
 
-    videos = pd.read_pickle(os.path.join(bdd, "videos.pkl"))
+    videos = pd.read_csv(os.path.join(bdd, "videos.csv"))
     to_download = videos[(videos["downloaded"] == 0) & (videos["error"] == 0)]
 
     k = 0 # Compteur
     while len(to_download) != 0:
 
         ## Summary 
-        if k%10 == 0 and len(videos[videos["downloaded"] == 1]) > 0:
-            print_summary(videos)
+        # if k%10 == 0 and len(videos[videos["downloaded"] == 1]) > 0:
+        #     print_summary(videos)
         print("~~~")
 
-        # Get a random video from databse
+        # Get a random video from database
         index = to_download.sample().index[0]
 
         # Download and extract wav
@@ -202,7 +205,7 @@ def download_videos_from_df(path, bdd):
         to_download = videos[(videos["downloaded"] == 0) & (videos["error"] == 0)]
 
         # Mise à jour de la bdd
-        videos.to_pickle(os.path.join(bdd, "videos.pkl"))
+        videos.to_csv(os.path.join(bdd, "videos.csv"))
         print("------" * 10)    
             
 
@@ -217,7 +220,7 @@ if __name__ == "__main__":
     parser.add_argument("--out", default=None, type=str,
                         required=True, help="Chemin de sauvegarde des fichiers audios")    
     parser.add_argument("--bdd", default=None, type=str,
-                        required=True, help="Chemin vers le dossier contenant les BDD (pickle)")    
+                        required=True, help="Chemin vers le dossier contenant les BDD (csv)")    
     
     args = parser.parse_args()
     main(args)

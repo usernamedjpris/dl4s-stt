@@ -120,8 +120,6 @@ def resample(batch):
     batch["sampling_rate"] = 16_000
     return batch
 
-
-
 def data_preparation_v2():
     common_voice_train = load_dataset("common_voice", "tr", split="train+validation")
     common_voice_test = load_dataset("common_voice", "tr", split="test")

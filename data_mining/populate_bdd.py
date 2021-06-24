@@ -47,15 +47,15 @@ def update_playlists_list(source, playlists, bdd):
             
             print("> Adding", playlist_info["title"])
             playlists = playlists.append(playlist_info, ignore_index=True)
-            playlists.to_pickle(os.path.join(bdd, "playlists.pkl"))
+            playlists.to_csv(os.path.join(bdd, "playlists.csv"), index=False)
 
     # Save
-    playlists.to_pickle(os.path.join(bdd, "playlists.pkl"))
+    playlists.to_csv(os.path.join(bdd, "playlists.csv"), index=False)
 
 def update_video_list(playlists, videos, bdd, min_duration):
     """ Lit la BDD de playlists et fetch les metadata de chaque vidéos
-    de ces playlists pour remplit la BDD de vidéos. Save auto toutes les
-    20 vidéos. !! Exceptions peuvent être à modifier en fonction de 
+    de ces playlists pour remplit la BDD de vidéos.
+    !! Exceptions peuvent être à modifier en fonction de 
     l'évolution de l'API YouTube !!
 
     :param playlists: BDD des metadata de playlists
@@ -139,7 +139,7 @@ def update_video_list(playlists, videos, bdd, min_duration):
                         
                         print("------" * 10)
                         print(">> Saving videos")
-                        videos.to_pickle(os.path.join(bdd, "videos.pkl"))
+                        videos.to_csv(os.path.join(bdd, "videos.csv"), index=False)
                         print("------" * 10)
 
             # Update bdd
@@ -149,28 +149,28 @@ def update_video_list(playlists, videos, bdd, min_duration):
             # Save 
             print("------" * 10)
             print(">> Saving playlists")
-            playlists.to_pickle(os.path.join(bdd, "playlists.pkl"))
+            playlists.to_csv(os.path.join(bdd, "playlists.csv"), index=False)
             print("------" * 10)
 
-    videos.to_pickle(os.path.join(bdd, "videos.pkl"))
+    videos.to_csv(os.path.join(bdd, "videos.csv"), index=False)
 
     
 def main(args):
 
     # Initialiation des bdd
-    if os.path.exists(os.path.join(args.bdd, "playlists.pkl")):
-        playlists = pd.read_pickle(os.path.join(args.bdd, "playlists.pkl"))
+    if os.path.exists(os.path.join(args.bdd, "playlists.csv")):
+        playlists = pd.read_csv(os.path.join(args.bdd, "playlists.csv"))
     else :
         playlists = pd.DataFrame(columns=['url'])
     
-    if os.path.exists(os.path.join(args.bdd, "videos.pkl")):
-        videos = pd.read_pickle(os.path.join(args.bdd, "videos.pkl"))
+    if os.path.exists(os.path.join(args.bdd, "videos.csv")):
+        videos = pd.read_csv(os.path.join(args.bdd, "videos.csv"))
     else :
         videos = pd.DataFrame(columns=['url'])
   
     min_duration = 10
     update_playlists_list(args.source, playlists, args.bdd)
-    playlists = pd.read_pickle(os.path.join(args.bdd, "playlists.pkl"))
+    playlists = pd.read_csv(os.path.join(args.bdd, "playlists.csv"))
     update_video_list(playlists, videos, args.bdd, min_duration)
     
 if __name__ == "__main__":    
@@ -178,7 +178,7 @@ if __name__ == "__main__":
     parser.add_argument("--source", default=None, type=str,
                         required=True, help="Fichier texte contenant les urls des playlists ou chaînes YT")
     parser.add_argument("--bdd", default=None, type=str,
-                        required=True, help="Chemin vers le dossier contenant les BDD (pickle)")    
+                        required=True, help="Chemin vers le dossier contenant les BDD (csv)")    
     
     args = parser.parse_args()
     main(args)
