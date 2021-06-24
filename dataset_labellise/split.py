@@ -61,7 +61,7 @@ def generate_split(cv, source_split, duration):
     print("> Split créée :", split_name)
 
     split_duration = get_duration_from_split(cv, split)
-    print(f"> Vérification durée : {split_duration:2.f}h")
+    print(f"> Vérification durée : {split_duration:.2f}h")
 
     return split
 
@@ -71,8 +71,7 @@ def main(args):
         print("> Calcul de la durée de chaque split")
         calculate_duration(args.cv)
 
-    durations = pd.read_csv(os.path.join(args.cv, "duration.csv"))
-    print("Durée max pour le split train :", durations[durations["split"] == "train.tsv"]["duration"])    
+    # Durée max pour le split train : 553h
     for duration in [1, 2, 5, 10, 100, 200, 500]:
         generate_split(args.cv, "train.tsv", duration)
 
