@@ -60,8 +60,9 @@ def generate_split(cv, source_split, duration):
     split.to_csv(os.path.join(cv, split_name), "\t", index=False)
     print("> Split créée :", split_name)
 
-    split_duration = get_duration_from_split(cv, split)
-    print(f"> Vérification durée : {split_duration:.2f}h")
+    # Procédure un peu longue facultative
+    # split_duration = get_duration_from_split(cv, split)
+    # print(f"> Vérification durée : {split_duration:.2f}h")
 
     return split
 
