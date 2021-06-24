@@ -1,9 +1,6 @@
 import argparse
 import torch
-import pandas as pd
 import numpy as np
-from jiwer import wer
-# import torchaudio
 
 # DataCollator
 from dataclasses import dataclass, field
@@ -11,7 +8,7 @@ from typing import Any, Dict, List, Optional, Union
 
 from transformers import Wav2Vec2Processor, Wav2Vec2ForCTC, \
     TrainingArguments, Trainer
-from datasets import load_metric, load_from_disk
+from datasets import load_metric
 
 from prepare_finetuning_commonwp1 import data_preparation
 @dataclass
@@ -99,21 +96,21 @@ def main(args):
     processor, train, valid = data_preparation(args)
     data_collator = DataCollatorCTCWithPadding(processor=processor, padding=True)
 
-    model_str = "facebook/wav2vec2-base" if MODEL == "base" else "facebook/wav2vec2-large-xlsr-53"
-    checkpoint = args.checkpoint
-
+    model_str = "facebook/wav2vec2-base" if args.model == "base" else "facebook/wav2vec2-large-xlsr-53"
 
     print(">> Starting fine-tuning on model " + model_str )
-    print(">> Training dataset :", LABEL)
+    print(">> Training dataset :", args.train.split("/")[-1])
+    print(">> Validation dataset :", args.valid.split("/")[-1])
+
     print("\n\n")
 
     model = Wav2Vec2ForCTC.from_pretrained(
         model_str, 
-        # attention_dropout=0.1,
-        # hidden_dropout=0.1,
-        # feat_proj_dropout=0.0,
-        # mask_time_prob=0.05,
-        # layerdrop=0.1,
+        attention_dropout=0.1,
+        hidden_dropout=0.1,
+        feat_proj_dropout=0.0,
+        mask_time_prob=0.05,
+        layerdrop=0.1,
         gradient_checkpointing=True, 
         ctc_loss_reduction="mean", 
         pad_token_id=processor.tokenizer.pad_token_id,
@@ -125,7 +122,7 @@ def main(args):
     
     # Paramètres du trainer
     training_args = TrainingArguments(
-        output_dir=f"/home/ubuntu/dl4s/results_hg/{MODEL}/{LABEL}/",
+        output_dir=args.output_dir,
         group_by_length=True,
         per_device_train_batch_size=8,
         gradient_accumulation_steps=2,
@@ -144,14 +141,16 @@ def main(args):
 
     # Initialisation du trainer
     trainer = Trainer(
-    model=model,
-    data_collator=data_collator,
-    args=training_args,
-    compute_metrics=compute_metrics,
-    train_dataset=train,
-    eval_dataset=valid,
-    tokenizer=processor.feature_extractor,
+        model=model,
+        data_collator=data_collator,
+        args=training_args,
+        compute_metrics=compute_metrics,
+        train_dataset=train,
+        eval_dataset=valid,
+        tokenizer=processor.feature_extractor,
     )
+
+    checkpoint = args.checkpoint
 
     # BUG : Memory error à l'import du checkpoint
     if checkpoint :
@@ -172,8 +171,8 @@ if __name__ == "__main__":
     parser.add_argument("-o", "--output_dir", default=None, type=str,
                         required=True, help="Output dir")
                         
-    parser.add_argument("-m", "--model", default=None, type=str,
-                        required=True, help="Pretrained model (base / xlsr)")
+    parser.add_argument("-m", "--model", default="xlsr", type=str,
+                        required=False, help="Pretrained model (base / xlsr)")
     parser.add_argument("-c", "--checkpoint", default=None, type=str,
                         required=False, help="Pretrained model (base / xlsr)")
 

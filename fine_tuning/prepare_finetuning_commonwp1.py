@@ -1,11 +1,7 @@
 import re
 import os
-import glob
 import json
-import soundfile as sf
-import argparse
 import torchaudio 
-import numpy as np
 import pandas as pd
 # Huggingface
 from datasets import Dataset
@@ -36,8 +32,10 @@ def speech_file_to_array(batch):
 def prepare_dataset(batch):
     batch["input_values"] = processor(batch["speech"], \
         sampling_rate=batch["sampling_rate"][0]).input_values
+
     with processor.as_target_processor():
         batch["labels"] = processor(batch["target_text"]).input_ids
+    
     return batch
 
 def gen_vocab(train, valid):
