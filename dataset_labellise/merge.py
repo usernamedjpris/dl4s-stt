@@ -44,7 +44,7 @@ def process_wp1(path, contrib_to_remove):
     wp1["path"] = wp1["file"].apply(lambda x : x.replace(" ", "_"))
 
     for index, row in wp1.iterrows():
-        if not os.path.isfile(os.join(path, row["path"])):
+        if not os.path.isfile(os.path.join(path, row["path"])):
             wp1.drop(index, inplace=True)
             print("> File not present", row["path"])
         
