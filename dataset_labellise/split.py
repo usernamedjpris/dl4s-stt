@@ -47,8 +47,8 @@ def generate_split(cv, source_split, duration):
     durations = pd.read_csv(os.path.join(cv, "duration.csv"))
     # ind = durations[durations["split"].apply(lambda x : x.split("/")[-1]) == source_split].index[0]
     # total_duration = durations.iloc[ind]["duration"]
-
-    total_duration = durations[durations["split"] == source_split]["duration"]
+    ind = durations[durations["split"] == source_split].index[0]
+    total_duration = durations.iloc[ind]["duration"]
 
     print(duration)
     print(total_duration)
