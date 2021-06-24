@@ -4,8 +4,13 @@ import glob
 import os
 
 def size_to_sec(size) :
+    """
+    size: Mo
+    """
     # Formule : bit depth * freq / bits / 8 * sec = size en bytes
-    
+    # valable pour mono 16kHz 16 bits 
+
+
     return size / (16 * 16000 / 1000000 / 8)
 
 def calculate_duration(cv):
@@ -44,32 +49,33 @@ def calculate_duration(cv):
 
 def generate_split(cv, source_split, duration):
 
+    # Récupération de la durée du split source
     durations = pd.read_csv(os.path.join(cv, "duration.csv"))
-    # ind = durations[durations["split"].apply(lambda x : x.split("/")[-1]) == source_split].index[0]
-    # total_duration = durations.iloc[ind]["duration"]
     ind = durations[durations["split"] == source_split].index[0]
     total_duration = durations.iloc[ind]["duration"]
 
-    print(duration)
-    print(total_duration)
-    input()
+    # Sample de la durée voulue dans le split
     proportion = duration / total_duration 
     source_split_df = pd.read_csv(os.path.join(cv, source_split), "\t")
-    split = source_split_df.sample(frac=proportion)
+    split = source_split_df.sample(frac=proportion, random_state=0)
+
+    # Enregistrement
     split_name = source_split.split('.')[0] + "_" + str(duration) + ".tsv"
     split.to_csv(os.path.join(cv, split_name), "\t", index=False)
+    print("> Split créée :", split_name)
 
     return split
 
 
 def main(args):
     if not os.path.isfile(os.path.join(args.cv, "duration.csv")):
+        print("> Calcul de la durée de chaque split")
         calculate_duration(args.cv)
     
+    generate_split(args.cv, "test.tsv", 1)
     generate_split(args.cv, "test.tsv", 5)
+    generate_split(args.cv, "test.tsv", 10)
 
-    # TODO Calculer la durée totale en heure par split
-    # splits = []
 
 
 if __name__ == "__main__":    
@@ -77,8 +83,7 @@ if __name__ == "__main__":
 
     parser.add_argument("--cv", default=None, type=str,
                         required=True, help="Dossier commonvoice")    
-    parser.add_argument("--bdd", default=None, type=str,
-                        required=False, help="Chemin vers le dossier contenant les BDD (pickle)")    
+
     
     args = parser.parse_args()
     main(args)
