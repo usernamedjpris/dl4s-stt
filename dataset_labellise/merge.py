@@ -122,8 +122,17 @@ def generate_tsv(args):
 
     # Import et split du dataset WP1
     wp1 = process_wp1(args.wp1, CONTRIB_TO_REMOVE)
+
+    for index, row in wp1.iterrows():
+        if not os.path.isfile(row["path"]):
+            wp1.drop(index, inplace=True)
+            print("> Remove", row["path"])
+        
+
     wp1_test_sample = test_sample_wp1(wp1, args.target_duration)
     wp1_train_sample = train_sample_wp1(wp1, wp1_test_sample)
+
+
 
     # Import des splits du dataset commonvoice
     train_path = os.path.join(args.cv, "train.tsv")
@@ -140,15 +149,6 @@ def generate_tsv(args):
     train_data = pd.concat([cv_train, wp1_train_sample])
     test_data = pd.concat([cv_test, wp1_test_sample])
 
-    for index, row in train_data.iterrows():
-        if not os.path.isfile(row["path"]):
-            os.remove(row["path"])
-            print("> Remove", row["path"])
-        
-    for index, row in test_data.iterrows():
-        if not os.path.isfile(row["path"]):
-            os.remove(row["path"])
-            print("> Remove", row["path"])
     # Rename ancien tsv
     run(f'mv {train_path} {os.path.join(args.cv, "old_train.tsv")}', shell=True)
     run(f'mv {test_path} {os.path.join(args.cv, "old_test.tsv")}', shell=True)
