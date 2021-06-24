@@ -44,22 +44,23 @@ def calculate_duration(cv):
 
 def generate_split(cv, source_split, duration):
 
-    meta = pd.read_csv("meta.csv")
-    total_duration = meta[meta["name"] == source_split]["total_duration"]
+    durations = pd.read_csv("duration.csv")
+    total_duration = durations[durations["split"].str.contains(source_split)]["duration"]
 
     frac = duration / total_duration 
     source_split_df = pd.read_csv(os.path.join(cv, source_split))
     split = source_split_df.sample(frac)
-    split_name = source_split.split('.')[0] + "_" + str(duration)
-    split.to_csv(os.path.join(cv, split_name + ".tsv"), index=False)
+    split_name = source_split.split('.')[0] + "_" + str(duration) + ".tsv"
+    split.to_csv(os.path.join(cv, split_name), "\t", index=False)
 
     return split
 
 
 def main(args):
-    calculate_duration(args.cv)
-    pass
-
+    if not os.path.isfile(os.path.join(args.cv, "duration.csv")):
+        calculate_duration(args.cv)
+    
+    generate_split(args.cv, "test.tsv", 5)
 
     # TODO Calculer la durée totale en heure par split
     # splits = []
