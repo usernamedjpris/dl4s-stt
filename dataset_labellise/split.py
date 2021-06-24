@@ -19,6 +19,8 @@ def calculate_duration(cv):
 
         df = pd.read_csv(t, '\t')
         if "path" in df.columns:
+            print(t)
+            
             df["path"] = df["path"].str.replace("mp3", "wav")
 
             for index, row in df.iterrows():
@@ -29,7 +31,6 @@ def calculate_duration(cv):
             duration_split = size_to_sec(total_size_mb) / 3600
 
             duration.append({"split":t, "duration":duration_split}, ignore_index=True)
-            print(t)
             print("> Durée :", duration_split)
 
     # écrire dans un fichier de meta data
