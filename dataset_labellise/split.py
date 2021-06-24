@@ -12,7 +12,7 @@ def calculate_duration(cv):
 
     duration = pd.DataFrame(["split", "duration"])
 
-    tsv = ["other.tsv", "test.tsv", "train.tsv", "dev.tsv"]
+    tsv = ["other.tsv", "old_test", "test.tsv", "train.tsv", "dev.tsv"]
     tsv = [os.path.join(cv, t) for t in tsv]
     # tsv = glob.glob(os.path.join(cv, "*.tsv"))
     all_split_size = 0.0
@@ -23,7 +23,7 @@ def calculate_duration(cv):
         if "path" in df.columns:
             print(t)
             
-            df["path"] = df["path"].str.replace("mp3", "wav")
+            # df["path"] = df["path"].str.replace("mp3", "wav")
 
             for index, row in df.iterrows():
                 filename = row["path"]
@@ -51,7 +51,7 @@ def generate_split(cv, source_split, duration):
     source_split_df = pd.read_csv(os.path.join(cv, source_split))
     split = source_split_df.sample(frac)
     split_name = source_split.split('.')[0] + "_" + str(duration)
-    split.to_csv(os.path.join(cv, split_name + ".tsv"))
+    split.to_csv(os.path.join(cv, split_name + ".tsv"), index=False)
 
     return split
 
