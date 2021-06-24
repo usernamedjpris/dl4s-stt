@@ -44,7 +44,7 @@ def calculate_duration(cv):
 
 def generate_split(cv, source_split, duration):
 
-    durations = pd.read_csv("duration.csv")
+    durations = pd.read_csv(os.path.join(cv, "duration.csv"))
     total_duration = durations[durations["split"].str.contains(source_split)]["duration"]
 
     frac = duration / total_duration 
