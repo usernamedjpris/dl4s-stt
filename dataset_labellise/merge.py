@@ -141,12 +141,12 @@ def generate_tsv(args):
     test_data = pd.concat([cv_test, wp1_test_sample])
 
     for index, row in train_data.iterrows():
-        if not os.isfile(row["path"]):
+        if not os.path.isfile(row["path"]):
             os.remove(row["path"])
             print("> Remove", row["path"])
         
     for index, row in test_data.iterrows():
-        if not os.isfile(row["path"]):
+        if not os.path.isfile(row["path"]):
             os.remove(row["path"])
             print("> Remove", row["path"])
     # Rename ancien tsv
