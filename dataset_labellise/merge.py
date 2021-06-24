@@ -259,7 +259,7 @@ def main(args):
     # convert_audios(args.cv)
 
     # Merge "physique" des fichiers audios dans le dossier de commonvoice
-    generate_dataset(pd.concat([wp1_test_sample,wp1_train_sample]), args.wp1, args.cv)
+    # generate_dataset(pd.concat([wp1_test_sample,wp1_train_sample]), args.wp1, args.cv)
 
     # Calculer la durée en fonction du split
     # calculate_duration(args.cv)
