@@ -71,9 +71,11 @@ def main(args):
         print("> Calcul de la durée de chaque split")
         calculate_duration(args.cv)
     
-    generate_split(args.cv, "test.tsv", 1)
-    generate_split(args.cv, "test.tsv", 5)
-    generate_split(args.cv, "test.tsv", 10)
+    
+    for duration in [1, 2, 5, 10, 100, 200, 500]:
+        generate_split(args.cv, "train.tsv", duration)
+
+
 
 
 if __name__ == "__main__":    
