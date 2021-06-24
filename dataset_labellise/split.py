@@ -13,39 +13,35 @@ def size_to_sec(size) :
 
     return size / (16 * 16000 / 1000000 / 8)
 
+def get_duration_from_split(cv, split):
+
+    total_size = 0
+    for index, row in split.iterrows():
+        filename = row["path"]
+        total_size += os.path.getsize(os.path.join(cv, f"clips/{filename}"))
+        total_size_mb = total_size / 1_000_000
+        duration_split = size_to_sec(total_size_mb) / 3600
+
+    return duration_split
+
 def calculate_duration(cv):
 
     duration = pd.DataFrame(columns=["split", "duration"])
 
     tsv = ["other.tsv", "old_test.tsv", "test.tsv", "train.tsv", "dev.tsv"]
     tsv = [os.path.join(cv, t) for t in tsv]
-    # tsv = glob.glob(os.path.join(cv, "*.tsv"))
-    all_split_size = 0.0
     for t in tsv:
-        total_size = 0.0
-
         df = pd.read_csv(t, '\t')
         if "path" in df.columns:
             print(t)
-            
-            # df["path"] = df["path"].str.replace("mp3", "wav")
-
-            for index, row in df.iterrows():
-                filename = row["path"]
-                total_size += os.path.getsize(os.path.join(cv, f"clips/{filename}"))
-            total_size_mb = total_size / 1_000_000
-            all_split_size += total_size_mb
-            duration_split = size_to_sec(total_size_mb) / 3600
-
+            duration_split = get_duration_from_split(cv, df)       
             duration = duration.append({"split":t.split('/')[-1], "duration":duration_split}, ignore_index=True)
             print("> Durée :", duration_split)
             duration.to_csv(os.path.join(cv, "duration.csv"), index=False)
 
-
-    # écrire dans un fichier de meta data
     print('> Saving duration')
     duration.to_csv(os.path.join(cv, "duration.csv"), index=False)
-    print("> Durée totale :", size_to_sec(all_split_size) / 3600)
+    print("> Durée totale :", duration["duration"].sum() / 3600)
 
 def generate_split(cv, source_split, duration):
 
