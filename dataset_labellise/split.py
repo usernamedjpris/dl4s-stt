@@ -10,7 +10,7 @@ def size_to_sec(size) :
 
 def calculate_duration(cv):
 
-    duration = pd.DataFrame(["split", "duration"])
+    duration = pd.DataFrame(columns=["split", "duration"])
 
     tsv = ["other.tsv", "old_test.tsv", "test.tsv", "train.tsv", "dev.tsv"]
     tsv = [os.path.join(cv, t) for t in tsv]
