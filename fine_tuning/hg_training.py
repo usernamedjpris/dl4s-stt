@@ -1,6 +1,7 @@
 import argparse
 import torch
 import numpy as np
+import os
 
 # DataCollator
 from dataclasses import dataclass, field
@@ -91,12 +92,21 @@ def compute_metrics(pred):
 
 def main(args):
 
+    finetune_str = args.train.split("/")[-1].split(".")[0].split("_")[-1]
+
+    if os.path.isdir(os.path.join(args.output_dir, finetune_str)):
+        print("> Un dossier existe déjà pour ce dataset d'entraînement !")
+        input("> Appuez sur <>ENTER<> pour lancer l'entraînement et écraser le dossier. \n")
+    else :
+        os.mkdir(os.path.join(args.output_dir, finetune_str))
+
     # Initialiation
     global processor
     processor, train, valid = data_preparation(args)
     data_collator = DataCollatorCTCWithPadding(processor=processor, padding=True)
 
     model_str = "facebook/wav2vec2-base" if args.model == "base" else "facebook/wav2vec2-large-xlsr-53"
+
 
     print(">> Starting fine-tuning on model " + model_str )
     print(">> Training dataset :", args.train.split("/")[-1])
@@ -122,7 +132,7 @@ def main(args):
     
     # Paramètres du trainer
     training_args = TrainingArguments(
-        output_dir=args.output_dir,
+        output_dir=os.path.join(args.output_dir, finetune_str),
         group_by_length=True,
         per_device_train_batch_size=8,
         gradient_accumulation_steps=2,

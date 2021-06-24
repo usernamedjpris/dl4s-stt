@@ -57,9 +57,11 @@ def gen_vocab(train, valid):
 def load_processor(args, train, valid):
 
     # nécéssaire pour les fonctions utilisées via "map"
+    finetune_str = args.train.split("/")[-1].split(".")[0].split("_")[-1]
+    out = os.path.join(args.output_dir, finetune_str)
     global processor
 
-    if not os.path.idsir(os.path.join(args.output_dir, "processor")):
+    if not os.path.idsir(os.path.join(out, "processor")):
         from transformers import Wav2Vec2CTCTokenizer, Wav2Vec2FeatureExtractor
 
         print("> Generating vocab file")
@@ -75,10 +77,10 @@ def load_processor(args, train, valid):
             sampling_rate=16000, padding_value=0.0, do_normalize=True, return_attention_mask=True)
         
         processor = Wav2Vec2Processor(feature_extractor=feature_extractor, tokenizer=tokenizer)
-        processor.save_pretrained(os.path.join(args.output_dir, "processor"))
+        processor.save_pretrained(os.path.join(out, "processor"))
     else :
-        print(">> Load from pretrained processor", os.path.join(args.output_dir, "processor"))
-        processor = Wav2Vec2Processor.from_pretrained(os.path.join(args.output_dir, "processor"))
+        print(">> Load from pretrained processor", os.path.join(out, "processor"))
+        processor = Wav2Vec2Processor.from_pretrained(os.path.join(out, "processor"))
     
     return processor
 
