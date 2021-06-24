@@ -12,7 +12,7 @@ def calculate_duration(cv):
 
     duration = pd.DataFrame(["split", "duration"])
 
-    tsv = ["other.tsv", "old_test", "test.tsv", "train.tsv", "dev.tsv"]
+    tsv = ["other.tsv", "old_test.tsv", "test.tsv", "train.tsv", "dev.tsv"]
     tsv = [os.path.join(cv, t) for t in tsv]
     # tsv = glob.glob(os.path.join(cv, "*.tsv"))
     all_split_size = 0.0
