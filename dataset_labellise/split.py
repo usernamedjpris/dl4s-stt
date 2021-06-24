@@ -32,7 +32,7 @@ def calculate_duration(cv):
             all_split_size += total_size_mb
             duration_split = size_to_sec(total_size_mb) / 3600
 
-            duration = duration.append({"split":t, "duration":duration_split}, ignore_index=True)
+            duration = duration.append({"split":t.split('/')[-1], "duration":duration_split}, ignore_index=True)
             print("> Durée :", duration_split)
             duration.to_csv(os.path.join(cv, "duration.csv"), index=False)
 
@@ -45,8 +45,10 @@ def calculate_duration(cv):
 def generate_split(cv, source_split, duration):
 
     durations = pd.read_csv(os.path.join(cv, "duration.csv"))
-    ind = durations[durations["split"].apply(lambda x : x.split("/")[-1]) == source_split].index[0]
-    total_duration = durations.iloc[ind]["duration"]
+    # ind = durations[durations["split"].apply(lambda x : x.split("/")[-1]) == source_split].index[0]
+    # total_duration = durations.iloc[ind]["duration"]
+
+    total_duration = durations[durations["split"] == source_split]["duration"]
 
     print(duration)
     print(total_duration)
