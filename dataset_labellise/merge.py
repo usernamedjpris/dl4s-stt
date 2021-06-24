@@ -42,6 +42,12 @@ def process_wp1(path, contrib_to_remove):
     # Harmonisation nom des colonnes avec CV
     wp1 = wp1[["file", "transcription", "duration", "category", "topic"]]
     wp1["path"] = wp1["file"].apply(lambda x : x.replace(" ", "_"))
+
+    for index, row in wp1.iterrows():
+        if not os.path.isfile(os.join(path, row["path"])):
+            wp1.drop(index, inplace=True)
+            print("> File not present", row["path"])
+        
     wp1["path"] = wp1["path"].apply(lambda x : os.path.join("wp1", x))
     wp1["sentence"] = wp1["transcription"]
     wp1 = wp1.drop(["file", 'transcription'], axis=1)
@@ -122,17 +128,8 @@ def generate_tsv(args):
 
     # Import et split du dataset WP1
     wp1 = process_wp1(args.wp1, CONTRIB_TO_REMOVE)
-
-    for index, row in wp1.iterrows():
-        if not os.path.isfile(row["path"]):
-            wp1.drop(index, inplace=True)
-            print("> Remove", row["path"])
-        
-
     wp1_test_sample = test_sample_wp1(wp1, args.target_duration)
     wp1_train_sample = train_sample_wp1(wp1, wp1_test_sample)
-
-
 
     # Import des splits du dataset commonvoice
     train_path = os.path.join(args.cv, "train.tsv")
