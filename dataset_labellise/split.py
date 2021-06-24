@@ -12,7 +12,9 @@ def calculate_duration(cv):
 
     duration = pd.DataFrame(["split", "duration"])
 
-    tsv = glob.glob(os.path.join(cv, "*.tsv"))
+    tsv = ["other.tsv", "test.tsv", "train.tsv", "dev.tsv"]
+    tsv = [os.path.join(cv, t) for t in tsv]
+    # tsv = glob.glob(os.path.join(cv, "*.tsv"))
     all_split_size = 0.0
     for t in tsv:
         total_size = 0.0
@@ -32,6 +34,8 @@ def calculate_duration(cv):
 
             duration.append({"split":t, "duration":duration_split}, ignore_index=True)
             print("> Durée :", duration_split)
+            duration.to_csv(os.path.join(cv, "duration.csv"), index=False)
+
 
     # écrire dans un fichier de meta data
     print('> Saving duration')
