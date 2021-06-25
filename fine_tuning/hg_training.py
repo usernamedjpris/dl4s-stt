@@ -97,7 +97,7 @@ def main(args):
 
     if os.path.isdir(os.path.join(args.output_dir, finetune_str)):
         print("> Un dossier existe déjà pour ce dataset d'entraînement !")
-        input("> Appuyez sur <>ENTER<> pour lancer l'entraînement et écraser les checkpoints. \n")
+        # input("> Appuyez sur <>ENTER<> pour lancer l'entraînement et écraser les checkpoints. \n")
     else :
         os.mkdir(os.path.join(args.output_dir, finetune_str))
 
