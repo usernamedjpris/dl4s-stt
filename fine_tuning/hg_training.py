@@ -113,6 +113,7 @@ def main(args):
 
     print("\n\n")
 
+    input("####FIN DU TEST########")
     model = Wav2Vec2ForCTC.from_pretrained(
         model_str, 
         attention_dropout=0.1,

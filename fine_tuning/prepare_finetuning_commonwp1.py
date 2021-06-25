@@ -7,8 +7,9 @@ import pandas as pd
 from datasets import Dataset
 from transformers import Wav2Vec2Processor
 
-def import_dataset_from_tsv(split):
+def import_dataset_from_tsv(split, cv):
     df = pd.read_csv(split, "\t")
+    df["path"] = df["path"].apply(lambda x : os.path.join(os.path.join(cv, "clips"), x))
     dataset = Dataset.from_pandas(df)
     return dataset
 
@@ -94,8 +95,8 @@ def load_audio_from_dataset(dataset):
     return dataset
 
 def data_preparation(args):
-    train = import_dataset_from_tsv(args.train)
-    valid = import_dataset_from_tsv(args.valid)
+    train = import_dataset_from_tsv(args.train, args.cv)
+    valid = import_dataset_from_tsv(args.valid, args.cv)
 
     # Cleaning
     train = clean_dataset(train)
