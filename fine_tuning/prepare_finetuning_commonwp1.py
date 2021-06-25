@@ -63,7 +63,7 @@ def load_processor(args, train, valid):
     out = os.path.join(args.output_dir, finetune_str)
     global processor
 
-    if not os.path.idsir(os.path.join(out, "processor")):
+    if not os.path.isdir(os.path.join(out, "processor")):
         from transformers import Wav2Vec2CTCTokenizer, Wav2Vec2FeatureExtractor
 
         print("> Generating vocab file")
