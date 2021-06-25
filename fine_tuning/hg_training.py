@@ -107,7 +107,6 @@ def main(args):
 
     model_str = "facebook/wav2vec2-base" if args.model == "base" else "facebook/wav2vec2-large-xlsr-53"
 
-
     print(">> Starting fine-tuning on model " + model_str )
     print(">> Training dataset :", args.train.split("/")[-1])
     print(">> Validation dataset :", args.valid.split("/")[-1])
@@ -174,7 +173,7 @@ if __name__ == "__main__":
 
     parser = argparse.ArgumentParser()
 
-    parser.add_argument("t", "--train", default=None, type=str,
+    parser.add_argument("-t", "--train", default=None, type=str,
                         required=True, help="Train data tracker csv")
     parser.add_argument("-v", "--valid", default=None, type=str,
                         required=True, help="Valid data tracker csv")
