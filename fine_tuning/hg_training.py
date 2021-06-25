@@ -92,7 +92,8 @@ def compute_metrics(pred):
 
 def main(args):
 
-    finetune_str = args.train.split("/")[-1].split(".")[0].split("_")[-1]
+    finetune_str = args.train.split(".")[0].split("_")[-1]
+    # finetune_str = args.train.split("/")[-1].split(".")[0].split("_")[-1]
 
     if os.path.isdir(os.path.join(args.output_dir, finetune_str)):
         print("> Un dossier existe déjà pour ce dataset d'entraînement !")
@@ -108,8 +109,8 @@ def main(args):
     model_str = "facebook/wav2vec2-base" if args.model == "base" else "facebook/wav2vec2-large-xlsr-53"
 
     print(">> Starting fine-tuning on model " + model_str )
-    print(">> Training dataset :", args.train.split("/")[-1])
-    print(">> Validation dataset :", args.valid.split("/")[-1])
+    print(">> Training dataset :", args.train)
+    print(">> Validation dataset :", args.valid)
 
     print("\n\n")
 
@@ -174,6 +175,8 @@ if __name__ == "__main__":
 
     parser = argparse.ArgumentParser()
 
+    parser.add_argument("--cv", default=None, type=str,
+                        required=True, help="Path vers le dossier commonvoice")
     parser.add_argument("-t", "--train", default=None, type=str,
                         required=True, help="Train data tracker csv")
     parser.add_argument("-v", "--valid", default=None, type=str,

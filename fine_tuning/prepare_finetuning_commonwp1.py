@@ -8,7 +8,7 @@ from datasets import Dataset
 from transformers import Wav2Vec2Processor
 
 def import_dataset_from_tsv(split, cv):
-    df = pd.read_csv(split, "\t")
+    df = pd.read_csv(os.path.join(cv, split), "\t")
     df["path"] = df["path"].apply(lambda x : os.path.join(os.path.join(cv, "clips"), x))
     dataset = Dataset.from_pandas(df)
     return dataset
@@ -58,7 +58,8 @@ def gen_vocab(train, valid):
 def load_processor(args, train, valid):
 
     # nécéssaire pour les fonctions utilisées via "map"
-    finetune_str = args.train.split("/")[-1].split(".")[0].split("_")[-1]
+    # finetune_str = args.train.split("/")[-1].split(".")[0].split("_")[-1]
+    finetune_str = args.train.split(".")[0].split("_")[-1]
     out = os.path.join(args.output_dir, finetune_str)
     global processor
 
