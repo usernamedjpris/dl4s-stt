@@ -14,7 +14,7 @@ def import_dataset_from_tsv(split, cv):
     return dataset
 
 def extract_all_chars(batch):
-    all_text = " ".join(batch["text"])
+    all_text = " ".join(batch["sentence"])
     vocab = list(set(all_text))
     return {"vocab": [vocab], "all_text": [all_text]}
 
@@ -39,7 +39,7 @@ def prepare_dataset(batch):
     
     return batch
 
-def gen_vocab(train, valid):
+def gen_vocab(train, valid, out):
     vocab_train = train.map(extract_all_chars, batched=True, batch_size=-1, keep_in_memory=True, remove_columns=train.column_names)
     vocab_valid = valid.map(extract_all_chars, batched=True, batch_size=-1, keep_in_memory=True, remove_columns=valid.column_names)
     vocab_list = list(set(vocab_train["vocab"][0]) | set(vocab_valid["vocab"][0]))
@@ -49,7 +49,7 @@ def gen_vocab(train, valid):
     vocab_dict["[UNK]"] = len(vocab_dict)
     vocab_dict["[PAD]"] = len(vocab_dict)
 
-    vocab_path = "######"
+    vocab_path = os.path.join(out, "vocab.json")
     with open(vocab_path, 'w') as vocab_file:
         json.dump(vocab_dict, vocab_file)
 
@@ -67,7 +67,7 @@ def load_processor(args, train, valid):
         from transformers import Wav2Vec2CTCTokenizer, Wav2Vec2FeatureExtractor
 
         print("> Generating vocab file")
-        vocab_path = gen_vocab(train, valid)
+        vocab_path = gen_vocab(train, valid, out)
         print(">", vocab_path)
 
         print(">> Creating processor from vocab file")
