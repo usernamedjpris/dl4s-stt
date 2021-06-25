@@ -108,13 +108,14 @@ def main(args):
 
     model_str = "facebook/wav2vec2-base" if args.model == "base" else "facebook/wav2vec2-large-xlsr-53"
 
-    print(">> Starting fine-tuning on model " + model_str )
+    print("> Starting fine-tuning on model " + model_str )
     print(">> Training dataset :", args.train)
     print(">> Validation dataset :", args.valid)
 
     print("\n\n")
 
-    input("####FIN DU TEST########")
+    # input("####FIN DU TEST########")
+    print(">> Loading model")
     model = Wav2Vec2ForCTC.from_pretrained(
         model_str, 
         attention_dropout=0.1,
@@ -135,7 +136,7 @@ def main(args):
     training_args = TrainingArguments(
         output_dir=os.path.join(args.output_dir, finetune_str),
         group_by_length=True,
-        per_device_train_batch_size=8,
+        per_device_train_batch_size=16,
         gradient_accumulation_steps=2,
         evaluation_strategy="steps",
         num_train_epochs=1000,
@@ -162,6 +163,8 @@ def main(args):
     )
 
     checkpoint = args.checkpoint
+    
+    print(">> Start training model")
 
     # BUG : Memory error à l'import du checkpoint
     if checkpoint :
