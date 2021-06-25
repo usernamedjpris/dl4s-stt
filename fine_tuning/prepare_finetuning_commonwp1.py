@@ -103,12 +103,12 @@ def data_preparation(args):
     train = clean_dataset(train)
     valid = clean_dataset(valid)
 
+    # Chargement/Création du processeur
+    processor = load_processor(args, train ,valid)
+
     # Chargement des fichiers audios en vecteurs
     train = load_audio_from_dataset(train)
     valid = load_audio_from_dataset(valid)
-
-    # Chargement/Création du processeur
-    processor = load_processor(args, train ,valid)
 
     # Encodage des transcriptions
     train = train.map(prepare_dataset, 
