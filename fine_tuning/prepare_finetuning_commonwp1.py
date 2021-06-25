@@ -68,7 +68,7 @@ def load_processor(args, train, valid):
 
         print("> Generating vocab file")
         vocab_path = gen_vocab(train, valid, out)
-        print(">", vocab_path)
+        print("> Vocab :", vocab_path)
 
         print(">> Creating processor from vocab file")
 
@@ -96,21 +96,26 @@ def load_audio_from_dataset(dataset):
     return dataset
 
 def data_preparation(args):
+    print("> Import dataset from tsv")
     train = import_dataset_from_tsv(args.train, args.cv)
     valid = import_dataset_from_tsv(args.valid, args.cv)
 
     # Cleaning
+    print("> Cleaning")
     train = clean_dataset(train)
     valid = clean_dataset(valid)
 
     # Chargement/Création du processeur
+    print("> Load processor")
     processor = load_processor(args, train ,valid)
 
     # Chargement des fichiers audios en vecteurs
+    print("> Load audio from dataset")
     train = load_audio_from_dataset(train)
     valid = load_audio_from_dataset(valid)
 
     # Encodage des transcriptions
+    print("> Prepare dataset")
     train = train.map(prepare_dataset, 
                 remove_columns=train.column_names, 
                 batch_size=8,
