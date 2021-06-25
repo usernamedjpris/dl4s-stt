@@ -112,12 +112,11 @@ def main(args):
     print(">> Training dataset :", args.train)
     print(">> Validation dataset :", args.valid)
 
-    print("\n\n")
 
     # input("####FIN DU TEST########")
     print(">> Loading model")
     model = Wav2Vec2ForCTC.from_pretrained(
-        model_str, 
+        args.base, 
         attention_dropout=0.1,
         hidden_dropout=0.1,
         feat_proj_dropout=0.0,
@@ -163,7 +162,7 @@ def main(args):
     )
 
     checkpoint = args.checkpoint
-    
+
     print(">> Start training model")
 
     # BUG : Memory error à l'import du checkpoint
@@ -180,6 +179,8 @@ if __name__ == "__main__":
 
     parser.add_argument("--cv", default=None, type=str,
                         required=True, help="Path vers le dossier commonvoice")
+    parser.add_argument("-b", "--base", default=None, type=str,
+                        required=True, help="Path vers le modèle pré entrainé")
     parser.add_argument("-t", "--train", default=None, type=str,
                         required=True, help="Train data tracker csv")
     parser.add_argument("-v", "--valid", default=None, type=str,
