@@ -12,6 +12,13 @@ from transformers import Wav2Vec2Processor, Wav2Vec2ForCTC, \
 from datasets import load_metric
 
 from prepare_finetuning_commonwp1 import data_preparation
+
+# Test solution à cuda out of memory error
+import gc
+
+gc.collect()
+
+torch.cuda.empty_cache()
 @dataclass
 class DataCollatorCTCWithPadding:
     """
