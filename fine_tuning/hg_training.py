@@ -58,6 +58,7 @@ class DataCollatorCTCWithPadding:
             pad_to_multiple_of=self.pad_to_multiple_of,
             return_tensors="pt",
         )
+
         with self.processor.as_target_processor():
             labels_batch = self.processor.pad(
                 label_features,
@@ -135,7 +136,7 @@ def main(args):
     training_args = TrainingArguments(
         output_dir=os.path.join(args.output_dir, finetune_str),
         group_by_length=True,
-        per_device_train_batch_size=16,
+        per_device_train_batch_size=8,
         gradient_accumulation_steps=2,
         evaluation_strategy="steps",
         num_train_epochs=1000,
