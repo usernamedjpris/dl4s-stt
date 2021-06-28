@@ -143,7 +143,7 @@ def main(args):
     training_args = TrainingArguments(
         output_dir=os.path.join(args.output_dir, finetune_str),
         group_by_length=True,
-        per_device_train_batch_size=8,
+        per_device_train_batch_size=args.batch,
         gradient_accumulation_steps=2,
         evaluation_strategy="steps",
         num_train_epochs=50,
@@ -195,6 +195,8 @@ if __name__ == "__main__":
                         required=True, help="Valid data tracker csv")
     parser.add_argument("-o", "--output_dir", default=None, type=str,
                         required=True, help="Output dir")
+    parser.add_argument("--batch", default=8, type=int,
+                        required=True, help="Batch size par GPU")
                         
     parser.add_argument("-m", "--model", default="xlsr", type=str,
                         required=False, help="Pretrained model (base / xlsr)")
