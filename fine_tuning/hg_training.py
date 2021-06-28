@@ -139,7 +139,7 @@ def main(args):
         per_device_train_batch_size=8,
         gradient_accumulation_steps=2,
         evaluation_strategy="steps",
-        num_train_epochs=1000,
+        num_train_epochs=50,
         fp16=True,
         save_strategy = "steps",
         save_steps=400,
