@@ -4,48 +4,6 @@ from subprocess import run
 import os
 from collections import Counter
 
-# def delete_untracked(data):
-#     files_absolute = glob.glob("data/WP1/*.wav")
-#     files_relative = [f.split("/")[-1] for f in files_absolute]
-#     count = 0
-#     run(f'rm -f data/WP1/*ARNAUD*', shell=True)
-#     for i in range(len(files_relative)):
-#         if files_relative[i] not in data["file"].to_list():
-#             run(f'rm -f {files_absolute[i]}', shell=True)
-#             count += 1
-#     print(count)
-
-def gen_trans(data):
-    with open('data/transcript.txt', "w") as trans:
-        for index, row in data.iterrows():
-            texts = row["file"].split(".wav")[0] + " " + row["transcription"]
-            print(texts, file=trans)
-    
-    
-def gen_dict():     
-    save_dir = "data/"
-    transcript_file = "data/transcript.txt"
-    
-    dictionary = os.path.join(save_dir,'dict.ltr.txt')
-    
-    
-    with open(transcript_file) as f:
-        data = f.read().splitlines()
-        
-    words = [d.split(' ')[1].upper() for d in data]
-    
-    letters = [d.replace(' ','|') for d in words]
-    letters = [' '.join(list(d)) + ' |' for d in letters]
-
-    chars = [l.split() for l in letters]
-    chars = [j for i in chars for j in i]
-   
-    char_stats = list(Counter(chars).items())
-    char_stats = sorted(char_stats, key=lambda x : x[1], reverse = True)
-    char_stats = [c[0] + ' ' + str(c[1]) for c in char_stats]
-    
-    with open(dictionary,'w') as f:
-        f.write('\n'.join(char_stats))
 
     
 def main():
