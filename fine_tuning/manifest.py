@@ -9,13 +9,16 @@ def get_parser():
     
     parser = argparse.ArgumentParser()
 
-    parser.add_argument("--train", default=None, type=str,
+    parser.add_argument("-c", "--cv", default=None, type=str,
+                        required=True, help="Path vers le dossier commonvoice")
+    parser.add_argument("-t", "--train", default=None, type=str,
                         required=True, help="Path vers le split de train (tsv)")
-    parser.add_argument("--valid", default=None, type=str,
+    parser.add_argument("-v", "--valid", default=None, type=str,
                         required=True, help="Path vers le split de valid (tsv)")
-    parser.add_argument("--fairseq", default=None, type=str,
+    parser.add_argument("-f", "--fairseq", default=None, type=str,
                         required=True, help="Path vers le dossier fairseq")
-
+    parser.add_argument("-o", "output_dir", default=None, type=str,
+                        required=True, help="Path vers le dossier des logs")
     return parser
 
 def generate_manifest(split, output):
