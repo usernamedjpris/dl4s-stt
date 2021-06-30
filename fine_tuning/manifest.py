@@ -22,6 +22,7 @@ def get_parser():
     return parser
 
 def generate_manifest(split, cv, output):
+    print("> Generate manifest for split ", split)
     df = pd.read_csv(os.path.join(cv, split), "\t")
     root_path = args.path.join(split.split("/")[0], "clips") # clips folder dans le dataset
     with open(output, "w") as split_f:
@@ -30,6 +31,7 @@ def generate_manifest(split, cv, output):
             path = row["path"]
             frames = soundfile.info(path).frames
             print(f"{path}\t{frames}", file=split_f)
+    print("> Done!")
     
 def main(args):
     run_id = args.train.split("_")[-1] # Nombre d'heure dans le split
