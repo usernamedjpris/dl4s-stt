@@ -17,7 +17,7 @@ def get_parser():
                         required=True, help="Path vers le split de valid (tsv)")
     parser.add_argument("-f", "--fairseq", default=None, type=str,
                         required=True, help="Path vers le dossier fairseq")
-    parser.add_argument("-o", "output_dir", default=None, type=str,
+    parser.add_argument("-o", "--output_dir", default=None, type=str,
                         required=True, help="Path vers le dossier des logs")
     return parser
 
@@ -32,7 +32,7 @@ def generate_manifest(split, cv, output):
             frames = soundfile.info(path).frames
             print(f"{path}\t{frames}", file=split_f)
     print("> Done!")
-    
+
 def main(args):
     run_id = args.train.split("_")[-1] # Nombre d'heure dans le split
     output_dir = os.path.join(args.log_dir, f'pretraining_{run_id}' )
