@@ -40,8 +40,8 @@ def main(args):
     if not os.path.isdir(output_dir):
         os.mkdir(output_dir)
 
-    generate_manifest(args.train, args.c, os.path.join(output_dir, "train.tsv"))
-    generate_manifest(args.valid, args.c, os.path.join(output_dir, "valid.tsv"))
+    generate_manifest(args.train, args.cv, os.path.join(output_dir, "train.tsv"))
+    generate_manifest(args.valid, args.cv, os.path.join(output_dir, "valid.tsv"))
 
 if __name__ == "__main__":
 
