@@ -9,7 +9,7 @@
 
 #SBATCH --time=10:00:00             # temps d execution maximum demande (HH:MM:SS)
 #SBATCH --output=pretraining.out          # nom du fichier de sortie
-#SBATCH --error=pretraining.out           # nom du fichier d'erreur (ici en commun avec la sortie)
+#SBATCH --error=pretraining.err           # nom du fichier d'erreur (ici en commun avec la sortie)
 #SBATCH -A sbg@gpu
 
 MODULE_ENV="anaconda-py3"

@@ -36,7 +36,7 @@ def generate_manifest(split, cv, output):
     print("> Done!")
 
 def main(args):
-    run_id = args.train.split("_")[-1] # Nombre d'heure dans le split
+    run_id = args.train.split("_")[-1].split(".")[0] # Nombre d'heure dans le split
     output_dir = os.path.join(args.log_dir, f'pretraining_{run_id}' )
 
     if not os.path.isdir(output_dir):
