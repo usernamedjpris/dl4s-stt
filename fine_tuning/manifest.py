@@ -4,6 +4,7 @@ import argparse
 import os
 from shutil import copyfile
 import soundfile
+from tqdm import tqdm
 
 def get_parser():
     
@@ -27,7 +28,7 @@ def generate_manifest(split, cv, output):
     root_path = os.path.join(cv, "clips") # clips folder dans le dataset
     with open(output, "w") as split_f:
         print(root_path, file=split_f)
-        for index, row in df.iterrows() :
+        for index, row in tqdm(df.iterrows()) :
             path = os.path.join(root_path, row["path"])
             frames = soundfile.info(path).frames
             print(f"{path}\t{frames}", file=split_f)
