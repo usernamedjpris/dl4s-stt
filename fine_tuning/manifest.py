@@ -28,7 +28,7 @@ def generate_manifest(split, cv, output):
     with open(output, "w") as split_f:
         print(root_path, file=split_f)
         for index, row in df.iterrows() :
-            path = row["path"]
+            path = os.path.join(root_path, row["path"])
             frames = soundfile.info(path).frames
             print(f"{path}\t{frames}", file=split_f)
     print("> Done!")
