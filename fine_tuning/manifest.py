@@ -21,8 +21,8 @@ def get_parser():
                         required=True, help="Path vers le dossier des logs")
     return parser
 
-def generate_manifest(split, output):
-    df = pd.read_csv(split, "\t")
+def generate_manifest(split, cv, output):
+    df = pd.read_csv(os.path.join(cv, split), "\t")
     root_path = args.path.join(split.split("/")[0], "clips") # clips folder dans le dataset
     with open(output, "w") as split_f:
         print(root_path, file=split_f)
@@ -38,8 +38,8 @@ def main(args):
     if not os.path.isdir(output_dir):
         os.mkdir(output_dir)
 
-    generate_manifest(args.train, os.path.join(output_dir, "train.tsv"))
-    generate_manifest(args.valid, os.path.join(output_dir, "valid.tsv"))
+    generate_manifest(args.train, args.c, os.path.join(output_dir, "train.tsv"))
+    generate_manifest(args.valid, args.c, os.path.join(output_dir, "valid.tsv"))
 
 if __name__ == "__main__":
 
