@@ -17,7 +17,7 @@ def get_parser():
                         required=True, help="Path vers le split de valid (tsv)")
     parser.add_argument("-f", "--fairseq", default=None, type=str,
                         required=True, help="Path vers le dossier fairseq")
-    parser.add_argument("-o", "--output_dir", default=None, type=str,
+    parser.add_argument("-o", "--log_dir", default=None, type=str,
                         required=True, help="Path vers le dossier des logs")
     return parser
 
