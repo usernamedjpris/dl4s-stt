@@ -24,7 +24,7 @@ def get_parser():
 def generate_manifest(split, cv, output):
     print("> Generate manifest for split ", split)
     df = pd.read_csv(os.path.join(cv, split), "\t")
-    root_path = args.path.join(split.split("/")[0], "clips") # clips folder dans le dataset
+    root_path = os.path.join(cv, "clips") # clips folder dans le dataset
     with open(output, "w") as split_f:
         print(root_path, file=split_f)
         for index, row in df.iterrows() :
