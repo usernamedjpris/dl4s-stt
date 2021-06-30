@@ -29,9 +29,10 @@ def generate_manifest(split, cv, output):
     with open(output, "w") as split_f:
         print(root_path, file=split_f)
         for index, row in tqdm(df.iterrows()) :
-            path = os.path.join(root_path, row["path"])
-            frames = soundfile.info(path).frames
-            print(f"{row["path"]}\t{frames}", file=split_f)
+            abs_path = os.path.join(root_path, row["path"])
+            rel_path = row["path"]
+            frames = soundfile.info(abs_path).frames
+            print(f"{rel_path}\t{frames}", file=split_f)
     print("> Done!")
 
 def main(args):
