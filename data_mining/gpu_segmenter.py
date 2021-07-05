@@ -64,7 +64,7 @@ if __name__ == "__main__":
                         required=True, help="Chemin de sauvegarde des fichiers audios")    
     parser.add_argument("-o", "--output_dir", default=None, type=str,
                         required=True, help="Chemin de sauvegarde des segments")
-    parser.add_argument("-b", "--batch_size", default=None, type=str,
+    parser.add_argument("-b", "--batch_size", default=None, type=int,
                         required=True, help="Chemin de sauvegarde des segments")
     
     args = parser.parse_args()
