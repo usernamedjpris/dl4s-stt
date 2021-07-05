@@ -47,7 +47,7 @@ def main(args):
     # Segmentation et enregistrement des résulats dans un
     # csv par fichier traité
     # Traitement par batch automatique avec inaSpeechSegmenter
-    wav = glob.glob(args.clips)
+    wav = glob.glob(os.path.join(args.clips), "*.wav")
     # for index, row in tracker.iterrows():
     #     yt_id = row["url"][-11:]
     #     filename = os.path.join(input_dir, yt_id + ".wav")
