@@ -47,11 +47,12 @@ def main(args):
     # Segmentation et enregistrement des résulats dans un
     # csv par fichier traité
     # Traitement par batch automatique avec inaSpeechSegmenter
-    wav = glob.glob(os.path.join(args.clips, "*.wav"))
+    # wav = glob.glob(os.path.join(args.clips, "*.wav"))
     # for index, row in tracker.iterrows():
     #     yt_id = row["url"][-11:]
     #     filename = os.path.join(input_dir, yt_id + ".wav")
     #     wav.append(filename)
+    wav = pd.read_csv(args.split)['path'].to_list()
         
     segmentation_inaspeech(wav, args.output_dir, args.batch_size)
     
@@ -61,7 +62,9 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
 
     parser.add_argument("-c", "--clips", default=None, type=str,
-                        required=True, help="Chemin de sauvegarde des fichiers audios")    
+                        required=True, help="Chemin de sauvegarde des fichiers audios")
+    parser.add_argument("-s", "--split", default=None, type=str,
+                        required=True, help="csv du split")    
     parser.add_argument("-o", "--output_dir", default=None, type=str,
                         required=True, help="Chemin de sauvegarde des segments")
     parser.add_argument("-b", "--batch_size", default=None, type=int,
