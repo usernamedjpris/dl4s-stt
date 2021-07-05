@@ -53,7 +53,8 @@ def main(args):
     #     filename = os.path.join(input_dir, yt_id + ".wav")
     #     wav.append(filename)
     wav = pd.read_csv(args.split)['path'].apply(lambda x : os.path.join(args.clips, x)).to_list()
-    wav = [w for w in real_wav if w in wav]
+    segmented = [f.split("/")[-1][:-4] for f in glob.glob(args.output_dir)]
+    wav = [w for w in real_wav if w in wav and w.split("/")[-1][:-4] not in segmented]
     print(wav)
     segmentation_inaspeech(wav, args.output_dir, args.batch_size)
     
