@@ -3,6 +3,8 @@
 #SBATCH --partition=gpu_p2
 #SBATCH --nodes=1                   # nombre de noeuds
 #SBATCH --ntasks-per-node=1         # nombre de taches MPI par noeud
+#SBATCH --ntasks=8         # nombre de taches MPI par noeud
+
 #SBATCH --gres=gpu:1         
 #SBATCH --cpus-per-task=1
 #SBATCH --hint=nomultithread         # nombre de taches MPI par noeud
@@ -11,6 +13,8 @@
 #SBATCH --output=pretraining.out          # nom du fichier de sortie
 #SBATCH --error=pretraining.err           # nom du fichier d'erreur (ici en commun avec la sortie)
 #SBATCH -A sbg@gpu
+
+
 
 MODULE_ENV="anaconda-py3"
 RUN_DIR="$ALL_CCFRWORK/STT/dl4s-stt/fine_tuning"
