@@ -47,13 +47,14 @@ def main(args):
     # Segmentation et enregistrement des résulats dans un
     # csv par fichier traité
     # Traitement par batch automatique avec inaSpeechSegmenter
-    # wav = glob.glob(os.path.join(args.clips, "*.wav"))
+    real_wav = glob.glob(os.path.join(args.clips, "*.wav"))
     # for index, row in tracker.iterrows():
     #     yt_id = row["url"][-11:]
     #     filename = os.path.join(input_dir, yt_id + ".wav")
     #     wav.append(filename)
-    wav = pd.read_csv(args.split)['path'].to_list()
-        
+    wav = pd.read_csv(args.split)['path'].apply(lambda x : os.path.join(args.clips, x)).to_list()
+    wav = [w for w in real_wav if w in wav]
+    print(wav)
     segmentation_inaspeech(wav, args.output_dir, args.batch_size)
     
 
