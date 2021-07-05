@@ -6,11 +6,6 @@
     Python Version: 3.7
 '''
 
-from vad import *
-import wave
-from pathlib import Path
-from tqdm import tqdm
-import numpy as np
 import pandas as pd
 import glob
 import os
