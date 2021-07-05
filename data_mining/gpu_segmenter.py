@@ -14,7 +14,7 @@ from subprocess import run
 from inaSpeechSegmenter import Segmenter, seg2csv
 
 
-def segmentation_inaspeech(input_files, output_dir):
+def segmentation_inaspeech(input_files, output_dir, batch_size):
     """ Segmentation d'une liste de fichier par le modèle inaSpeechSegmenter (CNN)
     et enregistrement des résultats dans des fichiers csv du même nom que les 
     fichiers traités.
@@ -26,7 +26,7 @@ def segmentation_inaspeech(input_files, output_dir):
     """
     base = [os.path.splitext(os.path.basename(e))[0] for e in input_files]
     output_files = [os.path.join(output_dir, e + '.csv') for e in base]
-    seg = Segmenter("smn", False, 'ffmpeg', batch_size=1)
+    seg = Segmenter("smn", False, 'ffmpeg', batch_size=batch_size)
     seg.batch_process(input_files, output_files, verbose=True)
 
 
@@ -53,7 +53,7 @@ def main(args):
     #     filename = os.path.join(input_dir, yt_id + ".wav")
     #     wav.append(filename)
         
-    segmentation_inaspeech(wav, args.output_dir)
+    segmentation_inaspeech(wav, args.output_dir, args.batch_size)
     
 
 if __name__ == "__main__":    
@@ -63,6 +63,8 @@ if __name__ == "__main__":
     parser.add_argument("-c", "--clips", default=None, type=str,
                         required=True, help="Chemin de sauvegarde des fichiers audios")    
     parser.add_argument("-o", "--output_dir", default=None, type=str,
+                        required=True, help="Chemin de sauvegarde des segments")
+    parser.add_argument("-b", "--batch_size", default=None, type=str,
                         required=True, help="Chemin de sauvegarde des segments")
     
     args = parser.parse_args()
