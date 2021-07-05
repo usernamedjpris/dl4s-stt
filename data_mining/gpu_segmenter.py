@@ -26,7 +26,7 @@ def segmentation_inaspeech(input_files, output_dir):
     """
     base = [os.path.splitext(os.path.basename(e))[0] for e in input_files]
     output_files = [os.path.join(output_dir, e + '.csv') for e in base]
-    seg = Segmenter("smn", False, 'ffmpeg')
+    seg = Segmenter("smn", False, 'ffmpeg', batch_size=1)
     seg.batch_process(input_files, output_files, verbose=True)
 
 
