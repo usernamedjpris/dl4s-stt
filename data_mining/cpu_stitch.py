@@ -82,7 +82,8 @@ def main(args):
         # Import du résultat de la segmentation à partir du nom du fichier wav
         csv = filename.split("/")[-1][:-3] + 'csv'
         segments = pd.read_csv(os.path.join(args.segment_dir, csv), '\t')
-
+        print(segments)
+        
         # Sélection uniquement des segments voisés trouvés par InaSpeech
         segments = segments[segments["labels"] == "speech"].reset_index()
 
