@@ -22,6 +22,7 @@ def stitch(filename, segments, output_dir):
 
     yt_id = filename.split('.')[0].split("/")[-1]
 
+
     trg_len = 30
     count = 0
     to_stitch = []
@@ -89,7 +90,7 @@ def main(args):
         segments["len"] = segments["stop"] - segments["start"]
 
         # Harmonisation
-        # stitch(filename, segments, args.output_dir)
+        stitch(filename, segments, args.segment_dir[:-1])
 
         # Suppression du fichier source
         # run(f'rm -f {filename}', shell=True)
@@ -108,8 +109,8 @@ if __name__ == "__main__":
                         required=True, help="Fichier csv de la partie traité (1-4)")
     parser.add_argument("-s", "--segment_dir", default=None, type=str,
                         required=True, help="Chemin de sauvegarde des segments")  
-    parser.add_argument("-o", "--output_dir", default=None, type=str,
-                        required=True, help="Chemin de sauvegarde des segments")
+    # parser.add_argument("-o", "--output_dir", default=None, type=str,
+                        # required=True, help="Chemin de sauvegarde des segments")
 
 
     
