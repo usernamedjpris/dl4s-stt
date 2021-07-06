@@ -60,7 +60,7 @@ def get_wav(args):
     segmented = [f.split("/")[-1][:-4] for f in glob.glob(os.path.join(args.segment_dir, "*"))]
 
     # Filtrage pour avoir les wav restants à traiter
-    wav = [w for w in real_wav if w in wav and w.split("/")[-1][:-4] not in segmented]
+    wav = [w for w in real_wav if w in wav and w.split("/")[-1][:-4] in segmented]
 
     return wav
 
@@ -83,7 +83,7 @@ def main(args):
         csv = filename.split("/")[-1][:-3] + 'csv'
         segments = pd.read_csv(os.path.join(args.segment_dir, csv), '\t')
         print(segments)
-        
+
         # Sélection uniquement des segments voisés trouvés par InaSpeech
         segments = segments[segments["labels"] == "speech"].reset_index()
 
