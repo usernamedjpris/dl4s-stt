@@ -90,7 +90,8 @@ def main(args):
         segments["len"] = segments["stop"] - segments["start"]
 
         # Harmonisation
-        stitch(filename, segments, args.segment_dir[:-1])
+        output_dir = "/".join(args.segment_dir.split("/")[:-1])
+        stitch(filename, segments, os.path.join(output_dir, "clips"))
 
         # Suppression du fichier source
         # run(f'rm -f {filename}', shell=True)
