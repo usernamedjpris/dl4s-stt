@@ -31,25 +31,30 @@ def get_real_duration(args):
 def get_theoretical_duration(args):
 
     duration_sec = 0
+    old_duration = 0
     for i in ["1/*", "2/*", "3/*", "4/*"]:
         segs = glob.glob(os.path.join(args.segment_dir, i))
         for s in tqdm(segs):
             segments = pd.read_csv(s, "\t")
-            # Sélection uniquement des segments voisés trouvés par InaSpeech
-            segments = segments[segments["labels"] == "speech"].reset_index()
 
             # Ajout de la durées de segments au dataframe
             segments["len"] = segments["stop"] - segments["start"]
 
+            old_duration += segments["len"].sum()
+            # Sélection uniquement des segments voisés trouvés par InaSpeech
+            segments = segments[segments["labels"] == "speech"].reset_index()
+
             duration_sec += segments["len"].sum()
 
-    return duration_sec
+    return duration_sec, old_duration
 
 def main(args):
 
     if args.segment_dir:
-        theoretical_duration = get_theoretical_duration(args)
+        theoretical_duration, old_duration = get_theoretical_duration(args)
         print("Theoretical duration :", theoretical_duration / 3600, "h")
+        print("Before segmentation :", old_duration / 3600, "h")
+
 
     if args.clips:
         duration, nb_files = get_real_duration(args)
