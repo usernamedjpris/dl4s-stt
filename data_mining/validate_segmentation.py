@@ -83,7 +83,7 @@ def main_multi(args):
 
     duration = 0
     for i in range(args.process):
-        duration += sum(pd.read_csv(os.path.join(args.clips, f"duration_{i}.csv"), "\t")["duration"])
+        duration += sum(pd.read_csv(os.path.join(args.clips, f"duration_{i}.csv"), "\t")["duration"].dropna())
 
     with open(os.path.join(args.clips, "total_duration_h.txt"), "w") as total_duration:
         print(duration / 3600)
