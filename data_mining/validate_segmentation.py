@@ -40,17 +40,17 @@ def size_to_sec(size) :
     
 #     return sum([float(x) for x in c.split("\n") if len(x) > 0])
 
-def get_real_duration(args):
+# def get_real_duration(args):
 
-    fnames = glob.glob(os.path.join(args.clips, "*.wav"))
-    with open(os.path.join(args.clips, "duration.csv"), 'w') as durations:
-        print('path\tduration', file=durations)
-        for fname in tqdm(fnames):
-            cmd = 'ffprobe -i '+ fname +' -show_entries format=duration -v quiet -of csv="p=0"'
-            output  = run(cmd, shell=True, capture_output=True)
-            print(f"{fname}\t{output.stdout[:-2].decode('utf-8')}", file=durations) # -2 pour enlever "\n"
+#     fnames = glob.glob(os.path.join(args.clips, "*.wav"))
+#     with open(os.path.join(args.clips, "duration.csv"), 'w') as durations:
+#         print('path\tduration', file=durations)
+#         for fname in tqdm(fnames):
+#             cmd = 'ffprobe -i '+ fname +' -show_entries format=duration -v quiet -of csv="p=0"'
+#             output  = run(cmd, shell=True, capture_output=True)
+#             print(f"{fname}\t{output.stdout[:-2].decode('utf-8')}", file=durations) # -2 pour enlever "\n"
 
-    return os.path.join(args.clips, "duration.csv")
+#     return os.path.join(args.clips, "duration.csv")
 
 
 def get_real_duration(args, i, fnames):
