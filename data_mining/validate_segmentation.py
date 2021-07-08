@@ -1,6 +1,6 @@
 import glob
 import argparse
-import multiprocessing
+from multiprocessing import Process
 import os
 import pandas as pd
 from tqdm import tqdm
@@ -68,28 +68,30 @@ def main_multi(args):
     fnames = glob.glob(os.path.join(args.clips, "*.wav"))
 
     n = len(fnames)//args.process
-    # processes = []
-    # for i in range(args.process):
-    #     split = fnames[i*n:(i+1)*n]
-    #     p = Process(target=get_real_duration, args=(args, i, split))
-    #     processes.append(p)
-    #     p.start()
-
-    # for p in processes:
-    #     p.join()
-
-    pool = multiprocessing.Pool()
-    for i in range(2, 512):
+    processes = []
+    for i in range(args.process):
         split = fnames[i*n:(i+1)*n]
-        pool.apply_async(get_real_duration, args=(args, i, split))
-    pool.close()
-    pool.join()
+        p = Process(target=get_real_duration, args=(args, i, split))
+        processes.append(p)
+        p.start()
+
+    for p in processes:
+        p.join()
+
+    # pool = multiprocessing.Pool()
+    # for i in range(2, 512):
+    #     split = fnames[i*n:(i+1)*n]
+    #     pool.apply_async(get_real_duration, args=(args, i, split))
+    # pool.close()
+    # pool.join()
 
     duration = 0
     for i in range(args.process):
         duration += sum(pd.read_csv(os.path.join(args.clips, f"duration_{i}.csv"), "\t")["duration"])
 
-    print(duration / 3600)
+    with open(os.path.join(args.clips, "total_duration_h.txt"), "w") as total_duration:
+        print(duration / 3600)
+        print(duration / 3600, file=total_duration)
 
 def get_theoretical_duration(args):
 
