@@ -44,7 +44,7 @@ def get_real_duration(args):
 def get_real_duration(args):
 
     fnames = glob.glob(os.path.join(args.clips, "*.wav"))
-    with open(os.path.join(args.clips, "duration.csv"), 'r+') as durations:
+    with open(os.path.join(args.clips, "duration.csv"), 'w') as durations:
         print('path\tduration', file=durations)
         for fname in tqdm(fnames):
             cmd = 'ffprobe -i '+ fname +' -show_entries format=duration -v quiet -of csv="p=0"'
