@@ -34,7 +34,7 @@ def get_theoretical_duration(args):
     for i in ["1/*", "2/*", "3/*", "4/*"]:
         segs = glob.glob(os.path.join(args.segment_dir, i))
         for s in tqdm(segs):
-            segments = pd.read_cs(s, "\t")
+            segments = pd.read_csv(s, "\t")
             # Sélection uniquement des segments voisés trouvés par InaSpeech
             segments = segments[segments["labels"] == "speech"].reset_index()
 
