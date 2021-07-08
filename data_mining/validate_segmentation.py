@@ -1,34 +1,31 @@
 import glob
 import argparse
+import multiprocessing
 import os
 import pandas as pd
 from tqdm import tqdm
-import librosa
-from datasets import Dataset
 from subprocess import run
-from multiprocessing import Process
-import numpy as np
 
 def size_to_sec(size) :
     # Formule : bit depth * freq / bits / 8 * sec = size en bytes
     
     return size / (16 * 16000 / 1000000 / 8)
 
-def array_to_duration(batch):
-    audio_array, _ = librosa.load(batch["path"])
-    batch["duration"] = librosa.get_duration(audio_array)
-    return batch
+# def array_to_duration(batch):
+#     audio_array, _ = librosa.load(batch["path"])
+#     batch["duration"] = librosa.get_duration(audio_array)
+#     return batch
 
-def get_real_duration(args):
+# def get_real_duration(args):
 
-    wav = pd.DataFrame(columns=["path", "duration"])
-    wav["path"] =  glob.glob(os.path.join(args.clips, "*.wav"))
-    wav["duration"] = [0] * len(wav)
-    dataset = Dataset.from_pandas(wav)
+#     wav = pd.DataFrame(columns=["path", "duration"])
+#     wav["path"] =  glob.glob(os.path.join(args.clips, "*.wav"))
+#     wav["duration"] = [0] * len(wav)
+#     dataset = Dataset.from_pandas(wav)
 
-    dataset = dataset.map(array_to_duration, batched=True, batch_size=32)
+#     dataset = dataset.map(array_to_duration, batched=True, batch_size=32)
 
-    return sum(dataset["duration"]), len(wav)
+#     return sum(dataset["duration"]), len(wav)
 
 # def get_real_duration(args):
 #     cmd = 'for x in ' + os.path.join(args.clips, "*.wav") + \
@@ -71,15 +68,22 @@ def main_multi(args):
     fnames = glob.glob(os.path.join(args.clips, "*.wav"))
 
     n = len(fnames)//args.process
-    processes = []
-    for i in range(args.process):
-        split = fnames[i*n:(i+1)*n]
-        p = Process(target=get_real_duration, args=(args, i, split))
-        processes.append(p)
-        p.start()
+    # processes = []
+    # for i in range(args.process):
+    #     split = fnames[i*n:(i+1)*n]
+    #     p = Process(target=get_real_duration, args=(args, i, split))
+    #     processes.append(p)
+    #     p.start()
 
-    for p in processes:
-        p.join()
+    # for p in processes:
+    #     p.join()
+
+    pool = multiprocessing.Pool()
+    for i in range(2, 512):
+        split = fnames[i*n:(i+1)*n]
+        pool.apply_async(get_real_duration, args=(args, i, split))
+    pool.close()
+    pool.join()
 
     duration = 0
     for i in range(args.process):
