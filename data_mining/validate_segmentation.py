@@ -5,6 +5,7 @@ import pandas as pd
 from tqdm import tqdm
 import librosa
 from datasets import Dataset
+from subprocess import run
 
 def size_to_sec(size) :
     # Formule : bit depth * freq / bits / 8 * sec = size en bytes
@@ -27,6 +28,18 @@ def get_real_duration(args):
 
     return sum(dataset["duration"]), len(wav)
 
+def get_real_duration(args):
+    cmd = 'for x in ' + os.path.join(args.clips, "*.wav") + \
+    '; do ffprobe -i $x -show_entries format=duration -v quiet -of csv="p=0"; done > ' + \
+    os.path.join(args.clips, "duration.txt")
+
+    print(cmd)
+    run(cmd, shell=True)
+    
+    with open(os.path.join(args.clips, "duration.txt"), 'r') as durations:
+        c = durations.read()
+    
+    return sum([float(x) for x in c.split("\n") if len(x) > 0])
 
 def get_theoretical_duration(args):
 
@@ -57,9 +70,9 @@ def main(args):
 
 
     if args.clips:
-        duration, nb_files = get_real_duration(args)
-
-        print("Real duration :", duration / 3600, "h for", nb_files, "files")
+        duration = get_real_duration(args)
+        print(duration/3600)
+        # print("Real duration :", duration / 3600, "h for", nb_files, "files")
 
 if __name__ == "__main__":    
     parser = argparse.ArgumentParser()
