@@ -56,11 +56,16 @@ def get_wav(args):
     # Fichiers wav "théoriques" d'après le tracker
     wav = pd.read_csv(args.part)['path'].apply(lambda x : os.path.join(args.clips, x)).to_list()
 
-    # Fichiers déjà traités (segmentés)
+    # Fichiers déjà segmentés
     segmented = [f.split("/")[-1][:-4] for f in glob.glob(os.path.join(args.segment_dir, "*"))]
 
-    # Filtrage pour avoir les wav restants à traiter
-    wav = [w for w in real_wav if w in wav and w.split("/")[-1][:-4] in segmented]
+    # Fichiers déjàs stitchés
+    output_dir = "/".join(args.segment_dir.split("/")[:-1])
+    stitched_wav = glob.glob(os.path.join(output_dir, "clips/*"))
+    stitched = [f.split("/")[-1].split("_")[0] for f in stitched_wav]
+
+    # Filtrage pour avoir les wav restants à traiter (fichiers segmentés et pas stitchés)
+    wav = [w for w in real_wav if w in wav and w.split("/")[-1][:-4] in segmented and w.split("/")[-1][:-4] not in stitched]
 
     return wav
 
