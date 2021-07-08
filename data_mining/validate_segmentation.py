@@ -11,6 +11,8 @@ def size_to_sec(size) :
     
     return size / (16 * 16000 / 1000000 / 8)
 
+# exemples pour oral de stage à garder
+
 # def array_to_duration(batch):
 #     audio_array, _ = librosa.load(batch["path"])
 #     batch["duration"] = librosa.get_duration(audio_array)
@@ -65,25 +67,19 @@ def get_real_duration(args, i, fnames):
 
 
 def main_multi(args):
-    fnames = glob.glob(os.path.join(args.clips, "*.wav"))
+    # fnames = glob.glob(os.path.join(args.clips, "*.wav"))
 
-    n = len(fnames)//args.process
-    processes = []
-    for i in range(args.process):
-        split = fnames[i*n:(i+1)*n]
-        p = Process(target=get_real_duration, args=(args, i, split))
-        processes.append(p)
-        p.start()
-
-    for p in processes:
-        p.join()
-
-    # pool = multiprocessing.Pool()
-    # for i in range(2, 512):
+    # n = len(fnames)//args.process
+    # processes = []
+    # for i in range(args.process):
     #     split = fnames[i*n:(i+1)*n]
-    #     pool.apply_async(get_real_duration, args=(args, i, split))
-    # pool.close()
-    # pool.join()
+    #     p = Process(target=get_real_duration, args=(args, i, split))
+    #     processes.append(p)
+    #     p.start()
+
+    # for p in processes:
+    #     p.join()
+
 
     duration = 0
     for i in range(args.process):
