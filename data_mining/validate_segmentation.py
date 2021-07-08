@@ -23,7 +23,7 @@ def get_real_duration(args):
     wav["duration"] = [0] * len(wav)
     dataset = Dataset.from_pandas(wav)
 
-    dataset = dataset.map(array_to_duration, batch_size=32)
+    dataset = dataset.map(array_to_duration, batched=True, batch_size=32)
 
     return sum(dataset["duration"]), len(wav)
 
