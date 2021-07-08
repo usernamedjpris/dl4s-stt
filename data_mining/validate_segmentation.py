@@ -6,6 +6,8 @@ from tqdm import tqdm
 import librosa
 from datasets import Dataset
 from subprocess import run
+from multiprocessing import Process
+import numpy as np
 
 def size_to_sec(size) :
     # Formule : bit depth * freq / bits / 8 * sec = size en bytes
@@ -53,6 +55,38 @@ def get_real_duration(args):
 
     return os.path.join(args.clips, "duration.csv")
 
+
+def get_real_duration(args, i, fnames):
+
+
+    with open(os.path.join(args.clips, f"duration_{i}.csv"), 'w') as durations:
+        print('path\tduration', file=durations)
+        for fname in tqdm(fnames, desc=str(i)):
+            cmd = 'ffprobe -i '+ fname +' -show_entries format=duration -v quiet -of csv="p=0"'
+            output  = run(cmd, shell=True, capture_output=True)
+            print(f"{fname}\t{output.stdout[:-2].decode('utf-8')}", file=durations) # -2 pour enlever "\n"
+
+
+def main_multi(args):
+    fnames = glob.glob(os.path.join(args.clips, "*.wav"))
+
+    n = len(fnames)//args.process
+    processes = []
+    for i in range(args.process):
+        split = fnames[i*n:(i+1)*n]
+        p = Process(target=get_real_duration, args=(args, i, split))
+        processes.append(p)
+        p.start()
+
+    for p in processes:
+        p.join()
+
+    duration = 0
+    for i in range(args.process):
+        duration += sum(pd.read_csv(os.path.join(args.clips, f"duration_{i}.csv"), "\t")["duration"])
+
+    print(duration / 3600)
+
 def get_theoretical_duration(args):
 
     duration_sec = 0
@@ -94,7 +128,9 @@ if __name__ == "__main__":
                         required=False, help="Chemin de sauvegarde des fichiers audios")
     parser.add_argument("-s", "--segment_dir", default=None, type=str,
                         required=False, help="Chemin de sauvegarde des segments")  
+    parser.add_argument("-p", "--process", default=None, type=int,
+                        required=False, help="nb de process")  
 
 
     args = parser.parse_args()
-    main(args)
+    main_multi(args)
