@@ -110,6 +110,25 @@ def get_theoretical_duration(args):
 
     return duration_sec, old_duration
 
+def compare_real_duration(args):
+    
+    idris = glob.glob(os.path.join(args.idris, "*.wav"))
+
+    for wav in idris[10]:
+        initial_size = os.path.getsize(wav)
+        name = wav.split("/")[-1].split(".")[0]
+        segments = glob.glob(os.path.join(args.clips, f"{name}*"))
+        print("-"*25)
+        print(wav)
+        print(segments)
+        print("-"*25)
+        segments_size = 0
+        for s in segments:
+            segments_size += os.path.getsize(s)
+
+    print("Initial size :", initial_size)
+    print("Segments size :", segments_size)
+
 def main(args):
 
     if args.segment_dir:
@@ -117,9 +136,11 @@ def main(args):
         print("Theoretical duration :", theoretical_duration / 3600, "h")
         print("Before segmentation :", old_duration / 3600, "h")
 
+    if args.idris:
+        compare_real_duration(args)
 
-    if args.clips:
-        durations = pd.read_csv(get_real_duration(args), '\t')
+    # if args.clips:
+    #     durations = pd.read_csv(get_real_duration(args), '\t')
         
         # print(duration/3600)
         # print("Real duration :", duration / 3600, "h for", nb_files, "files")
@@ -131,8 +152,11 @@ if __name__ == "__main__":
                         required=False, help="Chemin de sauvegarde des fichiers audios")
     parser.add_argument("-s", "--segment_dir", default=None, type=str,
                         required=False, help="Chemin de sauvegarde des segments")  
+    parser.add_argument("-i", "--idris", default=None, type=str,
+                        required=False, help="Path vers le dataset idris")  
     parser.add_argument("-p", "--process", default=None, type=int,
                         required=False, help="nb de process")  
+
 
 
     args = parser.parse_args()
