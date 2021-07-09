@@ -66,7 +66,7 @@ def process_stitch(args, segments_list):
         # Harmonisation
         # output_dir = "/".join(args.segment_dir.split("/")[:-1])
         output_dir = os.path.join(args.segment_dir, "clips")
-        filename = os.path.join(args.idris, s.split("/")[-1].split('_')[0] + ".wav")
+        filename = os.path.join(args.clips, s.split("/")[-1].split('_')[0] + ".wav")
         stitch(filename, segments, output_dir)
 
 
@@ -145,11 +145,11 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
 
     parser.add_argument("-c", "--clips", default=None, type=str,
-                        required=True, help="Chemin de sauvegarde des fichiers audios")
+                        required=True, help="Chemin de sauvegarde des fichiers audios non segmenté")
     # parser.add_argument("-p", "--part", default=None, type=str,
     #                     required=True, help="Fichier csv de la partie traité (1-4)")
     parser.add_argument("-s", "--segment_dir", default=None, type=str,
-                        required=True, help="Chemin de sauvegarde des segments")
+                        required=True, help="Chemin de sauvegarde des fichiers audios segmenté")
     parser.add_argument("-p", "--process", default=None, type=int,
                         required=True, help="Nombre de process")  
     # parser.add_argument("-o", "--output_dir", default=None, type=str,
