@@ -146,14 +146,16 @@ if __name__ == "__main__":
 
     parser.add_argument("-c", "--clips", default=None, type=str,
                         required=True, help="Chemin de sauvegarde des fichiers audios")
-    parser.add_argument("-p", "--part", default=None, type=str,
-                        required=True, help="Fichier csv de la partie traité (1-4)")
+    # parser.add_argument("-p", "--part", default=None, type=str,
+    #                     required=True, help="Fichier csv de la partie traité (1-4)")
     parser.add_argument("-s", "--segment_dir", default=None, type=str,
-                        required=True, help="Chemin de sauvegarde des segments")  
+                        required=True, help="Chemin de sauvegarde des segments")
+    parser.add_argument("-p", "--process", default=None, type=int,
+                        required=True, help="Nombre de process")  
     # parser.add_argument("-o", "--output_dir", default=None, type=str,
                         # required=True, help="Chemin de sauvegarde des segments")
 
 
     
     args = parser.parse_args()
-    main(args)
+    main_multi(args)
