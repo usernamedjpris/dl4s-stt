@@ -100,6 +100,7 @@ def main_multi(args):
     for i in ["1/*", "2/*", "3/*", "4/*"]:
         segments += glob.glob(os.path.join(args.segment_dir, i))
 
+    print(len(segments))
     n = len(segments)//args.process
     processes = []
     for i in range(args.process):
@@ -140,8 +141,6 @@ def main_multi(args):
 #     # run(f'rm -f {os.path.join(output_dir, "*.csv")}', shell=True)
 
 if __name__ == "__main__":    
-    parser = argparse.ArgumentParser()
-
     parser = argparse.ArgumentParser()
 
     parser.add_argument("-c", "--clips", default=None, type=str,
