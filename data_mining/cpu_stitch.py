@@ -43,7 +43,7 @@ def stitch(filename, segments, output_dir):
             aselect = "\'between(t,4,6.5)+between(t,17,26)+between(t,74,91)\'"
             aselect= "\'" + "+".join([f"between(t,{a},{b})" for a,b in zip(segments.iloc[to_stitch]["start"], segments.iloc[to_stitch]["stop"])]) + "\'"
             cmd = "ffmpeg -n -i "+ filename + " -af \"aselect=" + aselect + ", asetpts=N/SR/TB\" " + filename_output
-            print(cmd)
+            # print(cmd)
             run(cmd, shell=True)
 
             # Reset
@@ -54,7 +54,7 @@ def stitch(filename, segments, output_dir):
 
 def process_stitch(args, segments_list):
 
-    for s in segments_list:
+    for s in tqdm(segments_list):
         segments = pd.read_csv(s, '\t')
 
         # Sélection uniquement des segments voisés trouvés par InaSpeech
