@@ -115,18 +115,18 @@ def compare_real_duration(args):
     idris = glob.glob(os.path.join(args.idris, "*.wav"))
     print(idris[10])
     input()
-    for wav in idris[10]:
-        initial_size = os.path.getsize(wav)
-        name = wav.split("/")[-1].split(".")[0]
-        segments = glob.glob(os.path.join(args.clips, f"{name}_*"))
-        print("-"*25)
-        print(wav)
-        input()
-        print(segments)
-        print("-"*25)
-        segments_size = 0
-        for s in segments:
-            segments_size += os.path.getsize(s)
+    wav = idris[10]
+    initial_size = os.path.getsize(wav)
+    name = wav.split("/")[-1].split(".")[0]
+    segments = glob.glob(os.path.join(args.clips, f"{name}_*"))
+    print("-"*25)
+    print(wav)
+    input()
+    print(segments)
+    print("-"*25)
+    segments_size = 0
+    for s in segments:
+        segments_size += os.path.getsize(s)
 
     print("Initial size :", initial_size)
     print("Segments size :", segments_size)
