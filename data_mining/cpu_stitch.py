@@ -66,7 +66,7 @@ def process_stitch(args, segments_list):
         # Harmonisation
         # output_dir = "/".join(args.segment_dir.split("/")[:-1])
         output_dir = os.path.join(args.segment_dir, "clips")
-        filename = os.path.join(args.clips, s.split("/")[-1].split('_')[0] + ".wav")
+        filename = os.path.join(args.clips, s.split("/")[-1].split('.')[0] + ".wav")
         stitch(filename, segments, output_dir)
 
 
