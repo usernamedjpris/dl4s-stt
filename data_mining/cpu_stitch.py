@@ -101,7 +101,6 @@ def main_multi(args):
         segments += glob.glob(os.path.join(args.segment_dir, i))
 
     print(len(segments))
-    input()
     n = len(segments)//args.process
     processes = []
     for i in range(args.process):
