@@ -3,6 +3,9 @@ import argparse
 from subprocess import run
 import os
 import pandas as pd
+from tqdm import tqdm
+from multiprocessing import Process
+
 
 def size_to_sec(size) :
     # Formule : bit depth * freq / bits / 8 * sec = size en bytes
@@ -22,17 +25,21 @@ def stitch(filename, segments, output_dir):
 
     yt_id = filename.split('.')[0].split("/")[-1]
 
-
     trg_len = 30
     count = 0
     to_stitch = []
     cumul_len = 0
-    for index, row in segments.iterrows():
+    for index, row in tqdm(segments.iterrows()):
         len_seg = row['len']
+        cumul_len += len_seg
+        to_stitch.append(index)
+
         if cumul_len + len_seg > trg_len:
 
-            # Stitching
+            # file name
             filename_output = os.path.join(output_dir, f"{yt_id}_{count}.wav")
+
+            # Stitching
             aselect = "\'between(t,4,6.5)+between(t,17,26)+between(t,74,91)\'"
             aselect= "\'" + "+".join([f"between(t,{a},{b})" for a,b in zip(segments.iloc[to_stitch]["start"], segments.iloc[to_stitch]["stop"])]) + "\'"
             cmd = "ffmpeg -n -i "+ filename + " -af \"aselect=" + aselect + ", asetpts=N/SR/TB\" " + filename_output
@@ -44,9 +51,24 @@ def stitch(filename, segments, output_dir):
             cumul_len = 0
             count +=1
         
-        cumul_len += len_seg
 
-        to_stitch.append(index)
+def process_stitch(args, segments_list):
+
+    for s in segments_list:
+        segments = pd.read_csv(s, '\t')
+
+        # Sélection uniquement des segments voisés trouvés par InaSpeech
+        segments = segments[segments["labels"] == "speech"].reset_index()
+
+        # Ajout de la durées de segments au dataframe
+        segments["len"] = segments["stop"] - segments["start"]
+
+        # Harmonisation
+        # output_dir = "/".join(args.segment_dir.split("/")[:-1])
+        output_dir = os.path.join(args.segment_dir, "clips")
+        filename = os.path.join(args.idris, s.split("/")[-1].split('_')[0] + ".wav")
+        stitch(filename, segments, output_dir)
+
 
 def get_wav(args):
 
@@ -69,41 +91,53 @@ def get_wav(args):
 
     return wav
 
-def main(args):
-    # Uniformisation : collage des segments en fichiers de 30 sec en moyenne
-    # Traitement séquentiel fichier par fichier
 
-    # ouvir un csv de split OK
-    # get fichiers wav du dataset OK
-    # filtrer ceux qui sont dans le split et le dataset OK
-    # pour chaque wav qui passe le filtre Ok
-    # trouver le segment correspondant dans segment_dir
-    # stitch les segments dans le output_dir
+def main_multi(args):
 
-    wav = get_wav(args)
+    # mettre à jour get wav
 
-    for filename in wav:
+    segments = []
+    for i in ["1/*", "2/*", "3/*", "4/*"]:
+        segments += glob.glob(os.path.join(args.segment_dir, i))
 
-        # Import du résultat de la segmentation à partir du nom du fichier wav
-        csv = filename.split("/")[-1][:-3] + 'csv'
-        segments = pd.read_csv(os.path.join(args.segment_dir, csv), '\t')
-        print(segments)
+    n = len(segments)//args.process
+    processes = []
+    for i in range(args.process):
+        split = segments[i*n:(i+1)*n]
+        p = Process(target=process_stitch, args=(args, split))
+        processes.append(p)
+        p.start()
 
-        # Sélection uniquement des segments voisés trouvés par InaSpeech
-        segments = segments[segments["labels"] == "speech"].reset_index()
+    for p in processes:
+        p.join()
 
-        # Ajout de la durées de segments au dataframe
-        segments["len"] = segments["stop"] - segments["start"]
 
-        # Harmonisation
-        output_dir = "/".join(args.segment_dir.split("/")[:-1])
-        stitch(filename, segments, os.path.join(output_dir, "clips"))
+# def main(args):
 
-        # Suppression du fichier source
-        # run(f'rm -f {filename}', shell=True)
+#     wav = get_wav(args)
+
+#     for filename in wav:
+
+#         # Import du résultat de la segmentation à partir du nom du fichier wav
+#         csv = filename.split("/")[-1][:-3] + 'csv'
+#         segments = pd.read_csv(os.path.join(args.segment_dir, csv), '\t')
+#         print(segments)
+
+#         # Sélection uniquement des segments voisés trouvés par InaSpeech
+#         segments = segments[segments["labels"] == "speech"].reset_index()
+
+#         # Ajout de la durées de segments au dataframe
+#         segments["len"] = segments["stop"] - segments["start"]
+
+#         # Harmonisation
+#         output_dir = "/".join(args.segment_dir.split("/")[:-1])
+#         stitch(filename, segments, os.path.join(output_dir, "clips"))
+
+#         # Suppression du fichier source
+#         # run(f'rm -f {filename}', shell=True)
     
-    # Suppression des fichiers csv
-    # run(f'rm -f {os.path.join(output_dir, "*.csv")}', shell=True)
+#     # Suppression des fichiers csv
+#     # run(f'rm -f {os.path.join(output_dir, "*.csv")}', shell=True)
 
 if __name__ == "__main__":    
     parser = argparse.ArgumentParser()
