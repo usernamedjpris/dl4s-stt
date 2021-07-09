@@ -52,9 +52,8 @@ def stitch(filename, segments, output_dir):
             count +=1
         
 
-def process_stitch(args, segments_list):
-
-    for s in tqdm(segments_list):
+def process_stitch(args, segments_list, i):
+    for s in tqdm(segments_list, desc=str(i) ):
         segments = pd.read_csv(s, '\t')
 
         # Sélection uniquement des segments voisés trouvés par InaSpeech
@@ -105,7 +104,7 @@ def main_multi(args):
     processes = []
     for i in range(args.process):
         split = segments[i*n:(i+1)*n]
-        p = Process(target=process_stitch, args=(args, split))
+        p = Process(target=process_stitch, args=(args, split, i))
         processes.append(p)
         p.start()
 
