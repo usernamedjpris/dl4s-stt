@@ -129,12 +129,25 @@ def compare_real_duration(args):
         print("Segments size :", segments_size)
         input()
 
+def validate_number_of_segment_file(args):
+
+    real_files = glob.glob(os.path.join(args.clips, "*.wav"))
+    seg = []
+    for i in ["1/*", "2/*", "3/*", "4/*"]:
+        seg += glob.glob(os.path.join(args.segment_dir, i))
+    print("Nombre de fichiers audios :", len(real_files))
+    print("Nombre de fichiers segments :", len(seg))
+
+
 def main(args):
 
-    if args.segment_dir:
-        theoretical_duration, old_duration = get_theoretical_duration(args)
-        print("Theoretical duration :", theoretical_duration / 3600, "h")
-        print("Before segmentation :", old_duration / 3600, "h")
+    # if args.segment_dir:
+    #     theoretical_duration, old_duration = get_theoretical_duration(args)
+    #     print("Theoretical duration :", theoretical_duration / 3600, "h")
+    #     print("Before segmentation :", old_duration / 3600, "h")
+
+    if args.segment_dir and args.clips:
+        validate_number_of_segment_file(args)
 
     if args.idris:
         compare_real_duration(args)
