@@ -160,4 +160,7 @@ if __name__ == "__main__":
 
 
     args = parser.parse_args()
-    main_multi(args)
+    if args.process:
+        main_multi(args)
+    else :
+        main(args)
