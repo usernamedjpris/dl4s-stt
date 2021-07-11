@@ -57,7 +57,6 @@ def size_to_sec(size) :
 
 def get_real_duration(args, i, fnames):
 
-
     with open(os.path.join(args.clips, f"duration_{i}.csv"), 'w') as durations:
         print('path\tduration', file=durations)
         for fname in tqdm(fnames, desc=str(i)):
@@ -67,24 +66,26 @@ def get_real_duration(args, i, fnames):
 
 
 def main_multi(args):
-    # fnames = glob.glob(os.path.join(args.clips, "*.wav"))
+    fnames = glob.glob(os.path.join(args.clips, "*.wav"))
 
-    # n = len(fnames)//args.process
-    # processes = []
-    # for i in range(args.process):
-    #     split = fnames[i*n:(i+1)*n]
-    #     p = Process(target=get_real_duration, args=(args, i, split))
-    #     processes.append(p)
-    #     p.start()
+    n = len(fnames)//args.process
+    processes = []
+    for i in range(args.process):
+        split = fnames[i*n:(i+1)*n]
+        p = Process(target=get_real_duration, args=(args, i, split))
+        processes.append(p)
+        p.start()
 
-    # for p in processes:
-    #     p.join()
-
+    for p in processes:
+        p.join()
 
     duration = 0
     for i in range(args.process):
-        # duration += sum(pd.read_csv(os.path.join(args.clips, f"duration_{i}.csv"), "\t")["duration"].dropna())
-        print(sum(pd.read_csv(os.path.join(args.clips, f"duration_{i}.csv"), "\t")["duration"].dropna()))
+        df = pd.read_csv(os.path.join(args.clips, f"duration_{i}.csv"), "\t")
+        for i in range(len(df)):
+            if not str(df["duration"][i])[0].isnumeric():
+                df = df.drop(i)
+        duration +=sum(df["duration"])
 
     with open(os.path.join(args.clips, "total_duration_h.txt"), "w") as total_duration:
         print(duration / 3600)
