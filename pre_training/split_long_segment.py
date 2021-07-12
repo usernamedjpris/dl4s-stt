@@ -7,6 +7,7 @@ from subprocess import run
 import numpy as np
 
 def combine_durations(args):
+    print("> Combining duration ...")
     tab = []
     for i in range(16):
         df = pd.read_csv(os.path.join(args.clips, f"duration_{i}.csv"), "\t")
@@ -25,12 +26,14 @@ def get_stat_on_durations(args, df):
 def get_segments_duration(duration):
     d = args.split_duration # Taille cible d'un segment audio
     
-    print(d)
-    print(type(d))
-    input()
     m = duration % d
     n = duration // d if m < args.lower_bound else duration // d + 1
-        
+
+    print(n)
+    print(type(n))
+    print(duration)
+    input()    
+    
     start = [i * d for i in range(n)]
     end = [(x+1) * d for x in range(n) if (x+1) * d <= duration]
 
