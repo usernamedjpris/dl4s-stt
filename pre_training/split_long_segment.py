@@ -28,11 +28,7 @@ def get_segments_duration(duration):
     
     m = duration % d
     n = duration // d if m < args.lower_bound else duration // d + 1
-
-    print(n)
-    print(type(n))
-    print(duration)
-    input()    
+    n = int(n)
     
     start = [i * d for i in range(n)]
     end = [(x+1) * d for x in range(n) if (x+1) * d <= duration]
