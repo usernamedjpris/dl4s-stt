@@ -24,7 +24,10 @@ def get_stat_on_durations(args, df):
 
 def get_segments_duration(duration):
     d = args.split_duration # Taille cible d'un segment audio
-
+    
+    print(d)
+    print(type(d))
+    input()
     m = duration % d
     n = duration // d if m < args.lower_bound else duration // d + 1
         
