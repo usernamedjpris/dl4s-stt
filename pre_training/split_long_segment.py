@@ -18,8 +18,8 @@ def combine_durations(args):
     return pd.concat(tab)
 
 def get_stat_on_durations(args, df):
-
-    lost_data = df["duration"].apply(lambda x : x % args.split_duration if (x%args.split_duration) < args.lower_bound else 0).sum() / 3600
+    d = args.split_duration
+    lost_data = df["duration"].apply(lambda x : x % d if (x%d) < 20 and x > 45 else 0).sum() / 3600
     print(f"Lost audio : {lost_data:.2f}h")
     
 
@@ -54,9 +54,9 @@ def split_audio(args, path, start, end):
 
 def split_from_filtered_df(args, df, i):
 
-    for _, row in tqdm(df.iterrows(), desc=str(i)):
-        path = row["path"]
-        duration = row["duration"]
+    for i in tqdm(range(len(df)), desc=str(i)):
+        path = df.iloc[i]["path"]
+        duration = df.iloc[i]["duration"]
         start, end = get_segments_duration(duration)
         split_audio(args, path, start, end)
 
