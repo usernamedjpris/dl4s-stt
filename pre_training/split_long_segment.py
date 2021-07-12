@@ -51,14 +51,20 @@ def split_audio(args, path, start, end):
         cmd = "ffmpeg -hide_banner -loglevel error -n -i "+ path + " -af \"aselect=" + aselect + ", asetpts=N/SR/TB\" " + filename_output
         # print(cmd)
         run(cmd, shell=True)
+ 
+def delete_audio(path):
+
+    cmd = "rm -f " + path
+    run(cmd, shell=True)
 
 def split_from_filtered_df(args, df, i):
 
     for i in tqdm(range(len(df)), desc=str(i)):
         path = df.iloc[i]["path"]
-        duration = df.iloc[i]["duration"]
-        start, end = get_segments_duration(duration)
-        split_audio(args, path, start, end)
+        # duration = df.iloc[i]["duration"]
+        # start, end = get_segments_duration(duration)
+        # split_audio(args, path, start, end)
+        delete_audio(path)
 
 def main(args):
     concat_df = combine_durations(args)
