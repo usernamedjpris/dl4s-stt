@@ -1,0 +1,493 @@
+[2021-07-06 15:36:02,536][fairseq.distributed.utils][INFO] - distributed init (rank 9): tcp://jean-zay-ia809:1234
+[2021-07-06 15:36:02,564][fairseq.distributed.utils][INFO] - distributed init (rank 6): tcp://jean-zay-ia809:1234
+[2021-07-06 15:36:02,536][fairseq.distributed.utils][INFO] - distributed init (rank 14): tcp://jean-zay-ia809:1234
+[2021-07-06 15:36:02,558][fairseq.distributed.utils][INFO] - distributed init (rank 11): tcp://jean-zay-ia809:1234
+[2021-07-06 15:36:02,558][fairseq.distributed.utils][INFO] - distributed init (rank 10): tcp://jean-zay-ia809:1234
+[2021-07-06 15:36:02,560][fairseq.distributed.utils][INFO] - distributed init (rank 15): tcp://jean-zay-ia809:1234
+[2021-07-06 15:36:02,561][fairseq.distributed.utils][INFO] - distributed init (rank 12): tcp://jean-zay-ia809:1234
+[2021-07-06 15:36:02,561][fairseq.distributed.utils][INFO] - distributed init (rank 13): tcp://jean-zay-ia809:1234
+[2021-07-06 15:36:02,561][fairseq.distributed.utils][INFO] - distributed init (rank 8): tcp://jean-zay-ia809:1234
+[2021-07-06 15:36:02,570][fairseq.distributed.utils][INFO] - distributed init (rank 2): tcp://jean-zay-ia809:1234
+[2021-07-06 15:36:02,571][fairseq.distributed.utils][INFO] - distributed init (rank 0): tcp://jean-zay-ia809:1234
+[2021-07-06 15:36:02,572][fairseq.distributed.utils][INFO] - distributed init (rank 5): tcp://jean-zay-ia809:1234
+[2021-07-06 15:36:02,572][fairseq.distributed.utils][INFO] - distributed init (rank 3): tcp://jean-zay-ia809:1234
+[2021-07-06 15:36:02,572][fairseq.distributed.utils][INFO] - distributed init (rank 4): tcp://jean-zay-ia809:1234
+[2021-07-06 15:36:02,574][torch.distributed.distributed_c10d][INFO] - Added key: store_based_barrier_key:1 to store for rank: 5
+[2021-07-06 15:36:02,574][torch.distributed.distributed_c10d][INFO] - Added key: store_based_barrier_key:1 to store for rank: 3
+[2021-07-06 15:36:02,574][torch.distributed.distributed_c10d][INFO] - Added key: store_based_barrier_key:1 to store for rank: 4
+[2021-07-06 15:36:02,582][fairseq.distributed.utils][INFO] - distributed init (rank 1): tcp://jean-zay-ia809:1234
+[2021-07-06 15:36:02,582][fairseq.distributed.utils][INFO] - distributed init (rank 7): tcp://jean-zay-ia809:1234
+[2021-07-06 15:36:02,583][torch.distributed.distributed_c10d][INFO] - Added key: store_based_barrier_key:1 to store for rank: 1
+[2021-07-06 15:36:02,583][torch.distributed.distributed_c10d][INFO] - Added key: store_based_barrier_key:1 to store for rank: 7
+[2021-07-06 15:36:03,540][torch.distributed.distributed_c10d][INFO] - Added key: store_based_barrier_key:1 to store for rank: 9
+[2021-07-06 15:36:03,540][torch.distributed.distributed_c10d][INFO] - Added key: store_based_barrier_key:1 to store for rank: 14
+[2021-07-06 15:36:03,559][torch.distributed.distributed_c10d][INFO] - Added key: store_based_barrier_key:1 to store for rank: 11
+[2021-07-06 15:36:03,559][torch.distributed.distributed_c10d][INFO] - Added key: store_based_barrier_key:1 to store for rank: 10
+[2021-07-06 15:36:03,562][torch.distributed.distributed_c10d][INFO] - Added key: store_based_barrier_key:1 to store for rank: 15
+[2021-07-06 15:36:03,562][torch.distributed.distributed_c10d][INFO] - Added key: store_based_barrier_key:1 to store for rank: 12
+[2021-07-06 15:36:03,562][torch.distributed.distributed_c10d][INFO] - Added key: store_based_barrier_key:1 to store for rank: 13
+[2021-07-06 15:36:03,562][torch.distributed.distributed_c10d][INFO] - Added key: store_based_barrier_key:1 to store for rank: 8
+[2021-07-06 15:36:03,568][torch.distributed.distributed_c10d][INFO] - Added key: store_based_barrier_key:1 to store for rank: 6
+[2021-07-06 15:36:03,572][torch.distributed.distributed_c10d][INFO] - Added key: store_based_barrier_key:1 to store for rank: 2
+[2021-07-06 15:36:03,582][torch.distributed.distributed_c10d][INFO] - Added key: store_based_barrier_key:1 to store for rank: 0
+[2021-07-06 15:36:03,582][torch.distributed.distributed_c10d][INFO] - Rank 0: Completed store-based barrier for 16 nodes.
+[2021-07-06 15:36:03,582][torch.distributed.distributed_c10d][INFO] - Rank 2: Completed store-based barrier for 16 nodes.
+[2021-07-06 15:36:03,582][torch.distributed.distributed_c10d][INFO] - Rank 15: Completed store-based barrier for 16 nodes.
+[2021-07-06 15:36:03,582][torch.distributed.distributed_c10d][INFO] - Rank 3: Completed store-based barrier for 16 nodes.
+[2021-07-06 15:36:03,582][torch.distributed.distributed_c10d][INFO] - Rank 12: Completed store-based barrier for 16 nodes.
+[2021-07-06 15:36:03,582][torch.distributed.distributed_c10d][INFO] - Rank 5: Completed store-based barrier for 16 nodes.
+[2021-07-06 15:36:03,583][torch.distributed.distributed_c10d][INFO] - Rank 13: Completed store-based barrier for 16 nodes.
+[2021-07-06 15:36:03,582][fairseq.distributed.utils][INFO] - initialized host jean-zay-ia809 as rank 0
+[2021-07-06 15:36:03,583][torch.distributed.distributed_c10d][INFO] - Rank 8: Completed store-based barrier for 16 nodes.
+[2021-07-06 15:36:03,582][fairseq.distributed.utils][INFO] - initialized host jean-zay-ia809 as rank 2
+[2021-07-06 15:36:03,584][torch.distributed.distributed_c10d][INFO] - Rank 9: Completed store-based barrier for 16 nodes.
+[2021-07-06 15:36:03,583][fairseq.distributed.utils][INFO] - initialized host jean-zay-ia809 as rank 5
+[2021-07-06 15:36:03,584][torch.distributed.distributed_c10d][INFO] - Rank 14: Completed store-based barrier for 16 nodes.
+[2021-07-06 15:36:03,583][fairseq.distributed.utils][INFO] - initialized host jean-zay-ia809 as rank 3
+[2021-07-06 15:36:03,584][torch.distributed.distributed_c10d][INFO] - Rank 4: Completed store-based barrier for 16 nodes.
+[2021-07-06 15:36:03,585][fairseq.distributed.utils][INFO] - initialized host jean-zay-ia811 as rank 15
+[2021-07-06 15:36:03,589][fairseq.distributed.utils][INFO] - initialized host jean-zay-ia811 as rank 13
+[2021-07-06 15:36:03,590][torch.distributed.distributed_c10d][INFO] - Rank 11: Completed store-based barrier for 16 nodes.
+[2021-07-06 15:36:03,590][torch.distributed.distributed_c10d][INFO] - Rank 10: Completed store-based barrier for 16 nodes.
+[2021-07-06 15:36:03,591][torch.distributed.distributed_c10d][INFO] - Rank 6: Completed store-based barrier for 16 nodes.
+[2021-07-06 15:36:03,591][torch.distributed.distributed_c10d][INFO] - Rank 1: Completed store-based barrier for 16 nodes.
+[2021-07-06 15:36:03,591][fairseq.distributed.utils][INFO] - initialized host jean-zay-ia809 as rank 4
+[2021-07-06 15:36:03,592][torch.distributed.distributed_c10d][INFO] - Rank 7: Completed store-based barrier for 16 nodes.
+[2021-07-06 15:36:03,595][fairseq.distributed.utils][INFO] - initialized host jean-zay-ia809 as rank 6
+[2021-07-06 15:36:03,599][fairseq.distributed.utils][INFO] - initialized host jean-zay-ia811 as rank 12
+[2021-07-06 15:36:03,603][fairseq.distributed.utils][INFO] - initialized host jean-zay-ia811 as rank 10
+[2021-07-06 15:36:03,607][fairseq.distributed.utils][INFO] - initialized host jean-zay-ia811 as rank 11
+[2021-07-06 15:36:03,609][fairseq.distributed.utils][INFO] - initialized host jean-zay-ia809 as rank 1
+[2021-07-06 15:36:03,617][fairseq.distributed.utils][INFO] - initialized host jean-zay-ia811 as rank 8
+[2021-07-06 15:36:03,619][fairseq.distributed.utils][INFO] - initialized host jean-zay-ia809 as rank 7
+[2021-07-06 15:36:03,633][fairseq.distributed.utils][INFO] - initialized host jean-zay-ia811 as rank 14
+[2021-07-06 15:36:03,633][fairseq.distributed.utils][INFO] - initialized host jean-zay-ia811 as rank 9
+[2021-07-06 15:36:08,961][fairseq_cli.train][INFO] - {'_name': None, 'common': {'_name': None, 'no_progress_bar': False, 'log_interval': 200, 'log_format': 'json', 'log_file': None, 'tensorboard_logdir': None, 'wandb_project': None, 'azureml_logging': False, 'seed': 1, 'cpu': False, 'tpu': False, 'bf16': False, 'memory_efficient_bf16': False, 'fp16': True, 'memory_efficient_fp16': False, 'fp16_no_flatten_grads': False, 'fp16_init_scale': 128, 'fp16_scale_window': None, 'fp16_scale_tolerance': 0.0, 'on_cpu_convert_precision': False, 'min_loss_scale': 0.0001, 'threshold_loss_scale': None, 'amp': False, 'amp_batch_retries': 2, 'amp_init_scale': 128, 'amp_scale_window': None, 'user_dir': None, 'empty_cache_freq': 0, 'all_gather_list_size': 16384, 'model_parallel_size': 1, 'quantization_config_path': None, 'profile': False, 'reset_logging': False, 'suppress_crashes': False, 'use_plasma_view': False, 'plasma_path': '/tmp/plasma'}, 'common_eval': {'_name': None, 'path': None, 'post_process': None, 'quiet': False, 'model_overrides': '{}', 'results_path': None}, 'distributed_training': {'_name': None, 'distributed_world_size': 16, 'distributed_num_procs': 8, 'distributed_rank': 0, 'distributed_backend': 'nccl', 'distributed_init_method': 'tcp://jean-zay-ia809:1234', 'distributed_port': 1234, 'device_id': 0, 'distributed_no_spawn': True, 'ddp_backend': 'legacy_ddp', 'ddp_comm_hook': 'none', 'bucket_cap_mb': 25, 'fix_batches_to_gpus': False, 'find_unused_parameters': False, 'fast_stat_sync': False, 'heartbeat_timeout': -1, 'broadcast_buffers': False, 'slowmo_momentum': None, 'slowmo_algorithm': 'LocalSGD', 'localsgd_frequency': 3, 'nprocs_per_node': 8, 'pipeline_model_parallel': False, 'pipeline_balance': None, 'pipeline_devices': None, 'pipeline_chunks': 0, 'pipeline_encoder_balance': None, 'pipeline_encoder_devices': None, 'pipeline_decoder_balance': None, 'pipeline_decoder_devices': None, 'pipeline_checkpoint': 'never', 'zero_sharding': 'none', 'fp16': True, 'memory_efficient_fp16': False, 'tpu': False, 'no_reshard_after_forward': False, 'fp32_reduce_scatter': False, 'cpu_offload': False, 'use_sharded_state': False}, 'dataset': {'_name': None, 'num_workers': 6, 'skip_invalid_size_inputs_valid_test': True, 'max_tokens': 1400000, 'batch_size': None, 'required_batch_size_multiple': 8, 'required_seq_len_multiple': 1, 'dataset_impl': None, 'data_buffer_size': 10, 'train_subset': 'train', 'valid_subset': 'valid', 'combine_valid_subsets': None, 'ignore_unused_valid_subsets': False, 'validate_interval': 1, 'validate_interval_updates': 0, 'validate_after_updates': 0, 'fixed_validation_seed': None, 'disable_validation': False, 'max_tokens_valid': 1400000, 'batch_size_valid': None, 'max_valid_steps': None, 'curriculum': 0, 'gen_subset': 'test', 'num_shards': 1, 'shard_id': 0}, 'optimization': {'_name': None, 'max_epoch': 0, 'max_update': 400000, 'stop_time_hours': 0.0, 'clip_norm': 0.0, 'sentence_avg': False, 'update_freq': [1], 'lr': [0.0005], 'stop_min_lr': -1.0, 'use_bmuf': False}, 'checkpoint': {'_name': None, 'save_dir': 'checkpoints', 'restore_file': '/gpfswork/rech/sbg/commun/STT/stt_logs/pretraining_500/checkpoint_best.pt', 'finetune_from_model': None, 'reset_dataloader': False, 'reset_lr_scheduler': False, 'reset_meters': False, 'reset_optimizer': False, 'optimizer_overrides': '{}', 'save_interval': 1, 'save_interval_updates': 25000, 'keep_interval_updates': 1, 'keep_interval_updates_pattern': -1, 'keep_last_epochs': -1, 'keep_best_checkpoints': -1, 'no_save': False, 'no_epoch_checkpoints': True, 'no_last_checkpoints': False, 'no_save_optimizer_state': False, 'best_checkpoint_metric': 'loss', 'maximize_best_checkpoint_metric': False, 'patience': -1, 'checkpoint_suffix': '', 'checkpoint_shard_count': 1, 'load_checkpoint_on_all_dp_ranks': False, 'write_checkpoints_asynchronously': False, 'model_parallel_size': 1}, 'bmuf': {'_name': None, 'block_lr': 1.0, 'block_momentum': 0.875, 'global_sync_iter': 50, 'warmup_iterations': 500, 'use_nbm': False, 'average_sync': False, 'distributed_world_size': 16}, 'generation': {'_name': None, 'beam': 5, 'nbest': 1, 'max_len_a': 0.0, 'max_len_b': 200, 'min_len': 1, 'match_source_len': False, 'unnormalized': False, 'no_early_stop': False, 'no_beamable_mm': False, 'lenpen': 1.0, 'unkpen': 0.0, 'replace_unk': None, 'sacrebleu': False, 'score_reference': False, 'prefix_size': 0, 'no_repeat_ngram_size': 0, 'sampling': False, 'sampling_topk': -1, 'sampling_topp': -1.0, 'constraints': None, 'temperature': 1.0, 'diverse_beam_groups': -1, 'diverse_beam_strength': 0.5, 'diversity_rate': -1.0, 'print_alignment': None, 'print_step': False, 'lm_path': None, 'lm_weight': 0.0, 'iter_decode_eos_penalty': 0.0, 'iter_decode_max_iter': 10, 'iter_decode_force_max_iter': False, 'iter_decode_with_beam': 1, 'iter_decode_with_external_reranker': False, 'retain_iter_history': False, 'retain_dropout': False, 'retain_dropout_modules': None, 'decoding_format': None, 'no_seed_provided': False}, 'eval_lm': {'_name': None, 'output_word_probs': False, 'output_word_stats': False, 'context_window': 0, 'softmax_batch': 9223372036854775807}, 'interactive': {'_name': None, 'buffer_size': 0, 'input': '-'}, 'model': {'_name': 'wav2vec2', 'extractor_mode': 'default', 'encoder_layers': 12, 'encoder_embed_dim': 768, 'encoder_ffn_embed_dim': 3072, 'encoder_attention_heads': 12, 'activation_fn': 'gelu', 'dropout': 0.1, 'attention_dropout': 0.1, 'activation_dropout': 0.0, 'encoder_layerdrop': 0.05, 'dropout_input': 0.1, 'dropout_features': 0.1, 'final_dim': 256, 'layer_norm_first': False, 'conv_feature_layers': '[(512, 10, 5)] + [(512, 3, 2)] * 4 + [(512,2,2)] + [(512,2,2)]', 'conv_bias': False, 'logit_temp': 0.1, 'quantize_targets': True, 'quantize_input': False, 'same_quantizer': False, 'target_glu': False, 'feature_grad_mult': 0.1, 'quantizer_depth': 1, 'quantizer_factor': 3, 'latent_vars': 320, 'latent_groups': 2, 'latent_dim': 0, 'mask_length': 10, 'mask_prob': 0.65, 'mask_selection': 'static', 'mask_other': 0.0, 'no_mask_overlap': False, 'mask_min_space': 1, 'mask_channel_length': 10, 'mask_channel_prob': 0.0, 'mask_channel_before': False, 'mask_channel_selection': 'static', 'mask_channel_other': 0.0, 'no_mask_channel_overlap': False, 'mask_channel_min_space': 1, 'num_negatives': 100, 'negatives_from_everywhere': False, 'cross_sample_negatives': 0, 'codebook_negatives': 0, 'conv_pos': 128, 'conv_pos_groups': 16, 'latent_temp': [2.0, 0.5, 0.999995]}, 'task': {'_name': 'audio_pretraining', 'data': '/gpfswork/rech/sbg/commun/STT/stt_logs/pretraining_500', 'labels': None, 'binarized_dataset': False, 'sample_rate': 16000, 'normalize': False, 'enable_padding': False, 'max_sample_size': 250000, 'min_sample_size': 32000, 'eval_wer': False, 'eval_wer_config': {'_name': None, 'beam': 5, 'nbest': 1, 'max_len_a': 0.0, 'max_len_b': 200, 'min_len': 1, 'match_source_len': False, 'unnormalized': False, 'no_early_stop': False, 'no_beamable_mm': False, 'lenpen': 1.0, 'unkpen': 0.0, 'replace_unk': None, 'sacrebleu': False, 'score_reference': False, 'prefix_size': 0, 'no_repeat_ngram_size': 0, 'sampling': False, 'sampling_topk': -1, 'sampling_topp': -1.0, 'constraints': None, 'temperature': 1.0, 'diverse_beam_groups': -1, 'diverse_beam_strength': 0.5, 'diversity_rate': -1.0, 'print_alignment': None, 'print_step': False, 'lm_path': None, 'lm_weight': 0.0, 'iter_decode_eos_penalty': 0.0, 'iter_decode_max_iter': 10, 'iter_decode_force_max_iter': False, 'iter_decode_with_beam': 1, 'iter_decode_with_external_reranker': False, 'retain_iter_history': False, 'retain_dropout': False, 'retain_dropout_modules': None, 'decoding_format': None, 'no_seed_provided': False}, 'eval_wer_tokenizer': None, 'eval_wer_post_process': 'letter', 'autoregressive': False, 'num_batch_buckets': 0, 'precompute_mask_indices': False, 'inferred_w2v_config': None, 'tpu': False}, 'criterion': {'_name': 'wav2vec', 'infonce': True, 'loss_weights': [0.1, 10.0], 'log_keys': ['prob_perplexity', 'code_perplexity', 'temp']}, 'optimizer': {'_name': 'adam', 'adam_betas': '(0.9,0.98)', 'adam_eps': 1e-06, 'weight_decay': 0.01, 'use_old_adam': False, 'tpu': False, 'lr': [0.0005]}, 'lr_scheduler': {'_name': 'polynomial_decay', 'warmup_updates': 32000, 'force_anneal': None, 'end_learning_rate': 0.0, 'power': 1.0, 'total_num_update': 400000, 'lr': [0.0005]}, 'scoring': None, 'bpe': None, 'tokenizer': None, 'job_logging_cfg': {'version': 1, 'formatters': {'simple': {'format': '[%(asctime)s][%(name)s][%(levelname)s] - %(message)s'}}, 'handlers': {'console': {'class': 'logging.StreamHandler', 'formatter': 'simple', 'stream': 'ext://sys.stdout'}, 'file': {'class': 'logging.FileHandler', 'formatter': 'simple', 'filename': 'hydra_train.log'}}, 'root': {'level': 'INFO', 'handlers': ['console', 'file']}, 'disable_existing_loggers': False}}
+[2021-07-06 15:36:10,431][fairseq_cli.train][INFO] - Wav2Vec2Model(
+  (feature_extractor): ConvFeatureExtractionModel(
+    (conv_layers): ModuleList(
+      (0): Sequential(
+        (0): Conv1d(1, 512, kernel_size=(10,), stride=(5,), bias=False)
+        (1): Dropout(p=0.0, inplace=False)
+        (2): Fp32GroupNorm(512, 512, eps=1e-05, affine=True)
+        (3): GELU()
+      )
+      (1): Sequential(
+        (0): Conv1d(512, 512, kernel_size=(3,), stride=(2,), bias=False)
+        (1): Dropout(p=0.0, inplace=False)
+        (2): GELU()
+      )
+      (2): Sequential(
+        (0): Conv1d(512, 512, kernel_size=(3,), stride=(2,), bias=False)
+        (1): Dropout(p=0.0, inplace=False)
+        (2): GELU()
+      )
+      (3): Sequential(
+        (0): Conv1d(512, 512, kernel_size=(3,), stride=(2,), bias=False)
+        (1): Dropout(p=0.0, inplace=False)
+        (2): GELU()
+      )
+      (4): Sequential(
+        (0): Conv1d(512, 512, kernel_size=(3,), stride=(2,), bias=False)
+        (1): Dropout(p=0.0, inplace=False)
+        (2): GELU()
+      )
+      (5): Sequential(
+        (0): Conv1d(512, 512, kernel_size=(2,), stride=(2,), bias=False)
+        (1): Dropout(p=0.0, inplace=False)
+        (2): GELU()
+      )
+      (6): Sequential(
+        (0): Conv1d(512, 512, kernel_size=(2,), stride=(2,), bias=False)
+        (1): Dropout(p=0.0, inplace=False)
+        (2): GELU()
+      )
+    )
+  )
+  (post_extract_proj): Linear(in_features=512, out_features=768, bias=True)
+  (dropout_input): Dropout(p=0.1, inplace=False)
+  (dropout_features): Dropout(p=0.1, inplace=False)
+  (quantizer): GumbelVectorQuantizer(
+    (weight_proj): Linear(in_features=512, out_features=640, bias=True)
+  )
+  (project_q): Linear(in_features=256, out_features=256, bias=True)
+  (encoder): TransformerEncoder(
+    (pos_conv): Sequential(
+      (0): Conv1d(768, 768, kernel_size=(128,), stride=(1,), padding=(64,), groups=16)
+      (1): SamePad()
+      (2): GELU()
+    )
+    (layers): ModuleList(
+      (0): TransformerSentenceEncoderLayer(
+        (self_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=768, out_features=768, bias=True)
+          (v_proj): Linear(in_features=768, out_features=768, bias=True)
+          (q_proj): Linear(in_features=768, out_features=768, bias=True)
+          (out_proj): Linear(in_features=768, out_features=768, bias=True)
+        )
+        (dropout1): Dropout(p=0.1, inplace=False)
+        (dropout2): Dropout(p=0.0, inplace=False)
+        (dropout3): Dropout(p=0.1, inplace=False)
+        (self_attn_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+        (fc1): Linear(in_features=768, out_features=3072, bias=True)
+        (fc2): Linear(in_features=3072, out_features=768, bias=True)
+        (final_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+      )
+      (1): TransformerSentenceEncoderLayer(
+        (self_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=768, out_features=768, bias=True)
+          (v_proj): Linear(in_features=768, out_features=768, bias=True)
+          (q_proj): Linear(in_features=768, out_features=768, bias=True)
+          (out_proj): Linear(in_features=768, out_features=768, bias=True)
+        )
+        (dropout1): Dropout(p=0.1, inplace=False)
+        (dropout2): Dropout(p=0.0, inplace=False)
+        (dropout3): Dropout(p=0.1, inplace=False)
+        (self_attn_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+        (fc1): Linear(in_features=768, out_features=3072, bias=True)
+        (fc2): Linear(in_features=3072, out_features=768, bias=True)
+        (final_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+      )
+      (2): TransformerSentenceEncoderLayer(
+        (self_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=768, out_features=768, bias=True)
+          (v_proj): Linear(in_features=768, out_features=768, bias=True)
+          (q_proj): Linear(in_features=768, out_features=768, bias=True)
+          (out_proj): Linear(in_features=768, out_features=768, bias=True)
+        )
+        (dropout1): Dropout(p=0.1, inplace=False)
+        (dropout2): Dropout(p=0.0, inplace=False)
+        (dropout3): Dropout(p=0.1, inplace=False)
+        (self_attn_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+        (fc1): Linear(in_features=768, out_features=3072, bias=True)
+        (fc2): Linear(in_features=3072, out_features=768, bias=True)
+        (final_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+      )
+      (3): TransformerSentenceEncoderLayer(
+        (self_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=768, out_features=768, bias=True)
+          (v_proj): Linear(in_features=768, out_features=768, bias=True)
+          (q_proj): Linear(in_features=768, out_features=768, bias=True)
+          (out_proj): Linear(in_features=768, out_features=768, bias=True)
+        )
+        (dropout1): Dropout(p=0.1, inplace=False)
+        (dropout2): Dropout(p=0.0, inplace=False)
+        (dropout3): Dropout(p=0.1, inplace=False)
+        (self_attn_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+        (fc1): Linear(in_features=768, out_features=3072, bias=True)
+        (fc2): Linear(in_features=3072, out_features=768, bias=True)
+        (final_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+      )
+      (4): TransformerSentenceEncoderLayer(
+        (self_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=768, out_features=768, bias=True)
+          (v_proj): Linear(in_features=768, out_features=768, bias=True)
+          (q_proj): Linear(in_features=768, out_features=768, bias=True)
+          (out_proj): Linear(in_features=768, out_features=768, bias=True)
+        )
+        (dropout1): Dropout(p=0.1, inplace=False)
+        (dropout2): Dropout(p=0.0, inplace=False)
+        (dropout3): Dropout(p=0.1, inplace=False)
+        (self_attn_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+        (fc1): Linear(in_features=768, out_features=3072, bias=True)
+        (fc2): Linear(in_features=3072, out_features=768, bias=True)
+        (final_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+      )
+      (5): TransformerSentenceEncoderLayer(
+        (self_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=768, out_features=768, bias=True)
+          (v_proj): Linear(in_features=768, out_features=768, bias=True)
+          (q_proj): Linear(in_features=768, out_features=768, bias=True)
+          (out_proj): Linear(in_features=768, out_features=768, bias=True)
+        )
+        (dropout1): Dropout(p=0.1, inplace=False)
+        (dropout2): Dropout(p=0.0, inplace=False)
+        (dropout3): Dropout(p=0.1, inplace=False)
+        (self_attn_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+        (fc1): Linear(in_features=768, out_features=3072, bias=True)
+        (fc2): Linear(in_features=3072, out_features=768, bias=True)
+        (final_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+      )
+      (6): TransformerSentenceEncoderLayer(
+        (self_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=768, out_features=768, bias=True)
+          (v_proj): Linear(in_features=768, out_features=768, bias=True)
+          (q_proj): Linear(in_features=768, out_features=768, bias=True)
+          (out_proj): Linear(in_features=768, out_features=768, bias=True)
+        )
+        (dropout1): Dropout(p=0.1, inplace=False)
+        (dropout2): Dropout(p=0.0, inplace=False)
+        (dropout3): Dropout(p=0.1, inplace=False)
+        (self_attn_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+        (fc1): Linear(in_features=768, out_features=3072, bias=True)
+        (fc2): Linear(in_features=3072, out_features=768, bias=True)
+        (final_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+      )
+      (7): TransformerSentenceEncoderLayer(
+        (self_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=768, out_features=768, bias=True)
+          (v_proj): Linear(in_features=768, out_features=768, bias=True)
+          (q_proj): Linear(in_features=768, out_features=768, bias=True)
+          (out_proj): Linear(in_features=768, out_features=768, bias=True)
+        )
+        (dropout1): Dropout(p=0.1, inplace=False)
+        (dropout2): Dropout(p=0.0, inplace=False)
+        (dropout3): Dropout(p=0.1, inplace=False)
+        (self_attn_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+        (fc1): Linear(in_features=768, out_features=3072, bias=True)
+        (fc2): Linear(in_features=3072, out_features=768, bias=True)
+        (final_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+      )
+      (8): TransformerSentenceEncoderLayer(
+        (self_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=768, out_features=768, bias=True)
+          (v_proj): Linear(in_features=768, out_features=768, bias=True)
+          (q_proj): Linear(in_features=768, out_features=768, bias=True)
+          (out_proj): Linear(in_features=768, out_features=768, bias=True)
+        )
+        (dropout1): Dropout(p=0.1, inplace=False)
+        (dropout2): Dropout(p=0.0, inplace=False)
+        (dropout3): Dropout(p=0.1, inplace=False)
+        (self_attn_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+        (fc1): Linear(in_features=768, out_features=3072, bias=True)
+        (fc2): Linear(in_features=3072, out_features=768, bias=True)
+        (final_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+      )
+      (9): TransformerSentenceEncoderLayer(
+        (self_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=768, out_features=768, bias=True)
+          (v_proj): Linear(in_features=768, out_features=768, bias=True)
+          (q_proj): Linear(in_features=768, out_features=768, bias=True)
+          (out_proj): Linear(in_features=768, out_features=768, bias=True)
+        )
+        (dropout1): Dropout(p=0.1, inplace=False)
+        (dropout2): Dropout(p=0.0, inplace=False)
+        (dropout3): Dropout(p=0.1, inplace=False)
+        (self_attn_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+        (fc1): Linear(in_features=768, out_features=3072, bias=True)
+        (fc2): Linear(in_features=3072, out_features=768, bias=True)
+        (final_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+      )
+      (10): TransformerSentenceEncoderLayer(
+        (self_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=768, out_features=768, bias=True)
+          (v_proj): Linear(in_features=768, out_features=768, bias=True)
+          (q_proj): Linear(in_features=768, out_features=768, bias=True)
+          (out_proj): Linear(in_features=768, out_features=768, bias=True)
+        )
+        (dropout1): Dropout(p=0.1, inplace=False)
+        (dropout2): Dropout(p=0.0, inplace=False)
+        (dropout3): Dropout(p=0.1, inplace=False)
+        (self_attn_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+        (fc1): Linear(in_features=768, out_features=3072, bias=True)
+        (fc2): Linear(in_features=3072, out_features=768, bias=True)
+        (final_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+      )
+      (11): TransformerSentenceEncoderLayer(
+        (self_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=768, out_features=768, bias=True)
+          (v_proj): Linear(in_features=768, out_features=768, bias=True)
+          (q_proj): Linear(in_features=768, out_features=768, bias=True)
+          (out_proj): Linear(in_features=768, out_features=768, bias=True)
+        )
+        (dropout1): Dropout(p=0.1, inplace=False)
+        (dropout2): Dropout(p=0.0, inplace=False)
+        (dropout3): Dropout(p=0.1, inplace=False)
+        (self_attn_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+        (fc1): Linear(in_features=768, out_features=3072, bias=True)
+        (fc2): Linear(in_features=3072, out_features=768, bias=True)
+        (final_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+      )
+    )
+    (layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+  )
+  (layer_norm): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+  (final_proj): Linear(in_features=768, out_features=256, bias=True)
+)
+[2021-07-06 15:36:10,451][fairseq_cli.train][INFO] - task: AudioPretrainingTask
+[2021-07-06 15:36:10,452][fairseq_cli.train][INFO] - model: Wav2Vec2Model
+[2021-07-06 15:36:10,452][fairseq_cli.train][INFO] - criterion: Wav2vecCriterion
+[2021-07-06 15:36:10,453][fairseq_cli.train][INFO] - num. shared model params: 95,044,608 (num. trained: 95,044,608)
+[2021-07-06 15:36:10,454][fairseq_cli.train][INFO] - num. expert model params: 0 (num. trained: 0)
+[2021-07-06 15:36:10,459][fairseq.data.audio.raw_audio_dataset][INFO] - loaded 4594, skipped 13 samples
+[2021-07-06 15:36:13,106][torch.distributed.distributed_c10d][INFO] - Added key: store_based_barrier_key:2 to store for rank: 0
+[2021-07-06 15:36:13,107][torch.distributed.distributed_c10d][INFO] - Rank 0: Completed store-based barrier for 16 nodes.
+[2021-07-06 15:36:13,107][fairseq.trainer][INFO] - detected shared parameter: feature_extractor.conv_layers.0.0.bias <- feature_extractor.conv_layers.1.0.bias
+[2021-07-06 15:36:13,107][fairseq.trainer][INFO] - detected shared parameter: feature_extractor.conv_layers.0.0.bias <- feature_extractor.conv_layers.2.0.bias
+[2021-07-06 15:36:13,107][fairseq.trainer][INFO] - detected shared parameter: feature_extractor.conv_layers.0.0.bias <- feature_extractor.conv_layers.3.0.bias
+[2021-07-06 15:36:13,107][fairseq.trainer][INFO] - detected shared parameter: feature_extractor.conv_layers.0.0.bias <- feature_extractor.conv_layers.4.0.bias
+[2021-07-06 15:36:13,108][fairseq.trainer][INFO] - detected shared parameter: feature_extractor.conv_layers.0.0.bias <- feature_extractor.conv_layers.5.0.bias
+[2021-07-06 15:36:13,108][fairseq.trainer][INFO] - detected shared parameter: feature_extractor.conv_layers.0.0.bias <- feature_extractor.conv_layers.6.0.bias
+[2021-07-06 15:36:13,768][fairseq.utils][INFO] - ***********************CUDA enviroments for all 16 workers***********************
+[2021-07-06 15:36:13,768][fairseq.utils][INFO] - rank   0: capabilities =  7.0  ; total memory = 31.749 GB ; name = Tesla V100-SXM2-32GB                    
+[2021-07-06 15:36:13,768][fairseq.utils][INFO] - rank   1: capabilities =  7.0  ; total memory = 31.749 GB ; name = Tesla V100-SXM2-32GB                    
+[2021-07-06 15:36:13,768][fairseq.utils][INFO] - rank   2: capabilities =  7.0  ; total memory = 31.749 GB ; name = Tesla V100-SXM2-32GB                    
+[2021-07-06 15:36:13,768][fairseq.utils][INFO] - rank   3: capabilities =  7.0  ; total memory = 31.749 GB ; name = Tesla V100-SXM2-32GB                    
+[2021-07-06 15:36:13,768][fairseq.utils][INFO] - rank   4: capabilities =  7.0  ; total memory = 31.749 GB ; name = Tesla V100-SXM2-32GB                    
+[2021-07-06 15:36:13,768][fairseq.utils][INFO] - rank   5: capabilities =  7.0  ; total memory = 31.749 GB ; name = Tesla V100-SXM2-32GB                    
+[2021-07-06 15:36:13,768][fairseq.utils][INFO] - rank   6: capabilities =  7.0  ; total memory = 31.749 GB ; name = Tesla V100-SXM2-32GB                    
+[2021-07-06 15:36:13,768][fairseq.utils][INFO] - rank   7: capabilities =  7.0  ; total memory = 31.749 GB ; name = Tesla V100-SXM2-32GB                    
+[2021-07-06 15:36:13,768][fairseq.utils][INFO] - rank   8: capabilities =  7.0  ; total memory = 31.749 GB ; name = Tesla V100-SXM2-32GB                    
+[2021-07-06 15:36:13,768][fairseq.utils][INFO] - rank   9: capabilities =  7.0  ; total memory = 31.749 GB ; name = Tesla V100-SXM2-32GB                    
+[2021-07-06 15:36:13,768][fairseq.utils][INFO] - rank  10: capabilities =  7.0  ; total memory = 31.749 GB ; name = Tesla V100-SXM2-32GB                    
+[2021-07-06 15:36:13,768][fairseq.utils][INFO] - rank  11: capabilities =  7.0  ; total memory = 31.749 GB ; name = Tesla V100-SXM2-32GB                    
+[2021-07-06 15:36:13,768][fairseq.utils][INFO] - rank  12: capabilities =  7.0  ; total memory = 31.749 GB ; name = Tesla V100-SXM2-32GB                    
+[2021-07-06 15:36:13,768][fairseq.utils][INFO] - rank  13: capabilities =  7.0  ; total memory = 31.749 GB ; name = Tesla V100-SXM2-32GB                    
+[2021-07-06 15:36:13,768][fairseq.utils][INFO] - rank  14: capabilities =  7.0  ; total memory = 31.749 GB ; name = Tesla V100-SXM2-32GB                    
+[2021-07-06 15:36:13,769][fairseq.utils][INFO] - rank  15: capabilities =  7.0  ; total memory = 31.749 GB ; name = Tesla V100-SXM2-32GB                    
+[2021-07-06 15:36:13,769][fairseq.utils][INFO] - ***********************CUDA enviroments for all 16 workers***********************
+[2021-07-06 15:36:13,769][fairseq_cli.train][INFO] - training on 16 devices (GPUs/TPUs)
+[2021-07-06 15:36:13,769][fairseq_cli.train][INFO] - max tokens per device = 1400000 and max sentences per device = None
+[2021-07-06 15:36:13,770][fairseq.trainer][INFO] - Preparing to load checkpoint /gpfswork/rech/sbg/commun/STT/stt_logs/pretraining_500/checkpoint_best.pt
+[2021-07-06 15:36:13,770][fairseq.trainer][INFO] - No existing checkpoint found /gpfswork/rech/sbg/commun/STT/stt_logs/pretraining_500/checkpoint_best.pt
+[2021-07-06 15:36:13,770][fairseq.trainer][INFO] - loading train data for epoch 1
+[2021-07-06 15:36:14,038][fairseq.data.audio.raw_audio_dataset][INFO] - loaded 301017, skipped 2030 samples
+[2021-07-06 15:36:14,711][fairseq.trainer][INFO] - begin training epoch 1
+[2021-07-06 15:36:14,712][fairseq_cli.train][INFO] - Start iterating over samples
+[2021-07-06 15:37:15,329][train_inner][INFO] - {"epoch": 1, "update": 0.116, "loss": "9.406", "ntokens": "22311.6", "nsentences": "172.415", "prob_perplexity": "388.015", "code_perplexity": "348.84", "temp": "1.999", "loss_0": "6.679", "loss_1": "0.057", "loss_2": "2.67", "accuracy": "0.01485", "wps": "76227.4", "ups": "3.42", "wpb": "22311.6", "bsz": "172.4", "num_updates": "200", "lr": "3.125e-06", "gnorm": "1.493", "loss_scale": "128", "train_wall": "58", "gb_free": "26.6", "wall": "62"}
+[2021-07-06 15:38:14,018][train_inner][INFO] - {"epoch": 1, "update": 0.232, "loss": "6.971", "ntokens": "22307.7", "nsentences": "174.36", "prob_perplexity": "514.327", "code_perplexity": "469.926", "temp": "1.997", "loss_0": "6.643", "loss_1": "0.028", "loss_2": "0.3", "accuracy": "0.01759", "wps": "76023.6", "ups": "3.41", "wpb": "22307.7", "bsz": "174.4", "num_updates": "400", "lr": "6.25e-06", "gnorm": "0.185", "loss_scale": "128", "train_wall": "58", "gb_free": "27.3", "wall": "120"}
+[2021-07-06 15:39:12,388][train_inner][INFO] - {"epoch": 1, "update": 0.349, "loss": "6.473", "ntokens": "22388.3", "nsentences": "174.855", "prob_perplexity": "343.457", "code_perplexity": "317.759", "temp": "1.995", "loss_0": "6.344", "loss_1": "0.066", "loss_2": "0.064", "accuracy": "0.03026", "wps": "76716.1", "ups": "3.43", "wpb": "22388.3", "bsz": "174.9", "num_updates": "600", "lr": "9.375e-06", "gnorm": "0.379", "loss_scale": "128", "train_wall": "58", "gb_free": "26.7", "wall": "179"}
+[2021-07-06 15:39:37,822][fairseq.trainer][INFO] - NOTE: gradient overflow detected, ignoring gradient, setting loss scale to: 64.0
+[2021-07-06 15:40:10,961][train_inner][INFO] - {"epoch": 1, "update": 0.465, "loss": "6.214", "ntokens": "22261.5", "nsentences": "174.79", "prob_perplexity": "186.942", "code_perplexity": "181.632", "temp": "1.993", "loss_0": "6.079", "loss_1": "0.101", "loss_2": "0.035", "accuracy": "0.05176", "wps": "76015.5", "ups": "3.41", "wpb": "22261.5", "bsz": "174.8", "num_updates": "800", "lr": "1.25e-05", "gnorm": "0.623", "loss_scale": "64", "train_wall": "58", "gb_free": "27.4", "wall": "237"}
+[2021-07-06 15:41:09,001][train_inner][INFO] - {"epoch": 1, "update": 0.582, "loss": "5.906", "ntokens": "22302.2", "nsentences": "175.065", "prob_perplexity": "81.896", "code_perplexity": "79.836", "temp": "1.991", "loss_0": "5.748", "loss_1": "0.126", "loss_2": "0.032", "accuracy": "0.13949", "wps": "76853.5", "ups": "3.45", "wpb": "22302.2", "bsz": "175.1", "num_updates": "1000", "lr": "1.5625e-05", "gnorm": "1.026", "loss_scale": "64", "train_wall": "58", "gb_free": "27.1", "wall": "295"}
+[2021-07-06 15:42:07,464][train_inner][INFO] - {"epoch": 1, "update": 0.698, "loss": "5.674", "ntokens": "22356.4", "nsentences": "174.065", "prob_perplexity": "41.891", "code_perplexity": "41.184", "temp": "1.989", "loss_0": "5.511", "loss_1": "0.135", "loss_2": "0.028", "accuracy": "0.18597", "wps": "76483.1", "ups": "3.42", "wpb": "22356.4", "bsz": "174.1", "num_updates": "1200", "lr": "1.875e-05", "gnorm": "1.077", "loss_scale": "64", "train_wall": "58", "gb_free": "27.3", "wall": "354"}
+[2021-07-06 15:43:06,110][train_inner][INFO] - {"epoch": 1, "update": 0.814, "loss": "5.508", "ntokens": "22533.3", "nsentences": "175.74", "prob_perplexity": "30.29", "code_perplexity": "30.004", "temp": "1.987", "loss_0": "5.346", "loss_1": "0.137", "loss_2": "0.025", "accuracy": "0.20495", "wps": "76849.4", "ups": "3.41", "wpb": "22533.3", "bsz": "175.7", "num_updates": "1400", "lr": "2.1875e-05", "gnorm": "1.08", "loss_scale": "64", "train_wall": "58", "gb_free": "26.3", "wall": "412"}
+[2021-07-06 15:43:18,876][fairseq.trainer][INFO] - NOTE: gradient overflow detected, ignoring gradient, setting loss scale to: 32.0
+[2021-07-06 15:44:04,730][train_inner][INFO] - {"epoch": 1, "update": 0.931, "loss": "5.348", "ntokens": "22237.7", "nsentences": "176.785", "prob_perplexity": "27.49", "code_perplexity": "27.341", "temp": "1.985", "loss_0": "5.188", "loss_1": "0.138", "loss_2": "0.022", "accuracy": "0.22949", "wps": "75874.6", "ups": "3.41", "wpb": "22237.7", "bsz": "176.8", "num_updates": "1600", "lr": "2.5e-05", "gnorm": "1.122", "loss_scale": "32", "train_wall": "58", "gb_free": "24.3", "wall": "471"}
+[2021-07-06 15:44:39,559][fairseq_cli.train][INFO] - begin validation on "valid" subset
+[2021-07-06 15:44:42,074][valid][INFO] - {"epoch": 1, "valid_loss": "5.173", "valid_ntokens": "23638.8", "valid_nsentences": "139.212", "valid_prob_perplexity": "25.384", "valid_code_perplexity": "25.218", "valid_temp": "1.983", "valid_loss_0": "5.015", "valid_loss_1": "0.138", "valid_loss_2": "0.019", "valid_accuracy": "0.27337", "valid_wps": "366944", "valid_wpb": "23638.8", "valid_bsz": "139.2", "valid_num_updates": "1719"}
+[2021-07-06 15:44:42,076][fairseq.checkpoint_utils][INFO] - Preparing to save checkpoint for epoch 1 @ 1719 updates
+[2021-07-06 15:44:42,077][fairseq.trainer][INFO] - Saving checkpoint to checkpoints/checkpoint_best.pt
+[2021-07-06 15:44:44,665][fairseq.trainer][INFO] - Finished saving checkpoint to checkpoints/checkpoint_best.pt
+[2021-07-06 15:44:46,069][fairseq.checkpoint_utils][INFO] - Saved checkpoint checkpoints/checkpoint_best.pt (epoch 1 @ 1719 updates, score 5.173) (writing took 3.9932100898586214 seconds)
+[2021-07-06 15:44:46,070][fairseq_cli.train][INFO] - end of epoch 1 (average epoch stats below)
+[2021-07-06 15:44:46,070][train][INFO] - {"epoch": 1, "train_loss": "6.353", "train_ntokens": "22335.4", "train_nsentences": "174.92", "train_prob_perplexity": "189.627", "train_code_perplexity": "175.916", "train_temp": "1.991", "train_loss_0": "5.881", "train_loss_1": "0.101", "train_loss_2": "0.37", "train_accuracy": "0.11919", "train_wps": "75389.3", "train_ups": "3.38", "train_wpb": "22335.4", "train_bsz": "174.9", "train_num_updates": "1719", "train_lr": "2.68594e-05", "train_gnorm": "0.892", "train_loss_scale": "32", "train_train_wall": "499", "train_gb_free": "25.2", "train_wall": "512"}
+[2021-07-06 15:44:46,095][fairseq.trainer][INFO] - begin training epoch 2
+[2021-07-06 15:44:46,095][fairseq_cli.train][INFO] - Start iterating over samples
+[2021-07-06 15:45:10,133][train_inner][INFO] - {"epoch": 2, "update": 1.047, "loss": "5.207", "ntokens": "22372.8", "nsentences": "176.84", "prob_perplexity": "26.051", "code_perplexity": "25.967", "temp": "1.983", "loss_0": "5.048", "loss_1": "0.138", "loss_2": "0.02", "accuracy": "0.25262", "wps": "68425.8", "ups": "3.06", "wpb": "22372.8", "bsz": "176.8", "num_updates": "1800", "lr": "2.8125e-05", "gnorm": "1.125", "loss_scale": "32", "train_wall": "58", "gb_free": "25.1", "wall": "536"}
+[2021-07-06 15:46:08,799][train_inner][INFO] - {"epoch": 2, "update": 1.163, "loss": "5.13", "ntokens": "22440.8", "nsentences": "173.34", "prob_perplexity": "25.981", "code_perplexity": "25.927", "temp": "1.981", "loss_0": "4.973", "loss_1": "0.138", "loss_2": "0.018", "accuracy": "0.26139", "wps": "76507.1", "ups": "3.41", "wpb": "22440.8", "bsz": "173.3", "num_updates": "2000", "lr": "3.125e-05", "gnorm": "1.115", "loss_scale": "32", "train_wall": "58", "gb_free": "25.6", "wall": "595"}
+[2021-07-06 15:47:06,905][train_inner][INFO] - {"epoch": 2, "update": 1.279, "loss": "5.001", "ntokens": "22220.8", "nsentences": "176", "prob_perplexity": "26.453", "code_perplexity": "26.412", "temp": "1.979", "loss_0": "4.846", "loss_1": "0.138", "loss_2": "0.017", "accuracy": "0.27946", "wps": "76486.6", "ups": "3.44", "wpb": "22220.8", "bsz": "176", "num_updates": "2200", "lr": "3.4375e-05", "gnorm": "1.188", "loss_scale": "32", "train_wall": "58", "gb_free": "26.8", "wall": "653"}
+[2021-07-06 15:48:05,680][train_inner][INFO] - {"epoch": 2, "update": 1.396, "loss": "4.78", "ntokens": "22324.4", "nsentences": "173.555", "prob_perplexity": "27.039", "code_perplexity": "26.994", "temp": "1.977", "loss_0": "4.626", "loss_1": "0.138", "loss_2": "0.016", "accuracy": "0.30828", "wps": "75970.4", "ups": "3.4", "wpb": "22324.4", "bsz": "173.6", "num_updates": "2400", "lr": "3.75e-05", "gnorm": "1.167", "loss_scale": "32", "train_wall": "58", "gb_free": "23.2", "wall": "712"}
+[2021-07-06 15:48:26,106][fairseq.trainer][INFO] - NOTE: gradient overflow detected, ignoring gradient, setting loss scale to: 32.0
+[2021-07-06 15:49:04,111][train_inner][INFO] - {"epoch": 2, "update": 1.512, "loss": "4.617", "ntokens": "22313.2", "nsentences": "176.1", "prob_perplexity": "27.577", "code_perplexity": "27.532", "temp": "1.975", "loss_0": "4.463", "loss_1": "0.138", "loss_2": "0.015", "accuracy": "0.32543", "wps": "76388.7", "ups": "3.42", "wpb": "22313.2", "bsz": "176.1", "num_updates": "2600", "lr": "4.0625e-05", "gnorm": "1.198", "loss_scale": "32", "train_wall": "58", "gb_free": "26.6", "wall": "770"}
+[2021-07-06 15:49:37,496][fairseq.trainer][INFO] - NOTE: gradient overflow detected, ignoring gradient, setting loss scale to: 16.0
+[2021-07-06 15:50:02,696][train_inner][INFO] - {"epoch": 2, "update": 1.629, "loss": "4.579", "ntokens": "22418.4", "nsentences": "176.42", "prob_perplexity": "28.156", "code_perplexity": "28.118", "temp": "1.973", "loss_0": "4.427", "loss_1": "0.138", "loss_2": "0.014", "accuracy": "0.32815", "wps": "76535.6", "ups": "3.41", "wpb": "22418.4", "bsz": "176.4", "num_updates": "2800", "lr": "4.375e-05", "gnorm": "1.116", "loss_scale": "16", "train_wall": "58", "gb_free": "24.5", "wall": "829"}
+[2021-07-06 15:51:01,334][train_inner][INFO] - {"epoch": 2, "update": 1.745, "loss": "4.518", "ntokens": "22405.8", "nsentences": "172.87", "prob_perplexity": "28.507", "code_perplexity": "28.477", "temp": "1.971", "loss_0": "4.366", "loss_1": "0.138", "loss_2": "0.014", "accuracy": "0.33456", "wps": "76423.5", "ups": "3.41", "wpb": "22405.8", "bsz": "172.9", "num_updates": "3000", "lr": "4.6875e-05", "gnorm": "1.092", "loss_scale": "16", "train_wall": "58", "gb_free": "27", "wall": "888"}
+[2021-07-06 15:51:59,505][train_inner][INFO] - {"epoch": 2, "update": 1.862, "loss": "4.465", "ntokens": "22270.8", "nsentences": "176.09", "prob_perplexity": "28.666", "code_perplexity": "28.636", "temp": "1.969", "loss_0": "4.314", "loss_1": "0.138", "loss_2": "0.013", "accuracy": "0.34117", "wps": "76573.1", "ups": "3.44", "wpb": "22270.8", "bsz": "176.1", "num_updates": "3200", "lr": "5e-05", "gnorm": "1.07", "loss_scale": "16", "train_wall": "58", "gb_free": "24", "wall": "946"}
+[2021-07-06 15:52:42,237][fairseq.trainer][INFO] - NOTE: gradient overflow detected, ignoring gradient, setting loss scale to: 8.0
+[2021-07-06 15:52:58,243][train_inner][INFO] - {"epoch": 2, "update": 1.979, "loss": "4.416", "ntokens": "22228.4", "nsentences": "174.18", "prob_perplexity": "28.729", "code_perplexity": "28.703", "temp": "1.967", "loss_0": "4.265", "loss_1": "0.138", "loss_2": "0.013", "accuracy": "0.34833", "wps": "75691.2", "ups": "3.41", "wpb": "22228.4", "bsz": "174.2", "num_updates": "3400", "lr": "5.3125e-05", "gnorm": "1.038", "loss_scale": "8", "train_wall": "58", "gb_free": "25.5", "wall": "1004"}
+[2021-07-06 15:53:09,047][fairseq_cli.train][INFO] - begin validation on "valid" subset
+[2021-07-06 15:53:11,533][valid][INFO] - {"epoch": 2, "valid_loss": "4.431", "valid_ntokens": "23689.9", "valid_nsentences": "139.212", "valid_prob_perplexity": "28.279", "valid_code_perplexity": "28.261", "valid_temp": "1.966", "valid_loss_0": "4.28", "valid_loss_1": "0.138", "valid_loss_2": "0.013", "valid_accuracy": "0.35132", "valid_wps": "369040", "valid_wpb": "23689.9", "valid_bsz": "139.2", "valid_num_updates": "3437", "valid_best_loss": "4.431"}
+[2021-07-06 15:53:11,535][fairseq.checkpoint_utils][INFO] - Preparing to save checkpoint for epoch 2 @ 3437 updates
+[2021-07-06 15:53:11,535][fairseq.trainer][INFO] - Saving checkpoint to checkpoints/checkpoint_best.pt
+[2021-07-06 15:53:13,977][fairseq.trainer][INFO] - Finished saving checkpoint to checkpoints/checkpoint_best.pt
+[2021-07-06 15:53:15,414][fairseq.checkpoint_utils][INFO] - Saved checkpoint checkpoints/checkpoint_best.pt (epoch 2 @ 3437 updates, score 4.431) (writing took 3.8792726299725473 seconds)
+[2021-07-06 15:53:15,414][fairseq_cli.train][INFO] - end of epoch 2 (average epoch stats below)
+[2021-07-06 15:53:15,415][train][INFO] - {"epoch": 2, "train_loss": "4.705", "train_ntokens": "22332.3", "train_nsentences": "174.875", "train_prob_perplexity": "27.584", "train_code_perplexity": "27.544", "train_temp": "1.974", "train_loss_0": "4.552", "train_loss_1": "0.138", "train_loss_2": "0.015", "train_accuracy": "0.31372", "train_wps": "75326.2", "train_ups": "3.37", "train_wpb": "22332.3", "train_bsz": "174.9", "train_num_updates": "3437", "train_lr": "5.37031e-05", "train_gnorm": "1.12", "train_loss_scale": "8", "train_train_wall": "499", "train_gb_free": "26.3", "train_wall": "1022"}
+[2021-07-06 15:53:15,435][fairseq.trainer][INFO] - begin training epoch 3
+[2021-07-06 15:53:15,436][fairseq_cli.train][INFO] - Start iterating over samples
+[2021-07-06 15:54:03,283][train_inner][INFO] - {"epoch": 3, "update": 2.095, "loss": "4.349", "ntokens": "22258.1", "nsentences": "173.795", "prob_perplexity": "28.606", "code_perplexity": "28.585", "temp": "1.965", "loss_0": "4.198", "loss_1": "0.138", "loss_2": "0.013", "accuracy": "0.35698", "wps": "68445.7", "ups": "3.08", "wpb": "22258.1", "bsz": "173.8", "num_updates": "3600", "lr": "5.625e-05", "gnorm": "1.026", "loss_scale": "8", "train_wall": "58", "gb_free": "26.5", "wall": "1070"}
+[2021-07-06 15:55:01,932][train_inner][INFO] - {"epoch": 3, "update": 2.211, "loss": "4.288", "ntokens": "22429.3", "nsentences": "175.005", "prob_perplexity": "28.861", "code_perplexity": "28.839", "temp": "1.963", "loss_0": "4.137", "loss_1": "0.138", "loss_2": "0.013", "accuracy": "0.3641", "wps": "76510.7", "ups": "3.41", "wpb": "22429.3", "bsz": "175", "num_updates": "3800", "lr": "5.9375e-05", "gnorm": "0.971", "loss_scale": "8", "train_wall": "58", "gb_free": "27", "wall": "1128"}
+[2021-07-06 15:56:00,167][train_inner][INFO] - {"epoch": 3, "update": 2.327, "loss": "4.233", "ntokens": "22391.5", "nsentences": "173.585", "prob_perplexity": "29.216", "code_perplexity": "29.192", "temp": "1.961", "loss_0": "4.083", "loss_1": "0.138", "loss_2": "0.013", "accuracy": "0.37044", "wps": "76902.3", "ups": "3.43", "wpb": "22391.5", "bsz": "173.6", "num_updates": "4000", "lr": "6.25e-05", "gnorm": "0.929", "loss_scale": "8", "train_wall": "58", "gb_free": "27", "wall": "1186"}
+[2021-07-06 15:56:21,929][fairseq.trainer][INFO] - NOTE: gradient overflow detected, ignoring gradient, setting loss scale to: 4.0
+[2021-07-06 15:56:58,851][train_inner][INFO] - {"epoch": 3, "update": 2.444, "loss": "4.186", "ntokens": "22270", "nsentences": "175.63", "prob_perplexity": "29.854", "code_perplexity": "29.835", "temp": "1.959", "loss_0": "4.035", "loss_1": "0.138", "loss_2": "0.013", "accuracy": "0.37646", "wps": "75901.4", "ups": "3.41", "wpb": "22270", "bsz": "175.6", "num_updates": "4200", "lr": "6.5625e-05", "gnorm": "0.91", "loss_scale": "4", "train_wall": "58", "gb_free": "25.4", "wall": "1245"}
+[2021-07-06 15:57:57,232][train_inner][INFO] - {"epoch": 3, "update": 2.56, "loss": "4.143", "ntokens": "22292.5", "nsentences": "176.13", "prob_perplexity": "29.994", "code_perplexity": "29.975", "temp": "1.957", "loss_0": "3.993", "loss_1": "0.137", "loss_2": "0.012", "accuracy": "0.38315", "wps": "76371.9", "ups": "3.43", "wpb": "22292.5", "bsz": "176.1", "num_updates": "4400", "lr": "6.875e-05", "gnorm": "0.924", "loss_scale": "4", "train_wall": "58", "gb_free": "25.2", "wall": "1303"}
+[2021-07-06 15:58:56,019][train_inner][INFO] - {"epoch": 3, "update": 2.676, "loss": "4.136", "ntokens": "22320.5", "nsentences": "175.26", "prob_perplexity": "30.341", "code_perplexity": "30.325", "temp": "1.956", "loss_0": "3.986", "loss_1": "0.137", "loss_2": "0.013", "accuracy": "0.38392", "wps": "75938.8", "ups": "3.4", "wpb": "22320.5", "bsz": "175.3", "num_updates": "4600", "lr": "7.1875e-05", "gnorm": "0.889", "loss_scale": "4", "train_wall": "58", "gb_free": "27.3", "wall": "1362"}
+[2021-07-06 15:59:54,751][train_inner][INFO] - {"epoch": 3, "update": 2.793, "loss": "4.091", "ntokens": "22365.2", "nsentences": "175.21", "prob_perplexity": "30.325", "code_perplexity": "30.306", "temp": "1.954", "loss_0": "3.941", "loss_1": "0.137", "loss_2": "0.012", "accuracy": "0.39047", "wps": "76166.5", "ups": "3.41", "wpb": "22365.2", "bsz": "175.2", "num_updates": "4800", "lr": "7.5e-05", "gnorm": "0.862", "loss_scale": "4", "train_wall": "58", "gb_free": "27.1", "wall": "1421"}
+[2021-07-06 16:00:53,303][train_inner][INFO] - {"epoch": 3, "update": 2.909, "loss": "4.077", "ntokens": "22243.5", "nsentences": "173.515", "prob_perplexity": "30.587", "code_perplexity": "30.568", "temp": "1.952", "loss_0": "3.927", "loss_1": "0.137", "loss_2": "0.013", "accuracy": "0.39225", "wps": "75980.1", "ups": "3.42", "wpb": "22243.5", "bsz": "173.5", "num_updates": "5000", "lr": "7.8125e-05", "gnorm": "0.903", "loss_scale": "4", "train_wall": "58", "gb_free": "26", "wall": "1480"}
+[2021-07-06 16:01:34,981][fairseq.trainer][INFO] - NOTE: gradient overflow detected, ignoring gradient, setting loss scale to: 4.0
+[2021-07-06 16:01:39,082][fairseq_cli.train][INFO] - begin validation on "valid" subset
+[2021-07-06 16:01:41,650][valid][INFO] - {"epoch": 3, "valid_loss": "4.204", "valid_ntokens": "23619.2", "valid_nsentences": "139.212", "valid_prob_perplexity": "30.956", "valid_code_perplexity": "30.941", "valid_temp": "1.949", "valid_loss_0": "4.054", "valid_loss_1": "0.137", "valid_loss_2": "0.013", "valid_accuracy": "0.37531", "valid_wps": "358191", "valid_wpb": "23619.2", "valid_bsz": "139.2", "valid_num_updates": "5156", "valid_best_loss": "4.204"}
+[2021-07-06 16:01:41,651][fairseq.checkpoint_utils][INFO] - Preparing to save checkpoint for epoch 3 @ 5156 updates
+[2021-07-06 16:01:41,652][fairseq.trainer][INFO] - Saving checkpoint to checkpoints/checkpoint_best.pt
+[2021-07-06 16:01:44,021][fairseq.trainer][INFO] - Finished saving checkpoint to checkpoints/checkpoint_best.pt
+[2021-07-06 16:01:45,376][fairseq.checkpoint_utils][INFO] - Saved checkpoint checkpoints/checkpoint_best.pt (epoch 3 @ 5156 updates, score 4.204) (writing took 3.724635971011594 seconds)
+[2021-07-06 16:01:45,380][fairseq_cli.train][INFO] - end of epoch 3 (average epoch stats below)
+[2021-07-06 16:01:45,381][train][INFO] - {"epoch": 3, "train_loss": "4.171", "train_ntokens": "22321.8", "train_nsentences": "174.903", "train_prob_perplexity": "29.841", "train_code_perplexity": "29.821", "train_temp": "1.958", "train_loss_0": "4.021", "train_loss_1": "0.138", "train_loss_2": "0.013", "train_accuracy": "0.37949", "train_wps": "75242.6", "train_ups": "3.37", "train_wpb": "22321.8", "train_bsz": "174.9", "train_num_updates": "5156", "train_lr": "8.05625e-05", "train_gnorm": "0.919", "train_loss_scale": "4", "train_train_wall": "499", "train_gb_free": "27", "train_wall": "1532"}
+[2021-07-06 16:01:45,400][fairseq.trainer][INFO] - begin training epoch 4
+[2021-07-06 16:01:45,401][fairseq_cli.train][INFO] - Start iterating over samples
+[2021-07-06 16:01:58,496][train_inner][INFO] - {"epoch": 4, "update": 3.026, "loss": "4.047", "ntokens": "22311.6", "nsentences": "175.925", "prob_perplexity": "30.857", "code_perplexity": "30.837", "temp": "1.95", "loss_0": "3.897", "loss_1": "0.137", "loss_2": "0.013", "accuracy": "0.39703", "wps": "68450.5", "ups": "3.07", "wpb": "22311.6", "bsz": "175.9", "num_updates": "5200", "lr": "8.125e-05", "gnorm": "0.883", "loss_scale": "4", "train_wall": "58", "gb_free": "27.4", "wall": "1545"}
+[2021-07-06 16:02:36,661][fairseq.trainer][INFO] - NOTE: gradient overflow detected, ignoring gradient, setting loss scale to: 2.0
+[2021-07-06 16:02:57,753][train_inner][INFO] - {"epoch": 4, "update": 3.142, "loss": "4.055", "ntokens": "22371.8", "nsentences": "172.635", "prob_perplexity": "31.604", "code_perplexity": "31.585", "temp": "1.948", "loss_0": "3.905", "loss_1": "0.137", "loss_2": "0.013", "accuracy": "0.39467", "wps": "75508.5", "ups": "3.38", "wpb": "22371.8", "bsz": "172.6", "num_updates": "5400", "lr": "8.4375e-05", "gnorm": "0.848", "loss_scale": "2", "train_wall": "59", "gb_free": "25.8", "wall": "1604"}
+[2021-07-06 16:03:55,904][train_inner][INFO] - {"epoch": 4, "update": 3.259, "loss": "4.016", "ntokens": "22241.9", "nsentences": "173.95", "prob_perplexity": "31.605", "code_perplexity": "31.584", "temp": "1.946", "loss_0": "3.866", "loss_1": "0.137", "loss_2": "0.013", "accuracy": "0.40057", "wps": "76499.3", "ups": "3.44", "wpb": "22241.9", "bsz": "173.9", "num_updates": "5600", "lr": "8.75e-05", "gnorm": "0.831", "loss_scale": "2", "train_wall": "58", "gb_free": "25.3", "wall": "1662"}
+[2021-07-06 16:04:54,625][train_inner][INFO] - {"epoch": 4, "update": 3.375, "loss": "3.997", "ntokens": "22336.8", "nsentences": "173.965", "prob_perplexity": "32.024", "code_perplexity": "32.005", "temp": "1.944", "loss_0": "3.847", "loss_1": "0.137", "loss_2": "0.013", "accuracy": "0.40309", "wps": "76092", "ups": "3.41", "wpb": "22336.8", "bsz": "174", "num_updates": "5800", "lr": "9.0625e-05", "gnorm": "0.864", "loss_scale": "2", "train_wall": "58", "gb_free": "26.1", "wall": "1721"}
+[2021-07-06 16:05:53,247][train_inner][INFO] - {"epoch": 4, "update": 3.491, "loss": "3.982", "ntokens": "22348", "nsentences": "176.02", "prob_perplexity": "32.281", "code_perplexity": "32.264", "temp": "1.942", "loss_0": "3.832", "loss_1": "0.137", "loss_2": "0.013", "accuracy": "0.40581", "wps": "76245.1", "ups": "3.41", "wpb": "22348", "bsz": "176", "num_updates": "6000", "lr": "9.375e-05", "gnorm": "0.769", "loss_scale": "2", "train_wall": "58", "gb_free": "24.3", "wall": "1779"}
+[2021-07-06 16:06:51,741][train_inner][INFO] - {"epoch": 4, "update": 3.607, "loss": "3.977", "ntokens": "22373.8", "nsentences": "173.575", "prob_perplexity": "32.62", "code_perplexity": "32.604", "temp": "1.94", "loss_0": "3.826", "loss_1": "0.137", "loss_2": "0.013", "accuracy": "0.40488", "wps": "76500.9", "ups": "3.42", "wpb": "22373.8", "bsz": "173.6", "num_updates": "6200", "lr": "9.6875e-05", "gnorm": "0.819", "loss_scale": "2", "train_wall": "58", "gb_free": "23.7", "wall": "1838"}
+[2021-07-06 16:07:50,435][train_inner][INFO] - {"epoch": 4, "update": 3.723, "loss": "3.961", "ntokens": "22295.5", "nsentences": "174.14", "prob_perplexity": "32.687", "code_perplexity": "32.669", "temp": "1.938", "loss_0": "3.811", "loss_1": "0.137", "loss_2": "0.013", "accuracy": "0.40778", "wps": "75976.2", "ups": "3.41", "wpb": "22295.5", "bsz": "174.1", "num_updates": "6400", "lr": "0.0001", "gnorm": "0.831", "loss_scale": "4", "train_wall": "58", "gb_free": "26.1", "wall": "1897"}
+[2021-07-06 16:08:00,664][fairseq.trainer][INFO] - NOTE: gradient overflow detected, ignoring gradient, setting loss scale to: 2.0
+[2021-07-06 16:08:48,766][train_inner][INFO] - {"epoch": 4, "update": 3.84, "loss": "3.923", "ntokens": "22203", "nsentences": "177.42", "prob_perplexity": "32.94", "code_perplexity": "32.924", "temp": "1.936", "loss_0": "3.773", "loss_1": "0.137", "loss_2": "0.013", "accuracy": "0.4136", "wps": "76130.5", "ups": "3.43", "wpb": "22203", "bsz": "177.4", "num_updates": "6600", "lr": "0.000103125", "gnorm": "0.845", "loss_scale": "2", "train_wall": "58", "gb_free": "26.8", "wall": "1955"}
+[2021-07-06 16:09:47,445][train_inner][INFO] - {"epoch": 4, "update": 3.956, "loss": "3.944", "ntokens": "22307.9", "nsentences": "176.825", "prob_perplexity": "33.266", "code_perplexity": "33.246", "temp": "1.934", "loss_0": "3.793", "loss_1": "0.137", "loss_2": "0.014", "accuracy": "0.41025", "wps": "76037.2", "ups": "3.41", "wpb": "22307.9", "bsz": "176.8", "num_updates": "6800", "lr": "0.00010625", "gnorm": "0.812", "loss_scale": "2", "train_wall": "58", "gb_free": "23.4", "wall": "2014"}
+[2021-07-06 16:10:09,462][fairseq_cli.train][INFO] - begin validation on "valid" subset
+[2021-07-06 16:10:12,038][valid][INFO] - {"epoch": 4, "valid_loss": "4.039", "valid_ntokens": "23692.4", "valid_nsentences": "139.212", "valid_prob_perplexity": "32.569", "valid_code_perplexity": "32.558", "valid_temp": "1.932", "valid_loss_0": "3.888", "valid_loss_1": "0.137", "valid_loss_2": "0.014", "valid_accuracy": "0.39846", "valid_wps": "367977", "valid_wpb": "23692.4", "valid_bsz": "139.2", "valid_num_updates": "6875", "valid_best_loss": "4.039"}
+[2021-07-06 16:10:12,040][fairseq.checkpoint_utils][INFO] - Preparing to save checkpoint for epoch 4 @ 6875 updates
+[2021-07-06 16:10:12,041][fairseq.trainer][INFO] - Saving checkpoint to checkpoints/checkpoint_best.pt
+[2021-07-06 16:10:14,419][fairseq.trainer][INFO] - Finished saving checkpoint to checkpoints/checkpoint_best.pt
+[2021-07-06 16:10:15,857][fairseq.checkpoint_utils][INFO] - Saved checkpoint checkpoints/checkpoint_best.pt (epoch 4 @ 6875 updates, score 4.039) (writing took 3.817134991986677 seconds)
+[2021-07-06 16:10:15,857][fairseq_cli.train][INFO] - end of epoch 4 (average epoch stats below)
+[2021-07-06 16:10:15,858][train][INFO] - {"epoch": 4, "train_loss": "3.982", "train_ntokens": "22317", "train_nsentences": "174.876", "train_prob_perplexity": "32.384", "train_code_perplexity": "32.366", "train_temp": "1.941", "train_loss_0": "3.832", "train_loss_1": "0.137", "train_loss_2": "0.013", "train_accuracy": "0.40497", "train_wps": "75151", "train_ups": "3.37", "train_wpb": "22317", "train_bsz": "174.9", "train_num_updates": "6875", "train_lr": "0.000107422", "train_gnorm": "0.831", "train_loss_scale": "2", "train_train_wall": "500", "train_gb_free": "25", "train_wall": "2042"}
+[2021-07-06 16:10:15,881][fairseq.trainer][INFO] - begin training epoch 5
+[2021-07-06 16:10:15,881][fairseq_cli.train][INFO] - Start iterating over samples
+[2021-07-06 16:10:52,403][train_inner][INFO] - {"epoch": 5, "update": 4.073, "loss": "3.942", "ntokens": "22256.6", "nsentences": "174.885", "prob_perplexity": "33.297", "code_perplexity": "33.278", "temp": "1.932", "loss_0": "3.791", "loss_1": "0.137", "loss_2": "0.014", "accuracy": "0.40972", "wps": "68528.5", "ups": "3.08", "wpb": "22256.6", "bsz": "174.9", "num_updates": "7000", "lr": "0.000109375", "gnorm": "0.844", "loss_scale": "2", "train_wall": "58", "gb_free": "25.3", "wall": "2079"}
+[2021-07-06 16:11:50,724][train_inner][INFO] - {"epoch": 5, "update": 4.189, "loss": "3.952", "ntokens": "22139.9", "nsentences": "171.865", "prob_perplexity": "33.572", "code_perplexity": "33.553", "temp": "1.93", "loss_0": "3.802", "loss_1": "0.137", "loss_2": "0.014", "accuracy": "0.4067", "wps": "75928.2", "ups": "3.43", "wpb": "22139.9", "bsz": "171.9", "num_updates": "7200", "lr": "0.0001125", "gnorm": "0.799", "loss_scale": "2", "train_wall": "58", "gb_free": "27.2", "wall": "2137"}
+[2021-07-06 16:12:49,549][train_inner][INFO] - {"epoch": 5, "update": 4.305, "loss": "3.922", "ntokens": "22442.5", "nsentences": "174.685", "prob_perplexity": "33.655", "code_perplexity": "33.636", "temp": "1.928", "loss_0": "3.771", "loss_1": "0.137", "loss_2": "0.014", "accuracy": "0.41096", "wps": "76304.3", "ups": "3.4", "wpb": "22442.5", "bsz": "174.7", "num_updates": "7400", "lr": "0.000115625", "gnorm": "0.719", "loss_scale": "2", "train_wall": "58", "gb_free": "23.7", "wall": "2196"}
+[2021-07-06 16:13:08,616][fairseq.trainer][INFO] - NOTE: gradient overflow detected, ignoring gradient, setting loss scale to: 2.0
+[2021-07-06 16:13:48,020][train_inner][INFO] - {"epoch": 5, "update": 4.422, "loss": "3.931", "ntokens": "22297.6", "nsentences": "175.72", "prob_perplexity": "33.797", "code_perplexity": "33.777", "temp": "1.926", "loss_0": "3.78", "loss_1": "0.137", "loss_2": "0.014", "accuracy": "0.4096", "wps": "76272.2", "ups": "3.42", "wpb": "22297.6", "bsz": "175.7", "num_updates": "7600", "lr": "0.00011875", "gnorm": "0.738", "loss_scale": "2", "train_wall": "58", "gb_free": "26.6", "wall": "2254"}
+[2021-07-06 16:14:46,387][train_inner][INFO] - {"epoch": 5, "update": 4.538, "loss": "3.952", "ntokens": "22359.8", "nsentences": "174.985", "prob_perplexity": "34.078", "code_perplexity": "34.057", "temp": "1.924", "loss_0": "3.801", "loss_1": "0.137", "loss_2": "0.015", "accuracy": "0.40454", "wps": "76638.1", "ups": "3.43", "wpb": "22359.8", "bsz": "175", "num_updates": "7800", "lr": "0.000121875", "gnorm": "0.641", "loss_scale": "2", "train_wall": "58", "gb_free": "23.6", "wall": "2313"}
+[2021-07-06 16:15:45,040][train_inner][INFO] - {"epoch": 5, "update": 4.654, "loss": "3.969", "ntokens": "22296.8", "nsentences": "176.885", "prob_perplexity": "34.547", "code_perplexity": "34.524", "temp": "1.923", "loss_0": "3.818", "loss_1": "0.136", "loss_2": "0.015", "accuracy": "0.40073", "wps": "76031.6", "ups": "3.41", "wpb": "22296.8", "bsz": "176.9", "num_updates": "8000", "lr": "0.000125", "gnorm": "0.633", "loss_scale": "2", "train_wall": "58", "gb_free": "25.9", "wall": "2371"}
+[2021-07-06 16:16:43,581][train_inner][INFO] - {"epoch": 5, "update": 4.77, "loss": "3.97", "ntokens": "22267.3", "nsentences": "174.055", "prob_perplexity": "34.686", "code_perplexity": "34.664", "temp": "1.921", "loss_0": "3.819", "loss_1": "0.136", "loss_2": "0.015", "accuracy": "0.39973", "wps": "76080.3", "ups": "3.42", "wpb": "22267.3", "bsz": "174.1", "num_updates": "8200", "lr": "0.000128125", "gnorm": "0.643", "loss_scale": "2", "train_wall": "58", "gb_free": "27.1", "wall": "2430"}
+[2021-07-06 16:17:42,707][train_inner][INFO] - {"epoch": 5, "update": 4.887, "loss": "3.979", "ntokens": "22411.7", "nsentences": "175.045", "prob_perplexity": "34.86", "code_perplexity": "34.838", "temp": "1.919", "loss_0": "3.827", "loss_1": "0.136", "loss_2": "0.015", "accuracy": "0.39913", "wps": "75813.6", "ups": "3.38", "wpb": "22411.7", "bsz": "175", "num_updates": "8400", "lr": "0.00013125", "gnorm": "0.643", "loss_scale": "2", "train_wall": "59", "gb_free": "25.4", "wall": "2489"}
+[2021-07-06 16:18:13,652][fairseq.trainer][INFO] - NOTE: gradient overflow detected, ignoring gradient, setting loss scale to: 2.0
+[2021-07-06 16:18:40,059][fairseq_cli.train][INFO] - begin validation on "valid" subset
+[2021-07-06 16:18:42,595][valid][INFO] - {"epoch": 5, "valid_loss": "4.003", "valid_ntokens": "23717.1", "valid_nsentences": "139.212", "valid_prob_perplexity": "33.753", "valid_code_perplexity": "33.741", "valid_temp": "1.916", "valid_loss_0": "3.85", "valid_loss_1": "0.137", "valid_loss_2": "0.016", "valid_accuracy": "0.396", "valid_wps": "367258", "valid_wpb": "23717.1", "valid_bsz": "139.2", "valid_num_updates": "8594", "valid_best_loss": "4.003"}
+[2021-07-06 16:18:42,597][fairseq.checkpoint_utils][INFO] - Preparing to save checkpoint for epoch 5 @ 8594 updates
+[2021-07-06 16:18:42,598][fairseq.trainer][INFO] - Saving checkpoint to checkpoints/checkpoint_best.pt
+[2021-07-06 16:18:45,068][fairseq.trainer][INFO] - Finished saving checkpoint to checkpoints/checkpoint_best.pt
+[2021-07-06 16:18:46,371][fairseq.checkpoint_utils][INFO] - Saved checkpoint checkpoints/checkpoint_best.pt (epoch 5 @ 8594 updates, score 4.003) (writing took 3.7741200618911535 seconds)
+[2021-07-06 16:18:46,372][fairseq_cli.train][INFO] - end of epoch 5 (average epoch stats below)
+[2021-07-06 16:18:46,372][train][INFO] - {"epoch": 5, "train_loss": "3.954", "train_ntokens": "22336.8", "train_nsentences": "174.909", "train_prob_perplexity": "34.18", "train_code_perplexity": "34.159", "train_temp": "1.924", "train_loss_0": "3.803", "train_loss_1": "0.137", "train_loss_2": "0.015", "train_accuracy": "0.40448", "train_wps": "75212.3", "train_ups": "3.37", "train_wpb": "22336.8", "train_bsz": "174.9", "train_num_updates": "8594", "train_lr": "0.000134281", "train_gnorm": "0.713", "train_loss_scale": "2", "train_train_wall": "500", "train_gb_free": "23.2", "train_wall": "2553"}
+[2021-07-06 16:18:46,396][fairseq.trainer][INFO] - begin training epoch 6
+[2021-07-06 16:18:46,396][fairseq_cli.train][INFO] - Start iterating over samples
+[2021-07-06 16:18:48,306][train_inner][INFO] - {"epoch": 6, "update": 5.003, "loss": "3.966", "ntokens": "22608.9", "nsentences": "176.445", "prob_perplexity": "34.787", "code_perplexity": "34.761", "temp": "1.917", "loss_0": "3.815", "loss_1": "0.136", "loss_2": "0.015", "accuracy": "0.40087", "wps": "68938.4", "ups": "3.05", "wpb": "22608.9", "bsz": "176.4", "num_updates": "8600", "lr": "0.000134375", "gnorm": "0.809", "loss_scale": "2", "train_wall": "59", "gb_free": "26.3", "wall": "2555"}
+[2021-07-06 16:19:46,645][train_inner][INFO] - {"epoch": 6, "update": 5.12, "loss": "3.903", "ntokens": "22281.8", "nsentences": "177.905", "prob_perplexity": "34.874", "code_perplexity": "34.851", "temp": "1.915", "loss_0": "3.752", "loss_1": "0.136", "loss_2": "0.015", "accuracy": "0.41019", "wps": "76388.4", "ups": "3.43", "wpb": "22281.8", "bsz": "177.9", "num_updates": "8800", "lr": "0.0001375", "gnorm": "0.673", "loss_scale": "2", "train_wall": "58", "gb_free": "25.4", "wall": "2613"}
+[2021-07-06 16:20:45,061][train_inner][INFO] - {"epoch": 6, "update": 5.236, "loss": "3.902", "ntokens": "22289.8", "nsentences": "173.725", "prob_perplexity": "35.19", "code_perplexity": "35.165", "temp": "1.913", "loss_0": "3.751", "loss_1": "0.136", "loss_2": "0.016", "accuracy": "0.41", "wps": "76319.7", "ups": "3.42", "wpb": "22289.8", "bsz": "173.7", "num_updates": "9000", "lr": "0.000140625", "gnorm": "0.72", "loss_scale": "2", "train_wall": "58", "gb_free": "26.3", "wall": "2671"}
+[2021-07-06 16:21:43,443][train_inner][INFO] - {"epoch": 6, "update": 5.352, "loss": "3.856", "ntokens": "22381.4", "nsentences": "176.24", "prob_perplexity": "35.498", "code_perplexity": "35.474", "temp": "1.911", "loss_0": "3.704", "loss_1": "0.136", "loss_2": "0.016", "accuracy": "0.41817", "wps": "76676.8", "ups": "3.43", "wpb": "22381.4", "bsz": "176.2", "num_updates": "9200", "lr": "0.00014375", "gnorm": "0.734", "loss_scale": "2", "train_wall": "58", "gb_free": "24.6", "wall": "2730"}
+[2021-07-06 16:22:41,868][train_inner][INFO] - {"epoch": 6, "update": 5.468, "loss": "3.83", "ntokens": "22224.3", "nsentences": "173.2", "prob_perplexity": "35.672", "code_perplexity": "35.647", "temp": "1.909", "loss_0": "3.678", "loss_1": "0.136", "loss_2": "0.016", "accuracy": "0.42173", "wps": "76086.6", "ups": "3.42", "wpb": "22224.3", "bsz": "173.2", "num_updates": "9400", "lr": "0.000146875", "gnorm": "0.728", "loss_scale": "2", "train_wall": "58", "gb_free": "25.9", "wall": "2788"}
+[2021-07-06 16:23:19,903][fairseq.trainer][INFO] - NOTE: gradient overflow detected, ignoring gradient, setting loss scale to: 2.0
+[2021-07-06 16:23:40,684][train_inner][INFO] - {"epoch": 6, "update": 5.585, "loss": "3.81", "ntokens": "22384.2", "nsentences": "179.175", "prob_perplexity": "35.993", "code_perplexity": "35.97", "temp": "1.907", "loss_0": "3.657", "loss_1": "0.136", "loss_2": "0.016", "accuracy": "0.42507", "wps": "76119.6", "ups": "3.4", "wpb": "22384.2", "bsz": "179.2", "num_updates": "9600", "lr": "0.00015", "gnorm": "0.722", "loss_scale": "2", "train_wall": "58", "gb_free": "25.3", "wall": "2847"}
+[2021-07-06 16:24:39,597][train_inner][INFO] - {"epoch": 6, "update": 5.701, "loss": "3.831", "ntokens": "22372.6", "nsentences": "172", "prob_perplexity": "36.01", "code_perplexity": "35.986", "temp": "1.905", "loss_0": "3.679", "loss_1": "0.136", "loss_2": "0.016", "accuracy": "0.42084", "wps": "75959.8", "ups": "3.4", "wpb": "22372.6", "bsz": "172", "num_updates": "9800", "lr": "0.000153125", "gnorm": "0.671", "loss_scale": "2", "train_wall": "58", "gb_free": "27", "wall": "2906"}
+[2021-07-06 16:25:06,301][fairseq.trainer][INFO] - NOTE: gradient overflow detected, ignoring gradient, setting loss scale to: 1.0
+[2021-07-06 16:25:38,720][train_inner][INFO] - {"epoch": 6, "update": 5.818, "loss": "3.808", "ntokens": "22334.5", "nsentences": "172.295", "prob_perplexity": "36.238", "code_perplexity": "36.214", "temp": "1.903", "loss_0": "3.656", "loss_1": "0.136", "loss_2": "0.016", "accuracy": "0.42424", "wps": "75553.3", "ups": "3.38", "wpb": "22334.5", "bsz": "172.3", "num_updates": "10000", "lr": "0.00015625", "gnorm": "0.655", "loss_scale": "1", "train_wall": "59", "gb_free": "25.6", "wall": "2965"}
+[2021-07-06 16:26:37,441][train_inner][INFO] - {"epoch": 6, "update": 5.934, "loss": "3.794", "ntokens": "22393", "nsentences": "177.61", "prob_perplexity": "36.255", "code_perplexity": "36.232", "temp": "1.902", "loss_0": "3.641", "loss_1": "0.136", "loss_2": "0.017", "accuracy": "0.42634", "wps": "76270.8", "ups": "3.41", "wpb": "22393", "bsz": "177.6", "num_updates": "10200", "lr": "0.000159375", "gnorm": "0.613", "loss_scale": "1", "train_wall": "58", "gb_free": "26.4", "wall": "3024"}
+[2021-07-06 16:27:11,041][fairseq_cli.train][INFO] - begin validation on "valid" subset
+[2021-07-06 16:27:13,632][valid][INFO] - {"epoch": 6, "valid_loss": "3.897", "valid_ntokens": "23692.4", "valid_nsentences": "139.212", "valid_prob_perplexity": "36.382", "valid_code_perplexity": "36.365", "valid_temp": "1.899", "valid_loss_0": "3.743", "valid_loss_1": "0.136", "valid_loss_2": "0.018", "valid_accuracy": "0.41043", "valid_wps": "368465", "valid_wpb": "23692.4", "valid_bsz": "139.2", "valid_num_updates": "10313", "valid_best_loss": "3.897"}
+[2021-07-06 16:27:13,634][fairseq.checkpoint_utils][INFO] - Preparing to save checkpoint for epoch 6 @ 10313 updates
+[2021-07-06 16:27:13,634][fairseq.trainer][INFO] - Saving checkpoint to checkpoints/checkpoint_best.pt
+[2021-07-06 16:27:16,111][fairseq.trainer][INFO] - Finished saving checkpoint to checkpoints/checkpoint_best.pt
+[2021-07-06 16:27:17,530][fairseq.checkpoint_utils][INFO] - Saved checkpoint checkpoints/checkpoint_best.pt (epoch 6 @ 10313 updates, score 3.897) (writing took 3.8966973170172423 seconds)
+[2021-07-06 16:27:17,531][fairseq_cli.train][INFO] - end of epoch 6 (average epoch stats below)
+[2021-07-06 16:27:17,531][train][INFO] - {"epoch": 6, "train_loss": "3.84", "train_ntokens": "22332.1", "train_nsentences": "174.921", "train_prob_perplexity": "35.752", "train_code_perplexity": "35.728", "train_temp": "1.908", "train_loss_0": "3.687", "train_loss_1": "0.136", "train_loss_2": "0.016", "train_accuracy": "0.41985", "train_wps": "75101.7", "train_ups": "3.36", "train_wpb": "22332.1", "train_bsz": "174.9", "train_num_updates": "10313", "train_lr": "0.000161141", "train_gnorm": "0.686", "train_loss_scale": "1", "train_train_wall": "500", "train_gb_free": "25.1", "train_wall": "3064"}
+[2021-07-06 16:27:17,552][fairseq.trainer][INFO] - begin training epoch 7
+[2021-07-06 16:27:17,553][fairseq_cli.train][INFO] - Start iterating over samples
+[2021-07-06 16:27:43,164][train_inner][INFO] - {"epoch": 7, "update": 6.051, "loss": "3.796", "ntokens": "22283.6", "nsentences": "172.35", "prob_perplexity": "36.287", "code_perplexity": "36.262", "temp": "1.9", "loss_0": "3.644", "loss_1": "0.136", "loss_2": "0.017", "accuracy": "0.42583", "wps": "67814.3", "ups": "3.04", "wpb": "22283.6", "bsz": "172.3", "num_updates": "10400", "lr": "0.0001625", "gnorm": "0.621", "loss_scale": "1", "train_wall": "58", "gb_free": "23.8", "wall": "3089"}
+[2021-07-06 16:28:41,444][train_inner][INFO] - {"epoch": 7, "update": 6.167, "loss": "3.761", "ntokens": "22228.2", "nsentences": "175.765", "prob_perplexity": "36.372", "code_perplexity": "36.342", "temp": "1.898", "loss_0": "3.608", "loss_1": "0.136", "loss_2": "0.017", "accuracy": "0.43118", "wps": "76306.6", "ups": "3.43", "wpb": "22228.2", "bsz": "175.8", "num_updates": "10600", "lr": "0.000165625", "gnorm": "0.6", "loss_scale": "1", "train_wall": "58", "gb_free": "25.5", "wall": "3148"}
+[2021-07-06 16:29:40,194][train_inner][INFO] - {"epoch": 7, "update": 6.283, "loss": "3.762", "ntokens": "22285.2", "nsentences": "176.135", "prob_perplexity": "36.419", "code_perplexity": "36.39", "temp": "1.896", "loss_0": "3.609", "loss_1": "0.136", "loss_2": "0.017", "accuracy": "0.43092", "wps": "75864.4", "ups": "3.4", "wpb": "22285.2", "bsz": "176.1", "num_updates": "10800", "lr": "0.00016875", "gnorm": "0.563", "loss_scale": "1", "train_wall": "58", "gb_free": "25.1", "wall": "3206"}
+[2021-07-06 16:30:38,941][train_inner][INFO] - {"epoch": 7, "update": 6.399, "loss": "3.763", "ntokens": "22412.4", "nsentences": "173.105", "prob_perplexity": "36.518", "code_perplexity": "36.488", "temp": "1.894", "loss_0": "3.61", "loss_1": "0.136", "loss_2": "0.017", "accuracy": "0.43017", "wps": "76302.2", "ups": "3.4", "wpb": "22412.4", "bsz": "173.1", "num_updates": "11000", "lr": "0.000171875", "gnorm": "0.566", "loss_scale": "2", "train_wall": "58", "gb_free": "25", "wall": "3265"}
+[2021-07-06 16:31:37,908][train_inner][INFO] - {"epoch": 7, "update": 6.515, "loss": "3.75", "ntokens": "22310.7", "nsentences": "174.345", "prob_perplexity": "36.774", "code_perplexity": "36.737", "temp": "1.892", "loss_0": "3.597", "loss_1": "0.136", "loss_2": "0.018", "accuracy": "0.43249", "wps": "75671.6", "ups": "3.39", "wpb": "22310.7", "bsz": "174.3", "num_updates": "11200", "lr": "0.000175", "gnorm": "0.596", "loss_scale": "2", "train_wall": "59", "gb_free": "24.2", "wall": "3324"}
+[2021-07-06 16:32:36,607][train_inner][INFO] - {"epoch": 7, "update": 6.632, "loss": "3.752", "ntokens": "22469.2", "nsentences": "175.855", "prob_perplexity": "37.014", "code_perplexity": "36.978", "temp": "1.89", "loss_0": "3.598", "loss_1": "0.136", "loss_2": "0.018", "accuracy": "0.43166", "wps": "76557.8", "ups": "3.41", "wpb": "22469.2", "bsz": "175.9", "num_updates": "11400", "lr": "0.000178125", "gnorm": "0.556", "loss_scale": "2", "train_wall": "58", "gb_free": "25.9", "wall": "3383"}
+[2021-07-06 16:33:35,806][train_inner][INFO] - {"epoch": 7, "update": 6.748, "loss": "3.719", "ntokens": "22417.9", "nsentences": "176.595", "prob_perplexity": "37.454", "code_perplexity": "37.411", "temp": "1.888", "loss_0": "3.566", "loss_1": "0.136", "loss_2": "0.018", "accuracy": "0.43603", "wps": "75738.5", "ups": "3.38", "wpb": "22417.9", "bsz": "176.6", "num_updates": "11600", "lr": "0.00018125", "gnorm": "0.552", "loss_scale": "2", "train_wall": "59", "gb_free": "24", "wall": "3442"}
+[2021-07-06 16:34:34,752][train_inner][INFO] - {"epoch": 7, "update": 6.864, "loss": "3.731", "ntokens": "22456.7", "nsentences": "175.08", "prob_perplexity": "38.313", "code_perplexity": "38.27", "temp": "1.886", "loss_0": "3.577", "loss_1": "0.136", "loss_2": "0.018", "accuracy": "0.43301", "wps": "76194.5", "ups": "3.39", "wpb": "22456.7", "bsz": "175.1", "num_updates": "11800", "lr": "0.000184375", "gnorm": "0.516", "loss_scale": "2", "train_wall": "58", "gb_free": "25", "wall": "3501"}
+[2021-07-06 16:35:33,308][train_inner][INFO] - {"epoch": 7, "update": 6.98, "loss": "3.719", "ntokens": "22164.7", "nsentences": "172.615", "prob_perplexity": "39.141", "code_perplexity": "39.098", "temp": "1.884", "loss_0": "3.565", "loss_1": "0.135", "loss_2": "0.018", "accuracy": "0.43408", "wps": "75704.8", "ups": "3.42", "wpb": "22164.7", "bsz": "172.6", "num_updates": "12000", "lr": "0.0001875", "gnorm": "0.522", "loss_scale": "4", "train_wall": "58", "gb_free": "27.2", "wall": "3560"}
+[2021-07-06 16:35:40,589][fairseq.trainer][INFO] - NOTE: gradient overflow detected, ignoring gradient, setting loss scale to: 2.0
+[2021-07-06 16:35:43,228][fairseq_cli.train][INFO] - begin validation on "valid" subset

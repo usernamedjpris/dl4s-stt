@@ -1,0 +1,388 @@
+[2021-07-06 15:03:51,122][fairseq_cli.train][INFO] - {'_name': None, 'common': {'_name': None, 'no_progress_bar': False, 'log_interval': 200, 'log_format': 'json', 'log_file': None, 'tensorboard_logdir': None, 'wandb_project': None, 'azureml_logging': False, 'seed': 1, 'cpu': False, 'tpu': False, 'bf16': False, 'memory_efficient_bf16': False, 'fp16': True, 'memory_efficient_fp16': False, 'fp16_no_flatten_grads': False, 'fp16_init_scale': 128, 'fp16_scale_window': None, 'fp16_scale_tolerance': 0.0, 'on_cpu_convert_precision': False, 'min_loss_scale': 0.0001, 'threshold_loss_scale': None, 'amp': False, 'amp_batch_retries': 2, 'amp_init_scale': 128, 'amp_scale_window': None, 'user_dir': None, 'empty_cache_freq': 0, 'all_gather_list_size': 16384, 'model_parallel_size': 1, 'quantization_config_path': None, 'profile': False, 'reset_logging': False, 'suppress_crashes': False, 'use_plasma_view': False, 'plasma_path': '/tmp/plasma'}, 'common_eval': {'_name': None, 'path': None, 'post_process': None, 'quiet': False, 'model_overrides': '{}', 'results_path': None}, 'distributed_training': {'_name': None, 'distributed_world_size': 1, 'distributed_num_procs': 1, 'distributed_rank': 0, 'distributed_backend': 'nccl', 'distributed_init_method': None, 'distributed_port': -1, 'device_id': 0, 'distributed_no_spawn': False, 'ddp_backend': 'legacy_ddp', 'ddp_comm_hook': 'none', 'bucket_cap_mb': 25, 'fix_batches_to_gpus': False, 'find_unused_parameters': False, 'fast_stat_sync': False, 'heartbeat_timeout': -1, 'broadcast_buffers': False, 'slowmo_momentum': None, 'slowmo_algorithm': 'LocalSGD', 'localsgd_frequency': 3, 'nprocs_per_node': 1, 'pipeline_model_parallel': False, 'pipeline_balance': None, 'pipeline_devices': None, 'pipeline_chunks': 0, 'pipeline_encoder_balance': None, 'pipeline_encoder_devices': None, 'pipeline_decoder_balance': None, 'pipeline_decoder_devices': None, 'pipeline_checkpoint': 'never', 'zero_sharding': 'none', 'fp16': True, 'memory_efficient_fp16': False, 'tpu': False, 'no_reshard_after_forward': False, 'fp32_reduce_scatter': False, 'cpu_offload': False, 'use_sharded_state': False}, 'dataset': {'_name': None, 'num_workers': 6, 'skip_invalid_size_inputs_valid_test': True, 'max_tokens': 1400000, 'batch_size': None, 'required_batch_size_multiple': 8, 'required_seq_len_multiple': 1, 'dataset_impl': None, 'data_buffer_size': 10, 'train_subset': 'train', 'valid_subset': 'valid', 'combine_valid_subsets': None, 'ignore_unused_valid_subsets': False, 'validate_interval': 1, 'validate_interval_updates': 0, 'validate_after_updates': 0, 'fixed_validation_seed': None, 'disable_validation': False, 'max_tokens_valid': 1400000, 'batch_size_valid': None, 'max_valid_steps': None, 'curriculum': 0, 'gen_subset': 'test', 'num_shards': 1, 'shard_id': 0}, 'optimization': {'_name': None, 'max_epoch': 0, 'max_update': 400000, 'stop_time_hours': 0.0, 'clip_norm': 0.0, 'sentence_avg': False, 'update_freq': [1], 'lr': [0.0005], 'stop_min_lr': -1.0, 'use_bmuf': False}, 'checkpoint': {'_name': None, 'save_dir': '/gpfswork/rech/sbg/commun/STT/stt_logs/pretraining_500', 'restore_file': '/gpfswork/rech/sbg/commun/STT/stt_logs/pretraining_500/checkpoint_best.pt', 'finetune_from_model': None, 'reset_dataloader': False, 'reset_lr_scheduler': False, 'reset_meters': False, 'reset_optimizer': False, 'optimizer_overrides': '{}', 'save_interval': 1, 'save_interval_updates': 25000, 'keep_interval_updates': 1, 'keep_interval_updates_pattern': -1, 'keep_last_epochs': -1, 'keep_best_checkpoints': -1, 'no_save': False, 'no_epoch_checkpoints': True, 'no_last_checkpoints': False, 'no_save_optimizer_state': False, 'best_checkpoint_metric': 'loss', 'maximize_best_checkpoint_metric': False, 'patience': -1, 'checkpoint_suffix': '', 'checkpoint_shard_count': 1, 'load_checkpoint_on_all_dp_ranks': False, 'write_checkpoints_asynchronously': False, 'model_parallel_size': 1}, 'bmuf': {'_name': None, 'block_lr': 1.0, 'block_momentum': 0.875, 'global_sync_iter': 50, 'warmup_iterations': 500, 'use_nbm': False, 'average_sync': False, 'distributed_world_size': 1}, 'generation': {'_name': None, 'beam': 5, 'nbest': 1, 'max_len_a': 0.0, 'max_len_b': 200, 'min_len': 1, 'match_source_len': False, 'unnormalized': False, 'no_early_stop': False, 'no_beamable_mm': False, 'lenpen': 1.0, 'unkpen': 0.0, 'replace_unk': None, 'sacrebleu': False, 'score_reference': False, 'prefix_size': 0, 'no_repeat_ngram_size': 0, 'sampling': False, 'sampling_topk': -1, 'sampling_topp': -1.0, 'constraints': None, 'temperature': 1.0, 'diverse_beam_groups': -1, 'diverse_beam_strength': 0.5, 'diversity_rate': -1.0, 'print_alignment': None, 'print_step': False, 'lm_path': None, 'lm_weight': 0.0, 'iter_decode_eos_penalty': 0.0, 'iter_decode_max_iter': 10, 'iter_decode_force_max_iter': False, 'iter_decode_with_beam': 1, 'iter_decode_with_external_reranker': False, 'retain_iter_history': False, 'retain_dropout': False, 'retain_dropout_modules': None, 'decoding_format': None, 'no_seed_provided': False}, 'eval_lm': {'_name': None, 'output_word_probs': False, 'output_word_stats': False, 'context_window': 0, 'softmax_batch': 9223372036854775807}, 'interactive': {'_name': None, 'buffer_size': 0, 'input': '-'}, 'model': {'_name': 'wav2vec2', 'extractor_mode': 'default', 'encoder_layers': 12, 'encoder_embed_dim': 768, 'encoder_ffn_embed_dim': 3072, 'encoder_attention_heads': 12, 'activation_fn': 'gelu', 'dropout': 0.1, 'attention_dropout': 0.1, 'activation_dropout': 0.0, 'encoder_layerdrop': 0.05, 'dropout_input': 0.1, 'dropout_features': 0.1, 'final_dim': 256, 'layer_norm_first': False, 'conv_feature_layers': '[(512, 10, 5)] + [(512, 3, 2)] * 4 + [(512,2,2)] + [(512,2,2)]', 'conv_bias': False, 'logit_temp': 0.1, 'quantize_targets': True, 'quantize_input': False, 'same_quantizer': False, 'target_glu': False, 'feature_grad_mult': 0.1, 'quantizer_depth': 1, 'quantizer_factor': 3, 'latent_vars': 320, 'latent_groups': 2, 'latent_dim': 0, 'mask_length': 10, 'mask_prob': 0.65, 'mask_selection': 'static', 'mask_other': 0.0, 'no_mask_overlap': False, 'mask_min_space': 1, 'mask_channel_length': 10, 'mask_channel_prob': 0.0, 'mask_channel_before': False, 'mask_channel_selection': 'static', 'mask_channel_other': 0.0, 'no_mask_channel_overlap': False, 'mask_channel_min_space': 1, 'num_negatives': 100, 'negatives_from_everywhere': False, 'cross_sample_negatives': 0, 'codebook_negatives': 0, 'conv_pos': 128, 'conv_pos_groups': 16, 'latent_temp': [2.0, 0.5, 0.999995]}, 'task': {'_name': 'audio_pretraining', 'data': '/gpfswork/rech/sbg/commun/STT/stt_logs/pretraining_500', 'labels': None, 'binarized_dataset': False, 'sample_rate': 16000, 'normalize': False, 'enable_padding': False, 'max_sample_size': 250000, 'min_sample_size': 32000, 'eval_wer': False, 'eval_wer_config': {'_name': None, 'beam': 5, 'nbest': 1, 'max_len_a': 0.0, 'max_len_b': 200, 'min_len': 1, 'match_source_len': False, 'unnormalized': False, 'no_early_stop': False, 'no_beamable_mm': False, 'lenpen': 1.0, 'unkpen': 0.0, 'replace_unk': None, 'sacrebleu': False, 'score_reference': False, 'prefix_size': 0, 'no_repeat_ngram_size': 0, 'sampling': False, 'sampling_topk': -1, 'sampling_topp': -1.0, 'constraints': None, 'temperature': 1.0, 'diverse_beam_groups': -1, 'diverse_beam_strength': 0.5, 'diversity_rate': -1.0, 'print_alignment': None, 'print_step': False, 'lm_path': None, 'lm_weight': 0.0, 'iter_decode_eos_penalty': 0.0, 'iter_decode_max_iter': 10, 'iter_decode_force_max_iter': False, 'iter_decode_with_beam': 1, 'iter_decode_with_external_reranker': False, 'retain_iter_history': False, 'retain_dropout': False, 'retain_dropout_modules': None, 'decoding_format': None, 'no_seed_provided': False}, 'eval_wer_tokenizer': None, 'eval_wer_post_process': 'letter', 'autoregressive': False, 'num_batch_buckets': 0, 'precompute_mask_indices': False, 'inferred_w2v_config': None, 'tpu': False}, 'criterion': {'_name': 'wav2vec', 'infonce': True, 'loss_weights': [0.1, 10.0], 'log_keys': ['prob_perplexity', 'code_perplexity', 'temp']}, 'optimizer': {'_name': 'adam', 'adam_betas': '(0.9,0.98)', 'adam_eps': 1e-06, 'weight_decay': 0.01, 'use_old_adam': False, 'tpu': False, 'lr': [0.0005]}, 'lr_scheduler': {'_name': 'polynomial_decay', 'warmup_updates': 32000, 'force_anneal': None, 'end_learning_rate': 0.0, 'power': 1.0, 'total_num_update': 400000, 'lr': [0.0005]}, 'scoring': None, 'bpe': None, 'tokenizer': None, 'job_logging_cfg': {'version': 1, 'formatters': {'simple': {'format': '[%(asctime)s][%(name)s][%(levelname)s] - %(message)s'}}, 'handlers': {'console': {'class': 'logging.StreamHandler', 'formatter': 'simple', 'stream': 'ext://sys.stdout'}, 'file': {'class': 'logging.FileHandler', 'formatter': 'simple', 'filename': 'hydra_train.log'}}, 'root': {'level': 'INFO', 'handlers': ['console', 'file']}, 'disable_existing_loggers': False}}
+[2021-07-06 15:03:52,599][fairseq_cli.train][INFO] - Wav2Vec2Model(
+  (feature_extractor): ConvFeatureExtractionModel(
+    (conv_layers): ModuleList(
+      (0): Sequential(
+        (0): Conv1d(1, 512, kernel_size=(10,), stride=(5,), bias=False)
+        (1): Dropout(p=0.0, inplace=False)
+        (2): Fp32GroupNorm(512, 512, eps=1e-05, affine=True)
+        (3): GELU()
+      )
+      (1): Sequential(
+        (0): Conv1d(512, 512, kernel_size=(3,), stride=(2,), bias=False)
+        (1): Dropout(p=0.0, inplace=False)
+        (2): GELU()
+      )
+      (2): Sequential(
+        (0): Conv1d(512, 512, kernel_size=(3,), stride=(2,), bias=False)
+        (1): Dropout(p=0.0, inplace=False)
+        (2): GELU()
+      )
+      (3): Sequential(
+        (0): Conv1d(512, 512, kernel_size=(3,), stride=(2,), bias=False)
+        (1): Dropout(p=0.0, inplace=False)
+        (2): GELU()
+      )
+      (4): Sequential(
+        (0): Conv1d(512, 512, kernel_size=(3,), stride=(2,), bias=False)
+        (1): Dropout(p=0.0, inplace=False)
+        (2): GELU()
+      )
+      (5): Sequential(
+        (0): Conv1d(512, 512, kernel_size=(2,), stride=(2,), bias=False)
+        (1): Dropout(p=0.0, inplace=False)
+        (2): GELU()
+      )
+      (6): Sequential(
+        (0): Conv1d(512, 512, kernel_size=(2,), stride=(2,), bias=False)
+        (1): Dropout(p=0.0, inplace=False)
+        (2): GELU()
+      )
+    )
+  )
+  (post_extract_proj): Linear(in_features=512, out_features=768, bias=True)
+  (dropout_input): Dropout(p=0.1, inplace=False)
+  (dropout_features): Dropout(p=0.1, inplace=False)
+  (quantizer): GumbelVectorQuantizer(
+    (weight_proj): Linear(in_features=512, out_features=640, bias=True)
+  )
+  (project_q): Linear(in_features=256, out_features=256, bias=True)
+  (encoder): TransformerEncoder(
+    (pos_conv): Sequential(
+      (0): Conv1d(768, 768, kernel_size=(128,), stride=(1,), padding=(64,), groups=16)
+      (1): SamePad()
+      (2): GELU()
+    )
+    (layers): ModuleList(
+      (0): TransformerSentenceEncoderLayer(
+        (self_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=768, out_features=768, bias=True)
+          (v_proj): Linear(in_features=768, out_features=768, bias=True)
+          (q_proj): Linear(in_features=768, out_features=768, bias=True)
+          (out_proj): Linear(in_features=768, out_features=768, bias=True)
+        )
+        (dropout1): Dropout(p=0.1, inplace=False)
+        (dropout2): Dropout(p=0.0, inplace=False)
+        (dropout3): Dropout(p=0.1, inplace=False)
+        (self_attn_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+        (fc1): Linear(in_features=768, out_features=3072, bias=True)
+        (fc2): Linear(in_features=3072, out_features=768, bias=True)
+        (final_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+      )
+      (1): TransformerSentenceEncoderLayer(
+        (self_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=768, out_features=768, bias=True)
+          (v_proj): Linear(in_features=768, out_features=768, bias=True)
+          (q_proj): Linear(in_features=768, out_features=768, bias=True)
+          (out_proj): Linear(in_features=768, out_features=768, bias=True)
+        )
+        (dropout1): Dropout(p=0.1, inplace=False)
+        (dropout2): Dropout(p=0.0, inplace=False)
+        (dropout3): Dropout(p=0.1, inplace=False)
+        (self_attn_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+        (fc1): Linear(in_features=768, out_features=3072, bias=True)
+        (fc2): Linear(in_features=3072, out_features=768, bias=True)
+        (final_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+      )
+      (2): TransformerSentenceEncoderLayer(
+        (self_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=768, out_features=768, bias=True)
+          (v_proj): Linear(in_features=768, out_features=768, bias=True)
+          (q_proj): Linear(in_features=768, out_features=768, bias=True)
+          (out_proj): Linear(in_features=768, out_features=768, bias=True)
+        )
+        (dropout1): Dropout(p=0.1, inplace=False)
+        (dropout2): Dropout(p=0.0, inplace=False)
+        (dropout3): Dropout(p=0.1, inplace=False)
+        (self_attn_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+        (fc1): Linear(in_features=768, out_features=3072, bias=True)
+        (fc2): Linear(in_features=3072, out_features=768, bias=True)
+        (final_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+      )
+      (3): TransformerSentenceEncoderLayer(
+        (self_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=768, out_features=768, bias=True)
+          (v_proj): Linear(in_features=768, out_features=768, bias=True)
+          (q_proj): Linear(in_features=768, out_features=768, bias=True)
+          (out_proj): Linear(in_features=768, out_features=768, bias=True)
+        )
+        (dropout1): Dropout(p=0.1, inplace=False)
+        (dropout2): Dropout(p=0.0, inplace=False)
+        (dropout3): Dropout(p=0.1, inplace=False)
+        (self_attn_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+        (fc1): Linear(in_features=768, out_features=3072, bias=True)
+        (fc2): Linear(in_features=3072, out_features=768, bias=True)
+        (final_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+      )
+      (4): TransformerSentenceEncoderLayer(
+        (self_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=768, out_features=768, bias=True)
+          (v_proj): Linear(in_features=768, out_features=768, bias=True)
+          (q_proj): Linear(in_features=768, out_features=768, bias=True)
+          (out_proj): Linear(in_features=768, out_features=768, bias=True)
+        )
+        (dropout1): Dropout(p=0.1, inplace=False)
+        (dropout2): Dropout(p=0.0, inplace=False)
+        (dropout3): Dropout(p=0.1, inplace=False)
+        (self_attn_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+        (fc1): Linear(in_features=768, out_features=3072, bias=True)
+        (fc2): Linear(in_features=3072, out_features=768, bias=True)
+        (final_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+      )
+      (5): TransformerSentenceEncoderLayer(
+        (self_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=768, out_features=768, bias=True)
+          (v_proj): Linear(in_features=768, out_features=768, bias=True)
+          (q_proj): Linear(in_features=768, out_features=768, bias=True)
+          (out_proj): Linear(in_features=768, out_features=768, bias=True)
+        )
+        (dropout1): Dropout(p=0.1, inplace=False)
+        (dropout2): Dropout(p=0.0, inplace=False)
+        (dropout3): Dropout(p=0.1, inplace=False)
+        (self_attn_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+        (fc1): Linear(in_features=768, out_features=3072, bias=True)
+        (fc2): Linear(in_features=3072, out_features=768, bias=True)
+        (final_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+      )
+      (6): TransformerSentenceEncoderLayer(
+        (self_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=768, out_features=768, bias=True)
+          (v_proj): Linear(in_features=768, out_features=768, bias=True)
+          (q_proj): Linear(in_features=768, out_features=768, bias=True)
+          (out_proj): Linear(in_features=768, out_features=768, bias=True)
+        )
+        (dropout1): Dropout(p=0.1, inplace=False)
+        (dropout2): Dropout(p=0.0, inplace=False)
+        (dropout3): Dropout(p=0.1, inplace=False)
+        (self_attn_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+        (fc1): Linear(in_features=768, out_features=3072, bias=True)
+        (fc2): Linear(in_features=3072, out_features=768, bias=True)
+        (final_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+      )
+      (7): TransformerSentenceEncoderLayer(
+        (self_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=768, out_features=768, bias=True)
+          (v_proj): Linear(in_features=768, out_features=768, bias=True)
+          (q_proj): Linear(in_features=768, out_features=768, bias=True)
+          (out_proj): Linear(in_features=768, out_features=768, bias=True)
+        )
+        (dropout1): Dropout(p=0.1, inplace=False)
+        (dropout2): Dropout(p=0.0, inplace=False)
+        (dropout3): Dropout(p=0.1, inplace=False)
+        (self_attn_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+        (fc1): Linear(in_features=768, out_features=3072, bias=True)
+        (fc2): Linear(in_features=3072, out_features=768, bias=True)
+        (final_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+      )
+      (8): TransformerSentenceEncoderLayer(
+        (self_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=768, out_features=768, bias=True)
+          (v_proj): Linear(in_features=768, out_features=768, bias=True)
+          (q_proj): Linear(in_features=768, out_features=768, bias=True)
+          (out_proj): Linear(in_features=768, out_features=768, bias=True)
+        )
+        (dropout1): Dropout(p=0.1, inplace=False)
+        (dropout2): Dropout(p=0.0, inplace=False)
+        (dropout3): Dropout(p=0.1, inplace=False)
+        (self_attn_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+        (fc1): Linear(in_features=768, out_features=3072, bias=True)
+        (fc2): Linear(in_features=3072, out_features=768, bias=True)
+        (final_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+      )
+      (9): TransformerSentenceEncoderLayer(
+        (self_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=768, out_features=768, bias=True)
+          (v_proj): Linear(in_features=768, out_features=768, bias=True)
+          (q_proj): Linear(in_features=768, out_features=768, bias=True)
+          (out_proj): Linear(in_features=768, out_features=768, bias=True)
+        )
+        (dropout1): Dropout(p=0.1, inplace=False)
+        (dropout2): Dropout(p=0.0, inplace=False)
+        (dropout3): Dropout(p=0.1, inplace=False)
+        (self_attn_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+        (fc1): Linear(in_features=768, out_features=3072, bias=True)
+        (fc2): Linear(in_features=3072, out_features=768, bias=True)
+        (final_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+      )
+      (10): TransformerSentenceEncoderLayer(
+        (self_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=768, out_features=768, bias=True)
+          (v_proj): Linear(in_features=768, out_features=768, bias=True)
+          (q_proj): Linear(in_features=768, out_features=768, bias=True)
+          (out_proj): Linear(in_features=768, out_features=768, bias=True)
+        )
+        (dropout1): Dropout(p=0.1, inplace=False)
+        (dropout2): Dropout(p=0.0, inplace=False)
+        (dropout3): Dropout(p=0.1, inplace=False)
+        (self_attn_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+        (fc1): Linear(in_features=768, out_features=3072, bias=True)
+        (fc2): Linear(in_features=3072, out_features=768, bias=True)
+        (final_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+      )
+      (11): TransformerSentenceEncoderLayer(
+        (self_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=768, out_features=768, bias=True)
+          (v_proj): Linear(in_features=768, out_features=768, bias=True)
+          (q_proj): Linear(in_features=768, out_features=768, bias=True)
+          (out_proj): Linear(in_features=768, out_features=768, bias=True)
+        )
+        (dropout1): Dropout(p=0.1, inplace=False)
+        (dropout2): Dropout(p=0.0, inplace=False)
+        (dropout3): Dropout(p=0.1, inplace=False)
+        (self_attn_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+        (fc1): Linear(in_features=768, out_features=3072, bias=True)
+        (fc2): Linear(in_features=3072, out_features=768, bias=True)
+        (final_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+      )
+    )
+    (layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+  )
+  (layer_norm): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+  (final_proj): Linear(in_features=768, out_features=256, bias=True)
+)
+[2021-07-06 15:03:52,605][fairseq_cli.train][INFO] - task: AudioPretrainingTask
+[2021-07-06 15:03:52,605][fairseq_cli.train][INFO] - model: Wav2Vec2Model
+[2021-07-06 15:03:52,605][fairseq_cli.train][INFO] - criterion: Wav2vecCriterion
+[2021-07-06 15:03:52,606][fairseq_cli.train][INFO] - num. shared model params: 95,044,608 (num. trained: 95,044,608)
+[2021-07-06 15:03:52,607][fairseq_cli.train][INFO] - num. expert model params: 0 (num. trained: 0)
+[2021-07-06 15:03:52,643][fairseq.data.audio.raw_audio_dataset][INFO] - loaded 4594, skipped 13 samples
+[2021-07-06 15:04:03,299][fairseq.trainer][INFO] - detected shared parameter: feature_extractor.conv_layers.0.0.bias <- feature_extractor.conv_layers.1.0.bias
+[2021-07-06 15:04:03,300][fairseq.trainer][INFO] - detected shared parameter: feature_extractor.conv_layers.0.0.bias <- feature_extractor.conv_layers.2.0.bias
+[2021-07-06 15:04:03,300][fairseq.trainer][INFO] - detected shared parameter: feature_extractor.conv_layers.0.0.bias <- feature_extractor.conv_layers.3.0.bias
+[2021-07-06 15:04:03,300][fairseq.trainer][INFO] - detected shared parameter: feature_extractor.conv_layers.0.0.bias <- feature_extractor.conv_layers.4.0.bias
+[2021-07-06 15:04:03,300][fairseq.trainer][INFO] - detected shared parameter: feature_extractor.conv_layers.0.0.bias <- feature_extractor.conv_layers.5.0.bias
+[2021-07-06 15:04:03,300][fairseq.trainer][INFO] - detected shared parameter: feature_extractor.conv_layers.0.0.bias <- feature_extractor.conv_layers.6.0.bias
+[2021-07-06 15:04:03,300][fairseq.utils][INFO] - ***********************CUDA enviroments for all 1 workers***********************
+[2021-07-06 15:04:03,301][fairseq.utils][INFO] - rank   0: capabilities =  7.0  ; total memory = 31.749 GB ; name = Tesla V100-SXM2-32GB                    
+[2021-07-06 15:04:03,301][fairseq.utils][INFO] - ***********************CUDA enviroments for all 1 workers***********************
+[2021-07-06 15:04:03,301][fairseq_cli.train][INFO] - training on 1 devices (GPUs/TPUs)
+[2021-07-06 15:04:03,301][fairseq_cli.train][INFO] - max tokens per device = 1400000 and max sentences per device = None
+[2021-07-06 15:04:03,302][fairseq.trainer][INFO] - Preparing to load checkpoint /gpfswork/rech/sbg/commun/STT/stt_logs/pretraining_500/checkpoint_best.pt
+[2021-07-06 15:04:03,302][fairseq.trainer][INFO] - No existing checkpoint found /gpfswork/rech/sbg/commun/STT/stt_logs/pretraining_500/checkpoint_best.pt
+[2021-07-06 15:04:03,303][fairseq.trainer][INFO] - loading train data for epoch 1
+[2021-07-06 15:04:03,582][fairseq.data.audio.raw_audio_dataset][INFO] - loaded 301017, skipped 2030 samples
+[2021-07-06 15:04:04,293][fairseq.trainer][INFO] - begin training epoch 1
+[2021-07-06 15:04:04,293][fairseq_cli.train][INFO] - Start iterating over samples
+[2021-07-06 15:04:41,580][train_inner][INFO] - {"epoch": 1, "update": 0.007, "loss": "9.386", "ntokens": "1434.74", "nsentences": "10.575", "prob_perplexity": "383.971", "code_perplexity": "346.736", "temp": "1.999", "loss_0": "6.685", "loss_1": "0.058", "loss_2": "2.642", "accuracy": "0.01461", "wps": "8075.7", "ups": "5.62", "wpb": "1434.7", "bsz": "10.6", "num_updates": "200", "lr": "3.125e-06", "gnorm": "1.627", "loss_scale": "128", "train_wall": "35", "gb_free": "25.2", "wall": "38"}
+[2021-07-06 15:05:15,684][train_inner][INFO] - {"epoch": 1, "update": 0.015, "loss": "7.023", "ntokens": "1378.67", "nsentences": "11.105", "prob_perplexity": "510.899", "code_perplexity": "469.826", "temp": "1.997", "loss_0": "6.663", "loss_1": "0.029", "loss_2": "0.332", "accuracy": "0.01501", "wps": "8085.2", "ups": "5.86", "wpb": "1378.7", "bsz": "11.1", "num_updates": "400", "lr": "6.25e-06", "gnorm": "0.297", "loss_scale": "128", "train_wall": "34", "gb_free": "26.6", "wall": "72"}
+[2021-07-06 15:05:50,330][train_inner][INFO] - {"epoch": 1, "update": 0.022, "loss": "6.74", "ntokens": "1409.93", "nsentences": "10.34", "prob_perplexity": "557.033", "code_perplexity": "516.537", "temp": "1.995", "loss_0": "6.66", "loss_1": "0.018", "loss_2": "0.063", "accuracy": "0.01418", "wps": "8139.2", "ups": "5.77", "wpb": "1409.9", "bsz": "10.3", "num_updates": "600", "lr": "9.375e-06", "gnorm": "0.159", "loss_scale": "128", "train_wall": "34", "gb_free": "26.8", "wall": "107"}
+[2021-07-06 15:06:25,157][train_inner][INFO] - {"epoch": 1, "update": 0.029, "loss": "6.691", "ntokens": "1404", "nsentences": "10.16", "prob_perplexity": "558.758", "code_perplexity": "511.219", "temp": "1.993", "loss_0": "6.644", "loss_1": "0.018", "loss_2": "0.029", "accuracy": "0.01663", "wps": "8062.8", "ups": "5.74", "wpb": "1404", "bsz": "10.2", "num_updates": "800", "lr": "1.25e-05", "gnorm": "0.247", "loss_scale": "128", "train_wall": "34", "gb_free": "26.5", "wall": "142"}
+[2021-07-06 15:06:59,343][train_inner][INFO] - {"epoch": 1, "update": 0.036, "loss": "6.419", "ntokens": "1390.54", "nsentences": "11.325", "prob_perplexity": "301.741", "code_perplexity": "278.745", "temp": "1.991", "loss_0": "6.314", "loss_1": "0.076", "loss_2": "0.029", "accuracy": "0.02948", "wps": "8135.2", "ups": "5.85", "wpb": "1390.5", "bsz": "11.3", "num_updates": "1000", "lr": "1.5625e-05", "gnorm": "0.928", "loss_scale": "128", "train_wall": "34", "gb_free": "27.2", "wall": "176"}
+[2021-07-06 15:07:34,351][train_inner][INFO] - {"epoch": 1, "update": 0.044, "loss": "6.295", "ntokens": "1427.89", "nsentences": "10.98", "prob_perplexity": "213.945", "code_perplexity": "206.871", "temp": "1.989", "loss_0": "6.172", "loss_1": "0.095", "loss_2": "0.027", "accuracy": "0.03648", "wps": "8157.8", "ups": "5.71", "wpb": "1427.9", "bsz": "11", "num_updates": "1200", "lr": "1.875e-05", "gnorm": "1.379", "loss_scale": "128", "train_wall": "35", "gb_free": "25.8", "wall": "211"}
+[2021-07-06 15:07:51,785][fairseq.trainer][INFO] - NOTE: gradient overflow detected, ignoring gradient, setting loss scale to: 64.0
+[2021-07-06 15:08:08,969][train_inner][INFO] - {"epoch": 1, "update": 0.051, "loss": "6.195", "ntokens": "1383.69", "nsentences": "10.8", "prob_perplexity": "205.828", "code_perplexity": "198.815", "temp": "1.987", "loss_0": "6.071", "loss_1": "0.098", "loss_2": "0.027", "accuracy": "0.0445", "wps": "7994.1", "ups": "5.78", "wpb": "1383.7", "bsz": "10.8", "num_updates": "1400", "lr": "2.1875e-05", "gnorm": "1.777", "loss_scale": "64", "train_wall": "34", "gb_free": "25.9", "wall": "246"}
+[2021-07-06 15:08:43,211][train_inner][INFO] - {"epoch": 1, "update": 0.058, "loss": "6.047", "ntokens": "1370.29", "nsentences": "10.65", "prob_perplexity": "192.821", "code_perplexity": "185.605", "temp": "1.985", "loss_0": "5.92", "loss_1": "0.101", "loss_2": "0.026", "accuracy": "0.06876", "wps": "8003.6", "ups": "5.84", "wpb": "1370.3", "bsz": "10.7", "num_updates": "1600", "lr": "2.5e-05", "gnorm": "1.979", "loss_scale": "64", "train_wall": "34", "gb_free": "26.9", "wall": "280"}
+[2021-07-06 15:09:16,987][train_inner][INFO] - {"epoch": 1, "update": 0.065, "loss": "5.955", "ntokens": "1371.65", "nsentences": "10.645", "prob_perplexity": "172.92", "code_perplexity": "166.463", "temp": "1.983", "loss_0": "5.824", "loss_1": "0.105", "loss_2": "0.026", "accuracy": "0.08753", "wps": "8122", "ups": "5.92", "wpb": "1371.7", "bsz": "10.6", "num_updates": "1800", "lr": "2.8125e-05", "gnorm": "2.053", "loss_scale": "64", "train_wall": "33", "gb_free": "26.6", "wall": "314"}
+[2021-07-06 15:09:51,197][train_inner][INFO] - {"epoch": 1, "update": 0.073, "loss": "5.92", "ntokens": "1386.64", "nsentences": "11.315", "prob_perplexity": "164.057", "code_perplexity": "157.919", "temp": "1.981", "loss_0": "5.788", "loss_1": "0.107", "loss_2": "0.024", "accuracy": "0.08027", "wps": "8106.8", "ups": "5.85", "wpb": "1386.6", "bsz": "11.3", "num_updates": "2000", "lr": "3.125e-05", "gnorm": "1.899", "loss_scale": "64", "train_wall": "34", "gb_free": "24.5", "wall": "348"}
+[2021-07-06 15:10:25,562][train_inner][INFO] - {"epoch": 1, "update": 0.08, "loss": "5.84", "ntokens": "1382.84", "nsentences": "10.945", "prob_perplexity": "122.88", "code_perplexity": "118.533", "temp": "1.979", "loss_0": "5.699", "loss_1": "0.117", "loss_2": "0.025", "accuracy": "0.09949", "wps": "8048.1", "ups": "5.82", "wpb": "1382.8", "bsz": "10.9", "num_updates": "2200", "lr": "3.4375e-05", "gnorm": "1.904", "loss_scale": "64", "train_wall": "34", "gb_free": "24.2", "wall": "382"}
+[2021-07-06 15:10:59,404][train_inner][INFO] - {"epoch": 1, "update": 0.087, "loss": "5.763", "ntokens": "1375.23", "nsentences": "10.495", "prob_perplexity": "80.986", "code_perplexity": "78.443", "temp": "1.977", "loss_0": "5.612", "loss_1": "0.126", "loss_2": "0.025", "accuracy": "0.11465", "wps": "8127.4", "ups": "5.91", "wpb": "1375.2", "bsz": "10.5", "num_updates": "2400", "lr": "3.75e-05", "gnorm": "1.969", "loss_scale": "64", "train_wall": "33", "gb_free": "23.9", "wall": "416"}
+[2021-07-06 15:11:35,247][train_inner][INFO] - {"epoch": 1, "update": 0.094, "loss": "5.651", "ntokens": "1431.89", "nsentences": "11.355", "prob_perplexity": "53.112", "code_perplexity": "51.754", "temp": "1.975", "loss_0": "5.493", "loss_1": "0.132", "loss_2": "0.025", "accuracy": "0.14969", "wps": "7990", "ups": "5.58", "wpb": "1431.9", "bsz": "11.4", "num_updates": "2600", "lr": "4.0625e-05", "gnorm": "1.949", "loss_scale": "64", "train_wall": "35", "gb_free": "26.3", "wall": "452"}
+[2021-07-06 15:12:10,105][train_inner][INFO] - {"epoch": 1, "update": 0.102, "loss": "5.555", "ntokens": "1401.47", "nsentences": "10.905", "prob_perplexity": "38.565", "code_perplexity": "37.851", "temp": "1.973", "loss_0": "5.394", "loss_1": "0.136", "loss_2": "0.025", "accuracy": "0.17732", "wps": "8041.1", "ups": "5.74", "wpb": "1401.5", "bsz": "10.9", "num_updates": "2800", "lr": "4.375e-05", "gnorm": "2.005", "loss_scale": "64", "train_wall": "34", "gb_free": "26.4", "wall": "487"}
+[2021-07-06 15:12:43,948][train_inner][INFO] - {"epoch": 1, "update": 0.109, "loss": "5.446", "ntokens": "1365.16", "nsentences": "10.15", "prob_perplexity": "29.796", "code_perplexity": "29.501", "temp": "1.971", "loss_0": "5.283", "loss_1": "0.138", "loss_2": "0.026", "accuracy": "0.20685", "wps": "8067.7", "ups": "5.91", "wpb": "1365.2", "bsz": "10.2", "num_updates": "3000", "lr": "4.6875e-05", "gnorm": "2.117", "loss_scale": "64", "train_wall": "33", "gb_free": "25.2", "wall": "521"}
+[2021-07-06 15:13:19,258][train_inner][INFO] - {"epoch": 1, "update": 0.116, "loss": "5.348", "ntokens": "1405.26", "nsentences": "10.67", "prob_perplexity": "28.077", "code_perplexity": "27.817", "temp": "1.969", "loss_0": "5.185", "loss_1": "0.138", "loss_2": "0.026", "accuracy": "0.22468", "wps": "7959.6", "ups": "5.66", "wpb": "1405.3", "bsz": "10.7", "num_updates": "3200", "lr": "5e-05", "gnorm": "2.057", "loss_scale": "64", "train_wall": "35", "gb_free": "26.3", "wall": "556"}
+[2021-07-06 15:13:27,702][fairseq.trainer][INFO] - NOTE: gradient overflow detected, ignoring gradient, setting loss scale to: 32.0
+[2021-07-06 15:13:54,391][train_inner][INFO] - {"epoch": 1, "update": 0.124, "loss": "5.274", "ntokens": "1411.2", "nsentences": "10.91", "prob_perplexity": "26.891", "code_perplexity": "26.742", "temp": "1.967", "loss_0": "5.11", "loss_1": "0.138", "loss_2": "0.025", "accuracy": "0.23821", "wps": "8033.7", "ups": "5.69", "wpb": "1411.2", "bsz": "10.9", "num_updates": "3400", "lr": "5.3125e-05", "gnorm": "2.101", "loss_scale": "32", "train_wall": "35", "gb_free": "25.5", "wall": "591"}
+[2021-07-06 15:14:28,752][train_inner][INFO] - {"epoch": 1, "update": 0.131, "loss": "5.235", "ntokens": "1359.71", "nsentences": "10.955", "prob_perplexity": "25.193", "code_perplexity": "25.089", "temp": "1.965", "loss_0": "5.07", "loss_1": "0.139", "loss_2": "0.026", "accuracy": "0.24663", "wps": "7914.3", "ups": "5.82", "wpb": "1359.7", "bsz": "11", "num_updates": "3600", "lr": "5.625e-05", "gnorm": "2.076", "loss_scale": "32", "train_wall": "34", "gb_free": "27.1", "wall": "625"}
+[2021-07-06 15:15:02,791][train_inner][INFO] - {"epoch": 1, "update": 0.138, "loss": "5.16", "ntokens": "1390.17", "nsentences": "11.43", "prob_perplexity": "25.312", "code_perplexity": "25.237", "temp": "1.963", "loss_0": "4.996", "loss_1": "0.139", "loss_2": "0.026", "accuracy": "0.26898", "wps": "8168.3", "ups": "5.88", "wpb": "1390.2", "bsz": "11.4", "num_updates": "3800", "lr": "5.9375e-05", "gnorm": "2.001", "loss_scale": "32", "train_wall": "34", "gb_free": "26.9", "wall": "659"}
+[2021-07-06 15:15:37,926][train_inner][INFO] - {"epoch": 1, "update": 0.145, "loss": "5.162", "ntokens": "1406.14", "nsentences": "10.705", "prob_perplexity": "24.243", "code_perplexity": "24.2", "temp": "1.961", "loss_0": "4.997", "loss_1": "0.139", "loss_2": "0.026", "accuracy": "0.25883", "wps": "8004.3", "ups": "5.69", "wpb": "1406.1", "bsz": "10.7", "num_updates": "4000", "lr": "6.25e-05", "gnorm": "1.961", "loss_scale": "32", "train_wall": "35", "gb_free": "26", "wall": "695"}
+[2021-07-06 15:16:12,222][train_inner][INFO] - {"epoch": 1, "update": 0.153, "loss": "5.133", "ntokens": "1386.7", "nsentences": "10.91", "prob_perplexity": "24.81", "code_perplexity": "24.774", "temp": "1.959", "loss_0": "4.969", "loss_1": "0.139", "loss_2": "0.025", "accuracy": "0.26172", "wps": "8086.8", "ups": "5.83", "wpb": "1386.7", "bsz": "10.9", "num_updates": "4200", "lr": "6.5625e-05", "gnorm": "1.846", "loss_scale": "32", "train_wall": "34", "gb_free": "27.8", "wall": "729"}
+[2021-07-06 15:16:20,863][fairseq.trainer][INFO] - NOTE: gradient overflow detected, ignoring gradient, setting loss scale to: 16.0
+[2021-07-06 15:16:46,829][train_inner][INFO] - {"epoch": 1, "update": 0.16, "loss": "4.816", "ntokens": "1392.77", "nsentences": "10.45", "prob_perplexity": "23.257", "code_perplexity": "23.229", "temp": "1.957", "loss_0": "4.651", "loss_1": "0.139", "loss_2": "0.026", "accuracy": "0.31222", "wps": "8049.1", "ups": "5.78", "wpb": "1392.8", "bsz": "10.4", "num_updates": "4400", "lr": "6.875e-05", "gnorm": "2.025", "loss_scale": "16", "train_wall": "34", "gb_free": "27.1", "wall": "764"}
+[2021-07-06 15:17:21,052][train_inner][INFO] - {"epoch": 1, "update": 0.167, "loss": "4.62", "ntokens": "1396.08", "nsentences": "9.99", "prob_perplexity": "22.117", "code_perplexity": "22.105", "temp": "1.956", "loss_0": "4.455", "loss_1": "0.139", "loss_2": "0.026", "accuracy": "0.345", "wps": "8158.8", "ups": "5.84", "wpb": "1396.1", "bsz": "10", "num_updates": "4600", "lr": "7.1875e-05", "gnorm": "1.906", "loss_scale": "16", "train_wall": "34", "gb_free": "27.5", "wall": "798"}
+[2021-07-06 15:17:55,812][train_inner][INFO] - {"epoch": 1, "update": 0.174, "loss": "4.48", "ntokens": "1403.63", "nsentences": "11.29", "prob_perplexity": "22.504", "code_perplexity": "22.481", "temp": "1.954", "loss_0": "4.315", "loss_1": "0.139", "loss_2": "0.026", "accuracy": "0.3622", "wps": "8076", "ups": "5.75", "wpb": "1403.6", "bsz": "11.3", "num_updates": "4800", "lr": "7.5e-05", "gnorm": "1.802", "loss_scale": "16", "train_wall": "34", "gb_free": "27.5", "wall": "833"}
+[2021-07-06 15:18:30,216][train_inner][INFO] - {"epoch": 1, "update": 0.182, "loss": "4.347", "ntokens": "1396.66", "nsentences": "11.08", "prob_perplexity": "22.189", "code_perplexity": "22.173", "temp": "1.952", "loss_0": "4.181", "loss_1": "0.139", "loss_2": "0.026", "accuracy": "0.37849", "wps": "8119.4", "ups": "5.81", "wpb": "1396.7", "bsz": "11.1", "num_updates": "5000", "lr": "7.8125e-05", "gnorm": "1.775", "loss_scale": "16", "train_wall": "34", "gb_free": "27.1", "wall": "867"}
+[2021-07-06 15:19:04,558][train_inner][INFO] - {"epoch": 1, "update": 0.189, "loss": "4.328", "ntokens": "1369.98", "nsentences": "10.79", "prob_perplexity": "22.132", "code_perplexity": "22.115", "temp": "1.95", "loss_0": "4.162", "loss_1": "0.139", "loss_2": "0.027", "accuracy": "0.38333", "wps": "7978.5", "ups": "5.82", "wpb": "1370", "bsz": "10.8", "num_updates": "5200", "lr": "8.125e-05", "gnorm": "1.654", "loss_scale": "16", "train_wall": "34", "gb_free": "26", "wall": "901"}
+[2021-07-06 15:19:39,519][train_inner][INFO] - {"epoch": 1, "update": 0.196, "loss": "4.367", "ntokens": "1403.84", "nsentences": "11.02", "prob_perplexity": "21.645", "code_perplexity": "21.628", "temp": "1.948", "loss_0": "4.2", "loss_1": "0.139", "loss_2": "0.028", "accuracy": "0.38429", "wps": "8031.1", "ups": "5.72", "wpb": "1403.8", "bsz": "11", "num_updates": "5400", "lr": "8.4375e-05", "gnorm": "1.592", "loss_scale": "16", "train_wall": "35", "gb_free": "27.1", "wall": "936"}
+[2021-07-06 15:20:15,585][train_inner][INFO] - {"epoch": 1, "update": 0.203, "loss": "4.464", "ntokens": "1444.71", "nsentences": "10.465", "prob_perplexity": "22.162", "code_perplexity": "22.15", "temp": "1.946", "loss_0": "4.297", "loss_1": "0.139", "loss_2": "0.028", "accuracy": "0.36418", "wps": "8011.4", "ups": "5.55", "wpb": "1444.7", "bsz": "10.5", "num_updates": "5600", "lr": "8.75e-05", "gnorm": "1.509", "loss_scale": "16", "train_wall": "36", "gb_free": "25.8", "wall": "972"}
+[2021-07-06 15:20:50,497][train_inner][INFO] - {"epoch": 1, "update": 0.211, "loss": "4.336", "ntokens": "1406.48", "nsentences": "11.135", "prob_perplexity": "22.242", "code_perplexity": "22.231", "temp": "1.944", "loss_0": "4.169", "loss_1": "0.139", "loss_2": "0.028", "accuracy": "0.38908", "wps": "8057.4", "ups": "5.73", "wpb": "1406.5", "bsz": "11.1", "num_updates": "5800", "lr": "9.0625e-05", "gnorm": "1.502", "loss_scale": "16", "train_wall": "34", "gb_free": "27", "wall": "1007"}
+[2021-07-06 15:21:23,982][train_inner][INFO] - {"epoch": 1, "update": 0.218, "loss": "4.289", "ntokens": "1363.61", "nsentences": "10.825", "prob_perplexity": "22.113", "code_perplexity": "22.106", "temp": "1.942", "loss_0": "4.122", "loss_1": "0.139", "loss_2": "0.027", "accuracy": "0.38957", "wps": "8144.7", "ups": "5.97", "wpb": "1363.6", "bsz": "10.8", "num_updates": "6000", "lr": "9.375e-05", "gnorm": "1.463", "loss_scale": "16", "train_wall": "33", "gb_free": "25", "wall": "1041"}
+[2021-07-06 15:21:57,803][train_inner][INFO] - {"epoch": 1, "update": 0.225, "loss": "4.345", "ntokens": "1361.79", "nsentences": "10.965", "prob_perplexity": "22.411", "code_perplexity": "22.4", "temp": "1.94", "loss_0": "4.177", "loss_1": "0.139", "loss_2": "0.029", "accuracy": "0.37958", "wps": "8053", "ups": "5.91", "wpb": "1361.8", "bsz": "11", "num_updates": "6200", "lr": "9.6875e-05", "gnorm": "1.414", "loss_scale": "16", "train_wall": "33", "gb_free": "26.9", "wall": "1075"}
+[2021-07-06 15:22:32,479][train_inner][INFO] - {"epoch": 1, "update": 0.233, "loss": "4.268", "ntokens": "1395.29", "nsentences": "11.36", "prob_perplexity": "22.134", "code_perplexity": "22.121", "temp": "1.938", "loss_0": "4.1", "loss_1": "0.139", "loss_2": "0.029", "accuracy": "0.39003", "wps": "8047.7", "ups": "5.77", "wpb": "1395.3", "bsz": "11.4", "num_updates": "6400", "lr": "0.0001", "gnorm": "1.361", "loss_scale": "16", "train_wall": "34", "gb_free": "27", "wall": "1109"}
+[2021-07-06 15:23:06,458][train_inner][INFO] - {"epoch": 1, "update": 0.24, "loss": "4.243", "ntokens": "1388.06", "nsentences": "10.505", "prob_perplexity": "21.485", "code_perplexity": "21.475", "temp": "1.936", "loss_0": "4.073", "loss_1": "0.139", "loss_2": "0.031", "accuracy": "0.40179", "wps": "8170.1", "ups": "5.89", "wpb": "1388.1", "bsz": "10.5", "num_updates": "6600", "lr": "0.000103125", "gnorm": "1.342", "loss_scale": "16", "train_wall": "34", "gb_free": "25.3", "wall": "1143"}
+[2021-07-06 15:23:41,574][train_inner][INFO] - {"epoch": 1, "update": 0.247, "loss": "4.398", "ntokens": "1418.72", "nsentences": "10.39", "prob_perplexity": "22.377", "code_perplexity": "22.369", "temp": "1.934", "loss_0": "4.229", "loss_1": "0.139", "loss_2": "0.03", "accuracy": "0.37414", "wps": "8080.5", "ups": "5.7", "wpb": "1418.7", "bsz": "10.4", "num_updates": "6800", "lr": "0.00010625", "gnorm": "1.275", "loss_scale": "16", "train_wall": "35", "gb_free": "25", "wall": "1178"}
+[2021-07-06 15:24:16,092][train_inner][INFO] - {"epoch": 1, "update": 0.254, "loss": "4.231", "ntokens": "1406.53", "nsentences": "10.95", "prob_perplexity": "22.418", "code_perplexity": "22.411", "temp": "1.932", "loss_0": "4.063", "loss_1": "0.139", "loss_2": "0.029", "accuracy": "0.39204", "wps": "8149.6", "ups": "5.79", "wpb": "1406.5", "bsz": "10.9", "num_updates": "7000", "lr": "0.000109375", "gnorm": "1.243", "loss_scale": "16", "train_wall": "34", "gb_free": "24.8", "wall": "1213"}
+[2021-07-06 15:24:50,133][train_inner][INFO] - {"epoch": 1, "update": 0.262, "loss": "4.117", "ntokens": "1372.15", "nsentences": "10.97", "prob_perplexity": "21.76", "code_perplexity": "21.757", "temp": "1.93", "loss_0": "3.946", "loss_1": "0.139", "loss_2": "0.031", "accuracy": "0.41459", "wps": "8061.8", "ups": "5.88", "wpb": "1372.2", "bsz": "11", "num_updates": "7200", "lr": "0.0001125", "gnorm": "1.238", "loss_scale": "16", "train_wall": "34", "gb_free": "26.6", "wall": "1247"}
+[2021-07-06 15:25:25,161][train_inner][INFO] - {"epoch": 1, "update": 0.269, "loss": "4.227", "ntokens": "1405.47", "nsentences": "11.37", "prob_perplexity": "22.959", "code_perplexity": "22.949", "temp": "1.928", "loss_0": "4.058", "loss_1": "0.139", "loss_2": "0.03", "accuracy": "0.39227", "wps": "8024.8", "ups": "5.71", "wpb": "1405.5", "bsz": "11.4", "num_updates": "7400", "lr": "0.000115625", "gnorm": "1.174", "loss_scale": "16", "train_wall": "35", "gb_free": "26.7", "wall": "1282"}
+[2021-07-06 15:25:59,796][train_inner][INFO] - {"epoch": 1, "update": 0.276, "loss": "4.286", "ntokens": "1393.3", "nsentences": "10.615", "prob_perplexity": "22.788", "code_perplexity": "22.782", "temp": "1.926", "loss_0": "4.115", "loss_1": "0.139", "loss_2": "0.032", "accuracy": "0.38872", "wps": "8045.8", "ups": "5.77", "wpb": "1393.3", "bsz": "10.6", "num_updates": "7600", "lr": "0.00011875", "gnorm": "1.165", "loss_scale": "16", "train_wall": "34", "gb_free": "25.3", "wall": "1316"}
+[2021-07-06 15:26:34,208][train_inner][INFO] - {"epoch": 1, "update": 0.283, "loss": "4.175", "ntokens": "1393.72", "nsentences": "11.195", "prob_perplexity": "22.769", "code_perplexity": "22.763", "temp": "1.924", "loss_0": "4.005", "loss_1": "0.139", "loss_2": "0.031", "accuracy": "0.40442", "wps": "8100.2", "ups": "5.81", "wpb": "1393.7", "bsz": "11.2", "num_updates": "7800", "lr": "0.000121875", "gnorm": "1.142", "loss_scale": "16", "train_wall": "34", "gb_free": "27", "wall": "1351"}
+[2021-07-06 15:27:09,714][train_inner][INFO] - {"epoch": 1, "update": 0.291, "loss": "4.219", "ntokens": "1420.37", "nsentences": "11.52", "prob_perplexity": "23.055", "code_perplexity": "23.046", "temp": "1.923", "loss_0": "4.047", "loss_1": "0.139", "loss_2": "0.033", "accuracy": "0.39396", "wps": "8000.9", "ups": "5.63", "wpb": "1420.4", "bsz": "11.5", "num_updates": "8000", "lr": "0.000125", "gnorm": "1.132", "loss_scale": "16", "train_wall": "35", "gb_free": "25.1", "wall": "1386"}
+[2021-07-06 15:27:43,376][train_inner][INFO] - {"epoch": 1, "update": 0.298, "loss": "4.193", "ntokens": "1369.56", "nsentences": "10.67", "prob_perplexity": "23.012", "code_perplexity": "23.005", "temp": "1.921", "loss_0": "4.021", "loss_1": "0.139", "loss_2": "0.033", "accuracy": "0.39963", "wps": "8137.2", "ups": "5.94", "wpb": "1369.6", "bsz": "10.7", "num_updates": "8200", "lr": "0.000128125", "gnorm": "1.12", "loss_scale": "16", "train_wall": "33", "gb_free": "24.2", "wall": "1420"}
+[2021-07-06 15:28:19,138][train_inner][INFO] - {"epoch": 1, "update": 0.305, "loss": "4.337", "ntokens": "1430.38", "nsentences": "10.895", "prob_perplexity": "23.447", "code_perplexity": "23.443", "temp": "1.919", "loss_0": "4.165", "loss_1": "0.139", "loss_2": "0.033", "accuracy": "0.37921", "wps": "7999.7", "ups": "5.59", "wpb": "1430.4", "bsz": "10.9", "num_updates": "8400", "lr": "0.00013125", "gnorm": "1.074", "loss_scale": "16", "train_wall": "35", "gb_free": "24.1", "wall": "1456"}
+[2021-07-06 15:28:55,021][train_inner][INFO] - {"epoch": 1, "update": 0.312, "loss": "4.192", "ntokens": "1420.59", "nsentences": "11.65", "prob_perplexity": "22.816", "code_perplexity": "22.802", "temp": "1.917", "loss_0": "4.019", "loss_1": "0.139", "loss_2": "0.034", "accuracy": "0.39983", "wps": "7919.3", "ups": "5.57", "wpb": "1420.6", "bsz": "11.7", "num_updates": "8600", "lr": "0.000134375", "gnorm": "1.086", "loss_scale": "16", "train_wall": "35", "gb_free": "26.7", "wall": "1492"}
+[2021-07-06 15:29:29,719][train_inner][INFO] - {"epoch": 1, "update": 0.32, "loss": "4.212", "ntokens": "1401.22", "nsentences": "10.86", "prob_perplexity": "22.967", "code_perplexity": "22.957", "temp": "1.915", "loss_0": "4.039", "loss_1": "0.139", "loss_2": "0.034", "accuracy": "0.39979", "wps": "8076.9", "ups": "5.76", "wpb": "1401.2", "bsz": "10.9", "num_updates": "8800", "lr": "0.0001375", "gnorm": "1.04", "loss_scale": "16", "train_wall": "34", "gb_free": "26.2", "wall": "1526"}
+[2021-07-06 15:30:03,840][train_inner][INFO] - {"epoch": 1, "update": 0.327, "loss": "4.244", "ntokens": "1380.7", "nsentences": "10.665", "prob_perplexity": "24.199", "code_perplexity": "24.186", "temp": "1.913", "loss_0": "4.071", "loss_1": "0.139", "loss_2": "0.034", "accuracy": "0.38744", "wps": "8093.2", "ups": "5.86", "wpb": "1380.7", "bsz": "10.7", "num_updates": "9000", "lr": "0.000140625", "gnorm": "1.078", "loss_scale": "16", "train_wall": "34", "gb_free": "24.8", "wall": "1561"}
+[2021-07-06 15:30:38,951][train_inner][INFO] - {"epoch": 1, "update": 0.334, "loss": "4.258", "ntokens": "1405.73", "nsentences": "10.345", "prob_perplexity": "24.04", "code_perplexity": "24.03", "temp": "1.911", "loss_0": "4.083", "loss_1": "0.139", "loss_2": "0.036", "accuracy": "0.38517", "wps": "8007.6", "ups": "5.7", "wpb": "1405.7", "bsz": "10.3", "num_updates": "9200", "lr": "0.00014375", "gnorm": "1.008", "loss_scale": "16", "train_wall": "35", "gb_free": "23.9", "wall": "1596"}
+[2021-07-06 15:31:13,308][train_inner][INFO] - {"epoch": 1, "update": 0.342, "loss": "4.097", "ntokens": "1375.54", "nsentences": "11.35", "prob_perplexity": "23.396", "code_perplexity": "23.388", "temp": "1.909", "loss_0": "3.921", "loss_1": "0.139", "loss_2": "0.037", "accuracy": "0.40985", "wps": "8007.3", "ups": "5.82", "wpb": "1375.5", "bsz": "11.3", "num_updates": "9400", "lr": "0.000146875", "gnorm": "1", "loss_scale": "16", "train_wall": "34", "gb_free": "25.4", "wall": "1630"}
+[2021-07-06 15:31:48,286][train_inner][INFO] - {"epoch": 1, "update": 0.349, "loss": "4.166", "ntokens": "1404.61", "nsentences": "10.985", "prob_perplexity": "23.789", "code_perplexity": "23.778", "temp": "1.907", "loss_0": "3.989", "loss_1": "0.139", "loss_2": "0.038", "accuracy": "0.3992", "wps": "8035.8", "ups": "5.72", "wpb": "1404.6", "bsz": "11", "num_updates": "9600", "lr": "0.00015", "gnorm": "0.985", "loss_scale": "16", "train_wall": "35", "gb_free": "25.8", "wall": "1665"}
+[2021-07-06 15:32:23,126][train_inner][INFO] - {"epoch": 1, "update": 0.356, "loss": "4.208", "ntokens": "1405.93", "nsentences": "10.8", "prob_perplexity": "24.216", "code_perplexity": "24.206", "temp": "1.905", "loss_0": "4.031", "loss_1": "0.139", "loss_2": "0.037", "accuracy": "0.39275", "wps": "8071.3", "ups": "5.74", "wpb": "1405.9", "bsz": "10.8", "num_updates": "9800", "lr": "0.000153125", "gnorm": "1.008", "loss_scale": "16", "train_wall": "34", "gb_free": "26.1", "wall": "1700"}
+[2021-07-06 15:32:57,681][train_inner][INFO] - {"epoch": 1, "update": 0.363, "loss": "4.136", "ntokens": "1392.26", "nsentences": "11.215", "prob_perplexity": "24.443", "code_perplexity": "24.432", "temp": "1.903", "loss_0": "3.959", "loss_1": "0.139", "loss_2": "0.038", "accuracy": "0.40429", "wps": "8058.6", "ups": "5.79", "wpb": "1392.3", "bsz": "11.2", "num_updates": "10000", "lr": "0.00015625", "gnorm": "0.974", "loss_scale": "16", "train_wall": "34", "gb_free": "26.5", "wall": "1734"}
+[2021-07-06 15:33:32,807][train_inner][INFO] - {"epoch": 1, "update": 0.371, "loss": "4.105", "ntokens": "1416.48", "nsentences": "11.73", "prob_perplexity": "23.872", "code_perplexity": "23.865", "temp": "1.902", "loss_0": "3.927", "loss_1": "0.139", "loss_2": "0.039", "accuracy": "0.40864", "wps": "8065.3", "ups": "5.69", "wpb": "1416.5", "bsz": "11.7", "num_updates": "10200", "lr": "0.000159375", "gnorm": "0.931", "loss_scale": "16", "train_wall": "35", "gb_free": "25.8", "wall": "1770"}
+[2021-07-06 15:34:06,741][train_inner][INFO] - {"epoch": 1, "update": 0.378, "loss": "4.056", "ntokens": "1372.83", "nsentences": "11.42", "prob_perplexity": "23.672", "code_perplexity": "23.662", "temp": "1.9", "loss_0": "3.877", "loss_1": "0.139", "loss_2": "0.039", "accuracy": "0.41807", "wps": "8092.9", "ups": "5.9", "wpb": "1372.8", "bsz": "11.4", "num_updates": "10400", "lr": "0.0001625", "gnorm": "0.97", "loss_scale": "16", "train_wall": "33", "gb_free": "26.8", "wall": "1803"}
+[2021-07-06 15:34:41,478][train_inner][INFO] - {"epoch": 1, "update": 0.385, "loss": "4.049", "ntokens": "1405.52", "nsentences": "11.21", "prob_perplexity": "23.209", "code_perplexity": "23.202", "temp": "1.898", "loss_0": "3.867", "loss_1": "0.139", "loss_2": "0.043", "accuracy": "0.41864", "wps": "8097.5", "ups": "5.76", "wpb": "1405.5", "bsz": "11.2", "num_updates": "10600", "lr": "0.000165625", "gnorm": "0.93", "loss_scale": "16", "train_wall": "34", "gb_free": "27.5", "wall": "1838"}
+[2021-07-06 15:35:15,873][train_inner][INFO] - {"epoch": 1, "update": 0.392, "loss": "4.115", "ntokens": "1392.55", "nsentences": "10.39", "prob_perplexity": "23.809", "code_perplexity": "23.801", "temp": "1.896", "loss_0": "3.934", "loss_1": "0.139", "loss_2": "0.042", "accuracy": "0.40464", "wps": "8097.4", "ups": "5.81", "wpb": "1392.5", "bsz": "10.4", "num_updates": "10800", "lr": "0.00016875", "gnorm": "0.919", "loss_scale": "16", "train_wall": "34", "gb_free": "26.2", "wall": "1873"}
+[2021-07-06 15:35:50,769][train_inner][INFO] - {"epoch": 1, "update": 0.4, "loss": "4.093", "ntokens": "1395.26", "nsentences": "10.935", "prob_perplexity": "24.133", "code_perplexity": "24.123", "temp": "1.894", "loss_0": "3.914", "loss_1": "0.139", "loss_2": "0.04", "accuracy": "0.4077", "wps": "7997.5", "ups": "5.73", "wpb": "1395.3", "bsz": "10.9", "num_updates": "11000", "lr": "0.000171875", "gnorm": "0.912", "loss_scale": "16", "train_wall": "34", "gb_free": "27.2", "wall": "1907"}
+[2021-07-06 15:36:24,376][train_inner][INFO] - {"epoch": 1, "update": 0.407, "loss": "4.134", "ntokens": "1363.4", "nsentences": "10.68", "prob_perplexity": "24.327", "code_perplexity": "24.318", "temp": "1.892", "loss_0": "3.955", "loss_1": "0.139", "loss_2": "0.041", "accuracy": "0.40435", "wps": "8114", "ups": "5.95", "wpb": "1363.4", "bsz": "10.7", "num_updates": "11200", "lr": "0.000175", "gnorm": "0.905", "loss_scale": "16", "train_wall": "33", "gb_free": "27.3", "wall": "1941"}
+[2021-07-06 15:36:48,212][fairseq.trainer][INFO] - NOTE: gradient overflow detected, ignoring gradient, setting loss scale to: 8.0
+[2021-07-06 15:36:58,517][train_inner][INFO] - {"epoch": 1, "update": 0.414, "loss": "4.166", "ntokens": "1373.8", "nsentences": "10.995", "prob_perplexity": "25.111", "code_perplexity": "25.105", "temp": "1.89", "loss_0": "3.987", "loss_1": "0.139", "loss_2": "0.04", "accuracy": "0.39703", "wps": "8048.1", "ups": "5.86", "wpb": "1373.8", "bsz": "11", "num_updates": "11400", "lr": "0.000178125", "gnorm": "0.991", "loss_scale": "8", "train_wall": "34", "gb_free": "25.4", "wall": "1975"}
+[2021-07-06 15:37:33,289][train_inner][INFO] - {"epoch": 1, "update": 0.421, "loss": "4.244", "ntokens": "1404.97", "nsentences": "10.74", "prob_perplexity": "25.57", "code_perplexity": "25.557", "temp": "1.888", "loss_0": "4.063", "loss_1": "0.138", "loss_2": "0.042", "accuracy": "0.38747", "wps": "8081.2", "ups": "5.75", "wpb": "1405", "bsz": "10.7", "num_updates": "11600", "lr": "0.00018125", "gnorm": "0.931", "loss_scale": "8", "train_wall": "34", "gb_free": "27", "wall": "2010"}
+[2021-07-06 15:38:06,903][train_inner][INFO] - {"epoch": 1, "update": 0.429, "loss": "4.172", "ntokens": "1371.21", "nsentences": "10.925", "prob_perplexity": "25.462", "code_perplexity": "25.458", "temp": "1.886", "loss_0": "3.991", "loss_1": "0.138", "loss_2": "0.042", "accuracy": "0.39726", "wps": "8159.4", "ups": "5.95", "wpb": "1371.2", "bsz": "10.9", "num_updates": "11800", "lr": "0.000184375", "gnorm": "0.926", "loss_scale": "8", "train_wall": "33", "gb_free": "27", "wall": "2044"}
+[2021-07-06 15:38:41,296][train_inner][INFO] - {"epoch": 1, "update": 0.436, "loss": "4.268", "ntokens": "1400.54", "nsentences": "10.82", "prob_perplexity": "26.055", "code_perplexity": "26.049", "temp": "1.884", "loss_0": "4.088", "loss_1": "0.138", "loss_2": "0.041", "accuracy": "0.38152", "wps": "8144.3", "ups": "5.82", "wpb": "1400.5", "bsz": "10.8", "num_updates": "12000", "lr": "0.0001875", "gnorm": "0.934", "loss_scale": "8", "train_wall": "34", "gb_free": "25.4", "wall": "2078"}
+[2021-07-06 15:39:16,386][train_inner][INFO] - {"epoch": 1, "update": 0.443, "loss": "4.269", "ntokens": "1412.79", "nsentences": "10.765", "prob_perplexity": "26.567", "code_perplexity": "26.562", "temp": "1.883", "loss_0": "4.087", "loss_1": "0.138", "loss_2": "0.044", "accuracy": "0.38047", "wps": "8052.7", "ups": "5.7", "wpb": "1412.8", "bsz": "10.8", "num_updates": "12200", "lr": "0.000190625", "gnorm": "0.955", "loss_scale": "8", "train_wall": "35", "gb_free": "26.9", "wall": "2113"}
+[2021-07-06 15:39:50,903][train_inner][INFO] - {"epoch": 1, "update": 0.45, "loss": "4.243", "ntokens": "1377.76", "nsentences": "10.82", "prob_perplexity": "26.113", "code_perplexity": "26.1", "temp": "1.881", "loss_0": "4.061", "loss_1": "0.138", "loss_2": "0.043", "accuracy": "0.38497", "wps": "7984.3", "ups": "5.8", "wpb": "1377.8", "bsz": "10.8", "num_updates": "12400", "lr": "0.00019375", "gnorm": "0.995", "loss_scale": "8", "train_wall": "34", "gb_free": "25.4", "wall": "2148"}
+[2021-07-06 15:40:25,436][train_inner][INFO] - {"epoch": 1, "update": 0.458, "loss": "4.329", "ntokens": "1392.93", "nsentences": "10.2", "prob_perplexity": "26.691", "code_perplexity": "26.681", "temp": "1.879", "loss_0": "4.147", "loss_1": "0.138", "loss_2": "0.043", "accuracy": "0.36868", "wps": "8068.1", "ups": "5.79", "wpb": "1392.9", "bsz": "10.2", "num_updates": "12600", "lr": "0.000196875", "gnorm": "0.908", "loss_scale": "8", "train_wall": "34", "gb_free": "26", "wall": "2182"}
+[2021-07-06 15:41:00,676][train_inner][INFO] - {"epoch": 1, "update": 0.465, "loss": "4.206", "ntokens": "1411.65", "nsentences": "10.985", "prob_perplexity": "26.232", "code_perplexity": "26.225", "temp": "1.877", "loss_0": "4.024", "loss_1": "0.138", "loss_2": "0.044", "accuracy": "0.39259", "wps": "8012.1", "ups": "5.68", "wpb": "1411.7", "bsz": "11", "num_updates": "12800", "lr": "0.0002", "gnorm": "0.896", "loss_scale": "8", "train_wall": "35", "gb_free": "27.2", "wall": "2217"}
+[2021-07-06 15:41:35,451][train_inner][INFO] - {"epoch": 1, "update": 0.472, "loss": "4.291", "ntokens": "1380", "nsentences": "10.76", "prob_perplexity": "27.005", "code_perplexity": "26.994", "temp": "1.875", "loss_0": "4.109", "loss_1": "0.138", "loss_2": "0.044", "accuracy": "0.37567", "wps": "7937.3", "ups": "5.75", "wpb": "1380", "bsz": "10.8", "num_updates": "13000", "lr": "0.000203125", "gnorm": "0.916", "loss_scale": "8", "train_wall": "34", "gb_free": "27.5", "wall": "2252"}
+[2021-07-06 15:42:02,728][fairseq.trainer][INFO] - NOTE: gradient overflow detected, ignoring gradient, setting loss scale to: 4.0
+[2021-07-06 15:42:09,764][train_inner][INFO] - {"epoch": 1, "update": 0.48, "loss": "4.323", "ntokens": "1374.69", "nsentences": "10.63", "prob_perplexity": "27.231", "code_perplexity": "27.222", "temp": "1.873", "loss_0": "4.139", "loss_1": "0.138", "loss_2": "0.045", "accuracy": "0.37043", "wps": "8013.2", "ups": "5.83", "wpb": "1374.7", "bsz": "10.6", "num_updates": "13200", "lr": "0.00020625", "gnorm": "0.944", "loss_scale": "4", "train_wall": "34", "gb_free": "26.1", "wall": "2286"}
+[2021-07-06 15:42:42,894][train_inner][INFO] - {"epoch": 1, "update": 0.487, "loss": "4.279", "ntokens": "1344.76", "nsentences": "10.38", "prob_perplexity": "27.676", "code_perplexity": "27.665", "temp": "1.871", "loss_0": "4.094", "loss_1": "0.138", "loss_2": "0.047", "accuracy": "0.37651", "wps": "8118.8", "ups": "6.04", "wpb": "1344.8", "bsz": "10.4", "num_updates": "13400", "lr": "0.000209375", "gnorm": "0.922", "loss_scale": "4", "train_wall": "33", "gb_free": "27.2", "wall": "2320"}
+[2021-07-06 15:43:16,999][train_inner][INFO] - {"epoch": 1, "update": 0.494, "loss": "4.251", "ntokens": "1373.41", "nsentences": "10.84", "prob_perplexity": "27.319", "code_perplexity": "27.312", "temp": "1.869", "loss_0": "4.065", "loss_1": "0.138", "loss_2": "0.048", "accuracy": "0.38274", "wps": "8054.1", "ups": "5.86", "wpb": "1373.4", "bsz": "10.8", "num_updates": "13600", "lr": "0.0002125", "gnorm": "0.904", "loss_scale": "4", "train_wall": "34", "gb_free": "26.3", "wall": "2354"}
+[2021-07-06 15:43:51,509][train_inner][INFO] - {"epoch": 1, "update": 0.501, "loss": "4.249", "ntokens": "1383.62", "nsentences": "11.35", "prob_perplexity": "27.712", "code_perplexity": "27.703", "temp": "1.868", "loss_0": "4.064", "loss_1": "0.138", "loss_2": "0.047", "accuracy": "0.38246", "wps": "8019", "ups": "5.8", "wpb": "1383.6", "bsz": "11.3", "num_updates": "13800", "lr": "0.000215625", "gnorm": "0.915", "loss_scale": "4", "train_wall": "34", "gb_free": "27", "wall": "2388"}
+[2021-07-06 15:44:14,663][fairseq.trainer][INFO] - NOTE: gradient overflow detected, ignoring gradient, setting loss scale to: 2.0
+[2021-07-06 15:44:26,585][train_inner][INFO] - {"epoch": 1, "update": 0.509, "loss": "4.305", "ntokens": "1419.62", "nsentences": "11.17", "prob_perplexity": "27.362", "code_perplexity": "27.358", "temp": "1.866", "loss_0": "4.12", "loss_1": "0.138", "loss_2": "0.047", "accuracy": "0.37501", "wps": "8095.3", "ups": "5.7", "wpb": "1419.6", "bsz": "11.2", "num_updates": "14000", "lr": "0.00021875", "gnorm": "0.942", "loss_scale": "2", "train_wall": "35", "gb_free": "26.7", "wall": "2423"}
+[2021-07-06 15:44:59,625][train_inner][INFO] - {"epoch": 1, "update": 0.516, "loss": "4.318", "ntokens": "1358.59", "nsentences": "10.775", "prob_perplexity": "26.858", "code_perplexity": "26.847", "temp": "1.864", "loss_0": "4.13", "loss_1": "0.138", "loss_2": "0.049", "accuracy": "0.37423", "wps": "8223.9", "ups": "6.05", "wpb": "1358.6", "bsz": "10.8", "num_updates": "14200", "lr": "0.000221875", "gnorm": "0.966", "loss_scale": "2", "train_wall": "33", "gb_free": "27.6", "wall": "2456"}
+[2021-07-06 15:45:34,080][train_inner][INFO] - {"epoch": 1, "update": 0.523, "loss": "4.268", "ntokens": "1392.12", "nsentences": "11.13", "prob_perplexity": "27.909", "code_perplexity": "27.898", "temp": "1.862", "loss_0": "4.081", "loss_1": "0.138", "loss_2": "0.049", "accuracy": "0.37938", "wps": "8081.4", "ups": "5.81", "wpb": "1392.1", "bsz": "11.1", "num_updates": "14400", "lr": "0.000225", "gnorm": "0.948", "loss_scale": "2", "train_wall": "34", "gb_free": "27", "wall": "2491"}
+[2021-07-06 15:46:10,211][train_inner][INFO] - {"epoch": 1, "update": 0.53, "loss": "4.323", "ntokens": "1455.17", "nsentences": "11.085", "prob_perplexity": "28.213", "code_perplexity": "28.204", "temp": "1.86", "loss_0": "4.135", "loss_1": "0.138", "loss_2": "0.05", "accuracy": "0.37009", "wps": "8055.3", "ups": "5.54", "wpb": "1455.2", "bsz": "11.1", "num_updates": "14600", "lr": "0.000228125", "gnorm": "0.91", "loss_scale": "2", "train_wall": "36", "gb_free": "27", "wall": "2527"}
+[2021-07-06 15:46:45,169][train_inner][INFO] - {"epoch": 1, "update": 0.538, "loss": "4.275", "ntokens": "1419.15", "nsentences": "11.71", "prob_perplexity": "28.573", "code_perplexity": "28.566", "temp": "1.858", "loss_0": "4.089", "loss_1": "0.138", "loss_2": "0.048", "accuracy": "0.38075", "wps": "8119.5", "ups": "5.72", "wpb": "1419.2", "bsz": "11.7", "num_updates": "14800", "lr": "0.00023125", "gnorm": "1.016", "loss_scale": "2", "train_wall": "35", "gb_free": "25.7", "wall": "2562"}
+[2021-07-06 15:47:05,072][fairseq.trainer][INFO] - NOTE: gradient overflow detected, ignoring gradient, setting loss scale to: 1.0
+[2021-07-06 15:47:19,464][train_inner][INFO] - {"epoch": 1, "update": 0.545, "loss": "4.348", "ntokens": "1376.37", "nsentences": "10.86", "prob_perplexity": "28.422", "code_perplexity": "28.406", "temp": "1.856", "loss_0": "4.151", "loss_1": "0.138", "loss_2": "0.059", "accuracy": "0.37195", "wps": "8027.7", "ups": "5.83", "wpb": "1376.4", "bsz": "10.9", "num_updates": "15000", "lr": "0.000234375", "gnorm": "1.216", "loss_scale": "1", "train_wall": "34", "gb_free": "25.6", "wall": "2596"}
+[2021-07-06 15:47:54,720][train_inner][INFO] - {"epoch": 1, "update": 0.552, "loss": "4.35", "ntokens": "1424.95", "nsentences": "11.27", "prob_perplexity": "28.495", "code_perplexity": "28.479", "temp": "1.855", "loss_0": "4.155", "loss_1": "0.138", "loss_2": "0.058", "accuracy": "0.37211", "wps": "8093.1", "ups": "5.68", "wpb": "1425", "bsz": "11.3", "num_updates": "15200", "lr": "0.0002375", "gnorm": "1.213", "loss_scale": "1", "train_wall": "35", "gb_free": "25.5", "wall": "2631"}
+[2021-07-06 15:48:29,153][train_inner][INFO] - {"epoch": 1, "update": 0.56, "loss": "4.292", "ntokens": "1381.61", "nsentences": "10.72", "prob_perplexity": "27.973", "code_perplexity": "27.957", "temp": "1.853", "loss_0": "4.088", "loss_1": "0.138", "loss_2": "0.067", "accuracy": "0.3814", "wps": "8025.3", "ups": "5.81", "wpb": "1381.6", "bsz": "10.7", "num_updates": "15400", "lr": "0.000240625", "gnorm": "1.352", "loss_scale": "1", "train_wall": "34", "gb_free": "26.8", "wall": "2666"}
+[2021-07-06 15:48:48,799][fairseq.trainer][INFO] - NOTE: gradient overflow detected, ignoring gradient, setting loss scale to: 0.5
+[2021-07-06 15:49:04,883][train_inner][INFO] - {"epoch": 1, "update": 0.567, "loss": "4.568", "ntokens": "1433.2", "nsentences": "10.55", "prob_perplexity": "29.023", "code_perplexity": "29.012", "temp": "1.851", "loss_0": "4.371", "loss_1": "0.138", "loss_2": "0.06", "accuracy": "0.3434", "wps": "8023.3", "ups": "5.6", "wpb": "1433.2", "bsz": "10.6", "num_updates": "15600", "lr": "0.00024375", "gnorm": "1.439", "loss_scale": "0.5", "train_wall": "35", "gb_free": "24.9", "wall": "2702"}
+[2021-07-06 15:49:39,787][train_inner][INFO] - {"epoch": 1, "update": 0.574, "loss": "4.2", "ntokens": "1402.11", "nsentences": "10.945", "prob_perplexity": "26.269", "code_perplexity": "26.254", "temp": "1.849", "loss_0": "4.004", "loss_1": "0.138", "loss_2": "0.057", "accuracy": "0.39375", "wps": "8035.7", "ups": "5.73", "wpb": "1402.1", "bsz": "10.9", "num_updates": "15800", "lr": "0.000246875", "gnorm": "1.201", "loss_scale": "0.5", "train_wall": "34", "gb_free": "26.5", "wall": "2736"}
+[2021-07-06 15:50:14,776][train_inner][INFO] - {"epoch": 1, "update": 0.581, "loss": "4.562", "ntokens": "1404.51", "nsentences": "10.75", "prob_perplexity": "28.971", "code_perplexity": "28.96", "temp": "1.847", "loss_0": "4.369", "loss_1": "0.138", "loss_2": "0.056", "accuracy": "0.33612", "wps": "8030.1", "ups": "5.72", "wpb": "1404.5", "bsz": "10.8", "num_updates": "16000", "lr": "0.00025", "gnorm": "0.989", "loss_scale": "0.5", "train_wall": "35", "gb_free": "26.9", "wall": "2771"}
+[2021-07-06 15:50:49,114][train_inner][INFO] - {"epoch": 1, "update": 0.589, "loss": "4.729", "ntokens": "1402.98", "nsentences": "11.225", "prob_perplexity": "28.839", "code_perplexity": "28.821", "temp": "1.845", "loss_0": "4.515", "loss_1": "0.138", "loss_2": "0.075", "accuracy": "0.31802", "wps": "8172.6", "ups": "5.83", "wpb": "1403", "bsz": "11.2", "num_updates": "16200", "lr": "0.000253125", "gnorm": "2.141", "loss_scale": "0.5", "train_wall": "34", "gb_free": "27.6", "wall": "2806"}
+[2021-07-06 15:51:24,020][train_inner][INFO] - {"epoch": 1, "update": 0.596, "loss": "5.125", "ntokens": "1403.36", "nsentences": "10.69", "prob_perplexity": "27.904", "code_perplexity": "27.888", "temp": "1.843", "loss_0": "4.923", "loss_1": "0.138", "loss_2": "0.065", "accuracy": "0.27114", "wps": "8041.5", "ups": "5.73", "wpb": "1403.4", "bsz": "10.7", "num_updates": "16400", "lr": "0.00025625", "gnorm": "1.4", "loss_scale": "0.5", "train_wall": "34", "gb_free": "25.6", "wall": "2841"}
+[2021-07-06 15:51:58,795][train_inner][INFO] - {"epoch": 1, "update": 0.603, "loss": "6.754", "ntokens": "1412.04", "nsentences": "10.495", "prob_perplexity": "145.695", "code_perplexity": "142.446", "temp": "1.842", "loss_0": "6.607", "loss_1": "0.111", "loss_2": "0.036", "accuracy": "0.05125", "wps": "8121.4", "ups": "5.75", "wpb": "1412", "bsz": "10.5", "num_updates": "16600", "lr": "0.000259375", "gnorm": "0.2", "loss_scale": "0.5", "train_wall": "34", "gb_free": "23.5", "wall": "2875"}
+[2021-07-06 15:52:34,001][train_inner][INFO] - {"epoch": 1, "update": 0.61, "loss": "6.727", "ntokens": "1405.59", "nsentences": "10.885", "prob_perplexity": "414.763", "code_perplexity": "404.377", "temp": "1.84", "loss_0": "6.657", "loss_1": "0.05", "loss_2": "0.019", "accuracy": "0.01641", "wps": "7985.5", "ups": "5.68", "wpb": "1405.6", "bsz": "10.9", "num_updates": "16800", "lr": "0.0002625", "gnorm": "0.088", "loss_scale": "0.5", "train_wall": "35", "gb_free": "26.2", "wall": "2911"}
+[2021-07-06 15:53:08,201][train_inner][INFO] - {"epoch": 1, "update": 0.618, "loss": "6.702", "ntokens": "1389.77", "nsentences": "11.01", "prob_perplexity": "502.254", "code_perplexity": "489.941", "temp": "1.838", "loss_0": "6.658", "loss_1": "0.031", "loss_2": "0.013", "accuracy": "0.0197", "wps": "8128.2", "ups": "5.85", "wpb": "1389.8", "bsz": "11", "num_updates": "17000", "lr": "0.000265625", "gnorm": "0.071", "loss_scale": "0.5", "train_wall": "34", "gb_free": "26.3", "wall": "2945"}
+[2021-07-06 15:53:43,188][train_inner][INFO] - {"epoch": 1, "update": 0.625, "loss": "6.693", "ntokens": "1431.67", "nsentences": "11.46", "prob_perplexity": "516.793", "code_perplexity": "493.236", "temp": "1.836", "loss_0": "6.658", "loss_1": "0.027", "loss_2": "0.008", "accuracy": "0.03868", "wps": "8184.4", "ups": "5.72", "wpb": "1431.7", "bsz": "11.5", "num_updates": "17200", "lr": "0.00026875", "gnorm": "0.071", "loss_scale": "0.5", "train_wall": "35", "gb_free": "23.2", "wall": "2980"}
+[2021-07-06 15:54:16,925][train_inner][INFO] - {"epoch": 1, "update": 0.632, "loss": "6.678", "ntokens": "1365.31", "nsentences": "10.605", "prob_perplexity": "568.056", "code_perplexity": "256.838", "temp": "1.834", "loss_0": "6.658", "loss_1": "0.016", "loss_2": "0.004", "accuracy": "0.06134", "wps": "8094.6", "ups": "5.93", "wpb": "1365.3", "bsz": "10.6", "num_updates": "17400", "lr": "0.000271875", "gnorm": "0.036", "loss_scale": "0.5", "train_wall": "33", "gb_free": "26.3", "wall": "3014"}
+[2021-07-06 15:54:50,353][train_inner][INFO] - {"epoch": 1, "update": 0.64, "loss": "6.673", "ntokens": "1356.86", "nsentences": "11.155", "prob_perplexity": "586.953", "code_perplexity": "212.55", "temp": "1.832", "loss_0": "6.658", "loss_1": "0.012", "loss_2": "0.003", "accuracy": "0.09735", "wps": "8118.7", "ups": "5.98", "wpb": "1356.9", "bsz": "11.2", "num_updates": "17600", "lr": "0.000275", "gnorm": "0.033", "loss_scale": "0.5", "train_wall": "33", "gb_free": "27.3", "wall": "3047"}
+[2021-07-06 15:55:24,886][train_inner][INFO] - {"epoch": 1, "update": 0.647, "loss": "6.671", "ntokens": "1380.11", "nsentences": "10.39", "prob_perplexity": "593.309", "code_perplexity": "216.046", "temp": "1.831", "loss_0": "6.658", "loss_1": "0.01", "loss_2": "0.003", "accuracy": "0.0671", "wps": "7993.2", "ups": "5.79", "wpb": "1380.1", "bsz": "10.4", "num_updates": "17800", "lr": "0.000278125", "gnorm": "0.035", "loss_scale": "0.5", "train_wall": "34", "gb_free": "26.6", "wall": "3082"}
+[2021-07-06 15:55:58,547][train_inner][INFO] - {"epoch": 1, "update": 0.654, "loss": "6.67", "ntokens": "1385.4", "nsentences": "10.6", "prob_perplexity": "597.533", "code_perplexity": "170.62", "temp": "1.829", "loss_0": "6.658", "loss_1": "0.009", "loss_2": "0.003", "accuracy": "0.13829", "wps": "8232.2", "ups": "5.94", "wpb": "1385.4", "bsz": "10.6", "num_updates": "18000", "lr": "0.00028125", "gnorm": "0.035", "loss_scale": "0.5", "train_wall": "33", "gb_free": "23.4", "wall": "3115"}
+[2021-07-06 15:56:32,898][train_inner][INFO] - {"epoch": 1, "update": 0.661, "loss": "6.67", "ntokens": "1404.98", "nsentences": "11.06", "prob_perplexity": "595.847", "code_perplexity": "170.145", "temp": "1.827", "loss_0": "6.657", "loss_1": "0.009", "loss_2": "0.003", "accuracy": "0.17624", "wps": "8180.2", "ups": "5.82", "wpb": "1405", "bsz": "11.1", "num_updates": "18200", "lr": "0.000284375", "gnorm": "0.037", "loss_scale": "0.5", "train_wall": "34", "gb_free": "25.9", "wall": "3150"}
+[2021-07-06 15:57:06,961][train_inner][INFO] - {"epoch": 1, "update": 0.669, "loss": "6.669", "ntokens": "1394.72", "nsentences": "11.14", "prob_perplexity": "598.433", "code_perplexity": "144.807", "temp": "1.825", "loss_0": "6.658", "loss_1": "0.009", "loss_2": "0.003", "accuracy": "0.10271", "wps": "8189.4", "ups": "5.87", "wpb": "1394.7", "bsz": "11.1", "num_updates": "18400", "lr": "0.0002875", "gnorm": "0.031", "loss_scale": "0.5", "train_wall": "34", "gb_free": "25.1", "wall": "3184"}
+[2021-07-06 15:57:41,740][train_inner][INFO] - {"epoch": 1, "update": 0.676, "loss": "6.669", "ntokens": "1400.23", "nsentences": "11.095", "prob_perplexity": "601.138", "code_perplexity": "138.11", "temp": "1.823", "loss_0": "6.658", "loss_1": "0.008", "loss_2": "0.003", "accuracy": "0.07507", "wps": "8052.9", "ups": "5.75", "wpb": "1400.2", "bsz": "11.1", "num_updates": "18600", "lr": "0.000290625", "gnorm": "0.029", "loss_scale": "0.5", "train_wall": "34", "gb_free": "27", "wall": "3218"}
+[2021-07-06 15:58:16,247][train_inner][INFO] - {"epoch": 1, "update": 0.683, "loss": "6.668", "ntokens": "1382.49", "nsentences": "10.495", "prob_perplexity": "602.758", "code_perplexity": "112.772", "temp": "1.821", "loss_0": "6.658", "loss_1": "0.008", "loss_2": "0.003", "accuracy": "0.09698", "wps": "8013.3", "ups": "5.8", "wpb": "1382.5", "bsz": "10.5", "num_updates": "18800", "lr": "0.00029375", "gnorm": "0.029", "loss_scale": "0.5", "train_wall": "34", "gb_free": "27.1", "wall": "3253"}
+[2021-07-06 15:58:51,123][train_inner][INFO] - {"epoch": 1, "update": 0.69, "loss": "6.668", "ntokens": "1424.29", "nsentences": "10.8", "prob_perplexity": "602.644", "code_perplexity": "107.773", "temp": "1.82", "loss_0": "6.657", "loss_1": "0.008", "loss_2": "0.002", "accuracy": "0.13777", "wps": "8168", "ups": "5.73", "wpb": "1424.3", "bsz": "10.8", "num_updates": "19000", "lr": "0.000296875", "gnorm": "0.031", "loss_scale": "0.5", "train_wall": "34", "gb_free": "23.9", "wall": "3288"}
+[2021-07-06 15:59:25,740][train_inner][INFO] - {"epoch": 1, "update": 0.698, "loss": "6.667", "ntokens": "1398.7", "nsentences": "11.095", "prob_perplexity": "604.77", "code_perplexity": "104.293", "temp": "1.818", "loss_0": "6.657", "loss_1": "0.007", "loss_2": "0.002", "accuracy": "0.21169", "wps": "8081.6", "ups": "5.78", "wpb": "1398.7", "bsz": "11.1", "num_updates": "19200", "lr": "0.0003", "gnorm": "0.028", "loss_scale": "0.5", "train_wall": "34", "gb_free": "25.7", "wall": "3322"}
+[2021-07-06 16:00:00,373][train_inner][INFO] - {"epoch": 1, "update": 0.705, "loss": "6.668", "ntokens": "1420.49", "nsentences": "11.255", "prob_perplexity": "605.161", "code_perplexity": "103.469", "temp": "1.816", "loss_0": "6.658", "loss_1": "0.007", "loss_2": "0.003", "accuracy": "0.33704", "wps": "8204.7", "ups": "5.78", "wpb": "1420.5", "bsz": "11.3", "num_updates": "19400", "lr": "0.000303125", "gnorm": "0.027", "loss_scale": "0.5", "train_wall": "34", "gb_free": "23.5", "wall": "3357"}
+[2021-07-06 16:00:34,709][train_inner][INFO] - {"epoch": 1, "update": 0.712, "loss": "6.667", "ntokens": "1397.54", "nsentences": "10.555", "prob_perplexity": "607.672", "code_perplexity": "99.138", "temp": "1.814", "loss_0": "6.658", "loss_1": "0.007", "loss_2": "0.002", "accuracy": "0.342", "wps": "8141.1", "ups": "5.83", "wpb": "1397.5", "bsz": "10.6", "num_updates": "19600", "lr": "0.00030625", "gnorm": "0.025", "loss_scale": "0.5", "train_wall": "34", "gb_free": "27.3", "wall": "3391"}
+[2021-07-06 16:01:09,407][train_inner][INFO] - {"epoch": 1, "update": 0.719, "loss": "6.667", "ntokens": "1413.37", "nsentences": "11.325", "prob_perplexity": "607.963", "code_perplexity": "103.641", "temp": "1.812", "loss_0": "6.658", "loss_1": "0.007", "loss_2": "0.002", "accuracy": "0.25601", "wps": "8155.6", "ups": "5.77", "wpb": "1413.4", "bsz": "11.3", "num_updates": "19800", "lr": "0.000309375", "gnorm": "0.033", "loss_scale": "0.5", "train_wall": "34", "gb_free": "26.2", "wall": "3426"}
+[2021-07-06 16:01:44,157][train_inner][INFO] - {"epoch": 1, "update": 0.727, "loss": "6.666", "ntokens": "1416.45", "nsentences": "10.66", "prob_perplexity": "608.03", "code_perplexity": "95.22", "temp": "1.811", "loss_0": "6.657", "loss_1": "0.007", "loss_2": "0.002", "accuracy": "0.20376", "wps": "8152.6", "ups": "5.76", "wpb": "1416.5", "bsz": "10.7", "num_updates": "20000", "lr": "0.0003125", "gnorm": "0.027", "loss_scale": "0.5", "train_wall": "34", "gb_free": "26", "wall": "3461"}
+[2021-07-06 16:02:19,144][train_inner][INFO] - {"epoch": 1, "update": 0.734, "loss": "6.667", "ntokens": "1414.34", "nsentences": "11.115", "prob_perplexity": "606.666", "code_perplexity": "97.792", "temp": "1.809", "loss_0": "6.657", "loss_1": "0.007", "loss_2": "0.002", "accuracy": "0.15693", "wps": "8085.7", "ups": "5.72", "wpb": "1414.3", "bsz": "11.1", "num_updates": "20200", "lr": "0.000315625", "gnorm": "0.028", "loss_scale": "0.5", "train_wall": "35", "gb_free": "26.9", "wall": "3496"}
+[2021-07-06 16:02:53,599][train_inner][INFO] - {"epoch": 1, "update": 0.741, "loss": "6.666", "ntokens": "1405.01", "nsentences": "11.235", "prob_perplexity": "610.489", "code_perplexity": "87.175", "temp": "1.807", "loss_0": "6.658", "loss_1": "0.006", "loss_2": "0.002", "accuracy": "0.13381", "wps": "8156.1", "ups": "5.81", "wpb": "1405", "bsz": "11.2", "num_updates": "20400", "lr": "0.00031875", "gnorm": "0.025", "loss_scale": "0.5", "train_wall": "34", "gb_free": "26.3", "wall": "3530"}
+[2021-07-06 16:03:29,391][train_inner][INFO] - {"epoch": 1, "update": 0.748, "loss": "6.666", "ntokens": "1438.41", "nsentences": "10.91", "prob_perplexity": "609.238", "code_perplexity": "90.688", "temp": "1.805", "loss_0": "6.657", "loss_1": "0.007", "loss_2": "0.002", "accuracy": "0.15077", "wps": "8042.7", "ups": "5.59", "wpb": "1438.4", "bsz": "10.9", "num_updates": "20600", "lr": "0.000321875", "gnorm": "0.026", "loss_scale": "0.5", "train_wall": "35", "gb_free": "26.3", "wall": "3566"}
