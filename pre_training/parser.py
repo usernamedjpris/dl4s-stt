@@ -40,9 +40,12 @@ def get_data_from_raw_log(args):
     train_data = pd.DataFrame.from_dict(train_data)
     train_data = train_data.set_index("epoch")
     
-    valid_data = get_data_from_epoch(valid_epoch)
-    valid_data = pd.DataFrame.from_dict(valid_data)
-    valid_data = valid_data.set_index("epoch")
+    if valid_epoch :
+        valid_data = get_data_from_epoch(valid_epoch)
+        valid_data = pd.DataFrame.from_dict(valid_data)
+        valid_data = valid_data.set_index("epoch")
+    else :
+        valid_data = []
 
     return valid_data, train_data
 
@@ -53,9 +56,13 @@ def main(args):
     if args.epoch == "t":
         data = train_data
         x = list(data["num_updates"])
-    else:
+    elif args.epoch == "v" and valid_data:
         data = valid_data
         x = list(data["valid_num_updates"])
+    else :
+        print("Pas encore d'epoch de validation, graph du train")
+        data = train_data
+        x = list(data["num_updates"])
 
 
     questions = [
