@@ -56,7 +56,7 @@ def main(args):
     if args.epoch == "t":
         data = train_data
         x = list(data["num_updates"])
-    elif args.epoch == "v" and valid_data:
+    elif args.epoch == "v" and len(valid_data) > 0:
         data = valid_data
         x = list(data["valid_num_updates"])
     else :

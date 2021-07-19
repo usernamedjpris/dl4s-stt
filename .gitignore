@@ -127,3 +127,5 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+pre_training/convert/pytorch_model.bin
+pre_training/convert/config.json
